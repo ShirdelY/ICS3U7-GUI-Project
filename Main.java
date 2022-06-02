@@ -1,15 +1,14 @@
 import javax.swing.*;
-class Main extends JFrame{
-  titleScreen() {
-    setLayout(null);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setVisible(true);
-    setSize(600, 1200);
-    JButton mainMenu = new JButton("Main Menu");
-    mainMenu.setBounds(200, 800, 200, 100);
-    add(mainMenu);
-  }
+
+public class Main extends JFrame{
   public static void main(String[] args) {
-    new titleScreen();
+    JFrame titleScreen = new JFrame();
+    titleScreen.setLayout(null);
+    titleScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    titleScreen.setVisible(true);
+    titleScreen.setSize(600,1100);
+
+    Jbutton mainMenu = new JButton("Main Menu");
+
   }
 }
