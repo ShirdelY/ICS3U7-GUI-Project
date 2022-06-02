@@ -54,8 +54,10 @@ public class Main extends JFrame{
     //add action for easy mode
     easy.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        frame.getContentPane().removeAll();
-        frame.repaint();
+        //frame.getContentPane().removeAll();
+        //frame.repaint();
+        char[] arr = {'a', 'b', 'c', 'd' ,'e'};
+        new EasyMode(arr);
       }
     });
   }
