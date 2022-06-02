@@ -7,16 +7,19 @@ public class Main extends JFrame{
   public static JFrame frame = new JFrame();
   public static void main(String[] args) {
     //create frame and set parameters
+    makeFrame();
+    //create title screen
+    titleScreen();
+  }
+  public static void makeFrame()
+  {
     frame.setLayout(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.getContentPane().setBackground(Color.WHITE);
     frame.setVisible(true);
     frame.setResizable(false);
     frame.setSize(600,650);
-    //create title screen
-    titleScreen();
   }
-
   public static void titleScreen()
   {
     //create main menu button
@@ -54,8 +57,8 @@ public class Main extends JFrame{
     //add action for easy mode
     easy.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        //frame.getContentPane().removeAll();
-        //frame.repaint();
+        frame.getContentPane().removeAll();
+        frame.repaint();
         char[] arr = {'a', 'b', 'c', 'd' ,'e'};
         new EasyMode(arr);
       }
