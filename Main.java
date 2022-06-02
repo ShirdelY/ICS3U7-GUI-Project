@@ -20,7 +20,7 @@ public class Main extends JFrame{
     frame.setResizable(false);
     frame.setSize(600,650);
   }
-  public static void titleScreen()
+  static void titleScreen()
   {
     //create main menu button
     JButton mainMenu = new JButton("Main Menu");
@@ -40,7 +40,7 @@ public class Main extends JFrame{
     });
   }
 
-  public static void mainMenu()
+  static void mainMenu()
   {
     //create panel for buttons
     JPanel panel = new JPanel();

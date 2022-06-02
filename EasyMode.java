@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class EasyMode extends JPanel {
+public class EasyMode extends JFrame {
     private char[][] grid = new char[5][6];
     private char[] key = new char[5];
     JPanel panel2 = new JPanel();
