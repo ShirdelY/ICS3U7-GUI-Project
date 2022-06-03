@@ -64,7 +64,7 @@ public class Main extends JFrame{
     JPanel panel = new JPanel();
     panel.setBounds(50,50, 500, 500);
     frame.add(panel);
-
+    EasyMode game = new EasyMode();
   }
   public static void main(String[] args) {
     //create frame and set parameters
