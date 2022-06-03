@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame{
   public static JFrame frame = new JFrame();
-  public void makeFrame()
+  public static void makeFrame()
   {
     frame.setLayout(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -15,15 +15,15 @@ public class Main extends JFrame{
     frame.setResizable(false);
     frame.setSize(600,650);
   }
-  void titleScreen()
+  static void titleScreen()
   {
     //create main menu button
-    JButton mainMenu = new JButton("Main Menu");
-    mainMenu.setBounds(200, 500, 200, 50);
-    mainMenu.setBackground(Color.GRAY);
-    frame.add(mainMenu);
+    JButton mainMenu2 = new JButton("Main Menu");
+    mainMenu2.setBounds(200, 500, 200, 50);
+    mainMenu2.setBackground(Color.GRAY);
+    frame.add(mainMenu2);
     //add action for main menu
-    mainMenu.addActionListener(new ActionListener()
+    mainMenu2.addActionListener(new ActionListener()
     {
       public void actionPerformed(ActionEvent e) {
         //clear the screen
@@ -35,7 +35,7 @@ public class Main extends JFrame{
     });
   }
 
-  void mainMenu()
+  static void mainMenu()
   {
     //create panel for buttons
     JPanel panel = new JPanel();
@@ -55,10 +55,16 @@ public class Main extends JFrame{
         frame.getContentPane().removeAll();
         frame.repaint();
         //char[] arr = {'a', 'b', 'c', 'd' ,'e'};
-        EasyMode easyMode = new EasyMode();
-        add(easyMode);
+        easyMode();
       }
     });
+  }
+
+  static void easyMode() {
+    JPanel panel = new JPanel();
+    panel.setBounds(50,50, 500, 500);
+    frame.add(panel);
+
   }
   public static void main(String[] args) {
     //create frame and set parameters
