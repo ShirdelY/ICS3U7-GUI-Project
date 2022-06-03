@@ -6,13 +6,7 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame{
   public static JFrame frame = new JFrame();
-  public static void main(String[] args) {
-    //create frame and set parameters
-    makeFrame();
-    //create title screen
-    titleScreen();
-  }
-  public static void makeFrame()
+  public void makeFrame()
   {
     frame.setLayout(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,7 +15,7 @@ public class Main extends JFrame{
     frame.setResizable(false);
     frame.setSize(600,650);
   }
-  static void titleScreen()
+  void titleScreen()
   {
     //create main menu button
     JButton mainMenu = new JButton("Main Menu");
@@ -41,7 +35,7 @@ public class Main extends JFrame{
     });
   }
 
-  static void mainMenu()
+  void mainMenu()
   {
     //create panel for buttons
     JPanel panel = new JPanel();
@@ -60,9 +54,16 @@ public class Main extends JFrame{
       public void actionPerformed(ActionEvent e) {
         frame.getContentPane().removeAll();
         frame.repaint();
-        char[] arr = {'a', 'b', 'c', 'd' ,'e'};
-        new EasyMode(arr);
+        //char[] arr = {'a', 'b', 'c', 'd' ,'e'};
+        EasyMode easyMode = new EasyMode();
+        add(easyMode);
       }
     });
+  }
+  public static void main(String[] args) {
+    //create frame and set parameters
+    makeFrame();
+    //create title screen
+    titleScreen();
   }
 }
