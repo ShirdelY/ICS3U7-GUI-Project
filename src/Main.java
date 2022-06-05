@@ -2,9 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
-public class Main extends JFrame{
+public class Main extends JFrame {
   public static JFrame frame = new JFrame();
+
+  public static void main(String[] args){
+    //create frame and set parameters
+    makeFrame();
+    //create title screen
+    titleScreen();
+  }
   public static void makeFrame()
   {
     frame.setLayout(null);
@@ -50,25 +59,22 @@ public class Main extends JFrame{
 
     //add action for easy mode
     easy.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        frame.getContentPane().removeAll();
-        frame.repaint();
-        //char[] arr = {'a', 'b', 'c', 'd' ,'e'};
-        easyMode();
+      public void actionPerformed(ActionEvent e) { 
+        try
+        {
+          easyMode();
+        }
+        catch (Exception IO)
+        {
+          System.out.println("error");
+        }
       }
     });
   }
 
-  static void easyMode() {
-    JPanel panel = new JPanel();
-    panel.setBounds(50,50, 500, 500);
-    frame.add(panel);
-    EasyMode game = new EasyMode();
-  }
-  public static void main(String[] args) {
-    //create frame and set parameters
-    makeFrame();
-    //create title screen
-    titleScreen();
+  static void easyMode() throws IOException{
+    //Generator five = new Generator(5, "src\\5LetterKeyWords.txt");
+    EasyMode game = new EasyMode("fives");
+    frame.add(game);
   }
 }
