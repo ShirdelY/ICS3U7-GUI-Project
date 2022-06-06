@@ -4,16 +4,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.*;
 
 public class Main extends JFrame {
   public static JFrame frame = new JFrame();
-
-  public static void main(String[] args){
+  private static File file5 = new File("src\\5LetterKeyWords.txt");
+  private static final int FIVECOUNT = 586;
+  private static final int SEVENCOUNT = 500;
+  private static String[] words5 = new String[FIVECOUNT];
+  private File file7 = new File("src\\7LetterKeyWords.txt");
+  String[] words7 = new String[SEVENCOUNT];
+  public static void main(String[] args) throws IOException{
     //create frame and set parameters
     makeFrame();
     //create title screen
     titleScreen();
+    //import keywords
+    Scanner five = new Scanner(file5);
+    for (int i = 0; i < FIVECOUNT; i++)
+    {
+      words5[i] = five.nextLine();
+    }
   }
+
   public static void makeFrame()
   {
     frame.setLayout(null);
@@ -73,8 +86,7 @@ public class Main extends JFrame {
   }
 
   static void easyMode() throws IOException{
-    //Generator five = new Generator(5, "src\\5LetterKeyWords.txt");
-    EasyMode game = new EasyMode("fives");
-    frame.add(game);
+    Generator five = new Generator(5, words5);
+    EasyMode game = new EasyMode(five.getRandom());
   }
 }
