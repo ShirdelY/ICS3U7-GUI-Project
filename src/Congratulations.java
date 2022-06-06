@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Congratulations extends JFrame implements ActionListener {
-	JButton back, exit;
+	JButton mainmenu, exit, statistics;
 	Congratulations() {
 		// back brings it to main menu
 		// exit terminates the program
@@ -25,15 +25,21 @@ public class Congratulations extends JFrame implements ActionListener {
 		label1.setBounds(150, 200, 400, 50);
 		add(label1);
 		
-		back = new JButton("Back");
-		back.setBounds(175, 325, 100, 50);
-		add(back);
-		back.addActionListener(this);
+		statistics = new JButton("Statistics");
+		statistics.setBounds(50, 325, 150, 50);
+		add(statistics);
+		statistics.addActionListener(this);
+		
+		mainmenu = new JButton("Main Menu");
+		mainmenu.setBounds(225, 325, 150, 50);
+		add(mainmenu);
+		mainmenu.addActionListener(this);
 		
 		exit = new JButton("Exit");
-		exit.setBounds(325, 325, 100, 50);
+		exit.setBounds(400, 325, 150, 50);
 		add(exit);
 		exit.addActionListener(this);
+		
 		
 		pack();
 		setSize(600,650);
@@ -45,13 +51,17 @@ public class Congratulations extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource() == back) {
-			System.out.println("back");
+		if (e.getSource() == statistics) {
+			System.out.println("statistics");
+			// if statistics is pressed, we show the statistics frame
+		}
+		if (e.getSource() == mainmenu) {
+			System.out.println("main menu");
 			// if back is pressed, we go back to the main menu by calling it
 		}
 		if (e.getSource() == exit) {
 			System.out.println("exit");
-			// if back is pressed, we go back to the main menu by calling it
+			// if exit is pressed, we terminate the program
 			System.exit(0);
 		}
 	}
