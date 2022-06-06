@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Credits extends JFrame implements ActionListener {
-	JButton back;
+	JButton mainmenu;
 	String citations = "";
 	Credits() {
 		setLayout(null); 
@@ -24,10 +24,10 @@ public class Credits extends JFrame implements ActionListener {
 		JLabel credit = new JLabel(citations);
 		credit.setBounds(250, 100, 100, 50);
 		
-		back = new JButton("Back");
-		back.setBounds(250, 500, 100, 50);
-		add(back);
-		back.addActionListener(this);
+		mainmenu = new JButton("Main Menu");
+		mainmenu.setBounds(225, 500, 150, 50);
+		add(mainmenu);
+		mainmenu.addActionListener(this);
 		
 		pack();
 		setSize(600,650);
@@ -39,9 +39,9 @@ public class Credits extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource() == back) {
-			System.out.println("back");
-			// if back is pressed, we go back to the main menu by calling it
+		if (e.getSource() == mainmenu) {
+			System.out.println("main menu");
+			// if main menu is pressed, we go back to the main menu by calling it
 		}
 	}
 }
