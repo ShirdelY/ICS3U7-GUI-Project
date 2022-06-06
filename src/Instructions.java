@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Instructions extends JFrame {
+public class Instructions extends JFrame implements ActionListener {
 	JButton mainmenu;
 	Instructions() {
 		setLayout(null);
@@ -26,7 +26,7 @@ public class Instructions extends JFrame {
 		mainmenu = new JButton("Main Menu");
 		mainmenu.setBounds(250, 525, 100, 50);
 		add(mainmenu);
-//		mainmenu.addActionListener(this);
+		mainmenu.addActionListener(this);
 		
 		ImageIcon pic = new ImageIcon(getClass().getResource("/Images/Instructions.jpg"));
 		JLabel displayField = new JLabel();
@@ -40,5 +40,13 @@ public class Instructions extends JFrame {
 	}
 	public static void main(String[] args) {
 		new Instructions();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getSource() == mainmenu) {
+			System.out.println("main menu");
+			// if main menu is pressed, we go back to the main menu by calling it
+		}
 	}
 }
