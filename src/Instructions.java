@@ -28,13 +28,13 @@ public class Instructions extends JFrame implements ActionListener {
 		add(mainmenu);
 		mainmenu.addActionListener(this);
 		
-		ImageIcon pic = new ImageIcon(getClass().getResource("/Images/Instructions.jpg"));
+		ImageIcon pic = new ImageIcon(getClass().getResource("src\\Instructions.jpg"));
 		JLabel displayField = new JLabel();
 		displayField.setIcon(pic);
 		displayField.setBounds(10, 100, 580, 390);
 		add(displayField);
 		
-		pack();
+		//pack();
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

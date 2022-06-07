@@ -12,8 +12,12 @@ public class Main extends JFrame {
   private static final int FIVECOUNT = 586;
   private static final int SEVENCOUNT = 500;
   private static String[] words5 = new String[FIVECOUNT];
-  private File file7 = new File("src\\7LetterKeyWords.txt");
-  String[] words7 = new String[SEVENCOUNT];
+  private static File file7 = new File("src\\7LetterKeyWords.txt");
+  private static String[] words7 = new String[SEVENCOUNT];
+  static Generator five = new Generator(words5);
+  static Generator seven = new Generator(words7);
+
+
   public static void main(String[] args) throws IOException{
     //create frame and set parameters
     makeFrame();
@@ -24,6 +28,11 @@ public class Main extends JFrame {
     for (int i = 0; i < FIVECOUNT; i++)
     {
       words5[i] = five.nextLine();
+    }
+    Scanner seven = new Scanner(file7);
+    for (int i = 0; i < SEVENCOUNT; i++)
+    {
+      words7[i] = seven.nextLine();
     }
   }
 
@@ -75,7 +84,7 @@ public class Main extends JFrame {
       public void actionPerformed(ActionEvent e) { 
         try
         {
-          easyMode();
+          new EasyMode(five.getRandom());
         }
         catch (Exception IO)
         {
@@ -94,7 +103,7 @@ public class Main extends JFrame {
       public void actionPerformed(ActionEvent e) {
         try
         {
-          tutorialButton();
+          new Instructions();
         }
         catch (Exception IO)
         {
@@ -102,13 +111,5 @@ public class Main extends JFrame {
         }
       }
     });
-  }
-
-  static void tutorialButton() {
-    new Instructions();
-  }
-  static void easyMode() throws IOException{
-    Generator five = new Generator(words5);
-    new EasyMode(five.getRandom());
   }
 }
