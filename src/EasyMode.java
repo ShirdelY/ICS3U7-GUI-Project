@@ -17,6 +17,6 @@ public class EasyMode extends JFrame {
         frame.setVisible(true);
         frame.setResizable(false);
         frame.setSize(600,650);
-        frame.addKeyListener();
+        //frame.addKeyListener();
     }
 }
