@@ -81,15 +81,8 @@ public class Main extends JFrame {
 
     //add action for easy mode
     easy.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) { 
-        try
-        {
-          new EasyMode(five.getRandom());
-        }
-        catch (Exception IO)
-        {
-          System.out.println("error");
-        }
+      public void actionPerformed(ActionEvent e) {
+        new EasyMode(five.getRandom());
       }
     });
 
