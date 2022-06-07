@@ -83,10 +83,32 @@ public class Main extends JFrame {
         }
       }
     });
+
+    //add option for tutorial
+    JButton tutorial = new JButton("Tutorial");
+    tutorial.setBounds(100,200, 400, 50);
+    tutorial.setBackground(Color.GRAY);
+    frame.add(tutorial);
+
+    tutorial.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        try
+        {
+          tutorialButton();
+        }
+        catch (Exception IO)
+        {
+          System.out.println("error");
+        }
+      }
+    });
   }
 
+  static void tutorialButton() {
+    new Instructions();
+  }
   static void easyMode() throws IOException{
     Generator five = new Generator(words5);
-    EasyMode game = new EasyMode(five.getRandom());
+    new EasyMode(five.getRandom());
   }
 }
