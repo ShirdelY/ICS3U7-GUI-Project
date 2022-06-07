@@ -86,7 +86,7 @@ public class Main extends JFrame {
   }
 
   static void easyMode() throws IOException{
-    Generator five = new Generator(5, words5);
+    Generator five = new Generator(words5);
     EasyMode game = new EasyMode(five.getRandom());
   }
 }
