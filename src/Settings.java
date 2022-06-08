@@ -10,10 +10,15 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Settings extends JFrame implements ActionListener {
-
-	JButton theme, credits, switchacc, back, exit;
+	// declaring buttons and isLight for dark/light mode
+	JButton theme, credits, switchacc, mainmenu, exit;
 	boolean isLight;
 
+	/**
+	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 5 buttons
+	 * @param - none
+	 * @return - none
+	 */
 	Settings() {
 		setLayout(null); //if formatting is weird, use this
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,26 +31,31 @@ public class Settings extends JFrame implements ActionListener {
 		//		ActionListener click = new ActionListener();
 
 		// button for back, switch account, dark mode, light mode, logout
-		boolean isLight = true; // we can change this
+		boolean isLight = true; // we can manipulate the value of this variable
+		
+		// theme button
 		theme = new JButton("Dark Mode");
 		theme.setBounds(150, 125, 300, 75);
 		add(theme);
 		theme.addActionListener(this);
 
+		// credits button
 		credits = new JButton("Credits");
 		credits.setBounds(150, 225, 300, 75);
 		add(credits);
 		credits.addActionListener(this);
 
+		// switch buttons
 		switchacc = new JButton("Switch Accounts");
 		switchacc.setBounds(150, 325, 300, 75);
 		add(switchacc);
 		switchacc.addActionListener(this);
 
-		back = new JButton("Back");
-		back.setBounds(250, 425, 100, 50);
-		add(back);
-		back.addActionListener(this);
+		//
+		mainmenu = new JButton("Main Menu");
+		mainmenu.setBounds(250, 425, 100, 50);
+		add(mainmenu);
+		mainmenu.addActionListener(this);
 
 		exit = new JButton("Exit");
 		exit.setBounds(250, 500, 100, 50);
@@ -56,9 +66,19 @@ public class Settings extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	/**
+	 * main method for calling the Settings() constructor
+	 * @param args
+	 * @return - none
+	 */
 	public static void main(String[] args) {
 		new Settings();
 	}
+	/**
+	 * actionPerformed method to manipulate and set specific instructions for the buttons
+	 * @param ActionEvent object
+	 * @return - none
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -83,8 +103,8 @@ public class Settings extends JFrame implements ActionListener {
 			System.out.println("switch accounts");
 			// if switchacc is pressed, we go back to the login page by calling it
 		}
-		if (e.getSource() == back) {
-			System.out.println("back");
+		if (e.getSource() == mainmenu) {
+			System.out.println("main menu");
 			// if back is pressed, we go back to the main menu by calling it
 		}
 		if (e.getSource() == exit) {
