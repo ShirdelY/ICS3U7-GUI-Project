@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Credits extends JFrame implements ActionListener {
-	// declaring button for the main menu
-	JButton mainmenu;
+	// declaring button for the back (going to setttings)
+	JButton back;
 	/**
-	 * Constructor (special method) for the Jframe GUI - specifically showing a title, citations with Jlabels, and and 1 button
+	 * Constructor (special method) for the Jframe GUI - specifically showing a title, citations with Jlabels, and 1 button
 	 * @param - none
 	 * @return - none
 	 */
@@ -92,10 +92,10 @@ public class Credits extends JFrame implements ActionListener {
 		add(credit8b);
 
 		// main menu button
-		mainmenu = new JButton("Main Menu");
-		mainmenu.setBounds(225, 500, 150, 50);
-		add(mainmenu);
-		mainmenu.addActionListener(this);
+		back = new JButton("Back");
+		back.setBounds(225, 500, 150, 50);
+		add(back);
+		back.addActionListener(this);
 		
 		pack();
 		setSize(600,650);
@@ -117,9 +117,9 @@ public class Credits extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource() == mainmenu) {
-			System.out.println("main menu");
-			// if main menu is pressed, we go back to the main menu by calling it
+		if (e.getSource() == back) {
+			System.out.println("back");
+			// if back is pressed, we go back to the settings by calling it
 		}
 	}
 }
