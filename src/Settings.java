@@ -51,12 +51,13 @@ public class Settings extends JFrame implements ActionListener {
 		add(switchacc);
 		switchacc.addActionListener(this);
 
-		//
+		// main menu button
 		mainmenu = new JButton("Main Menu");
 		mainmenu.setBounds(250, 425, 100, 50);
 		add(mainmenu);
 		mainmenu.addActionListener(this);
 
+		// exit button
 		exit = new JButton("Exit");
 		exit.setBounds(250, 500, 100, 50);
 		add(exit);
