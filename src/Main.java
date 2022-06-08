@@ -3,14 +3,28 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
 public class Main extends JFrame {
 	public static JFrame frame = new JFrame();
+	//source files for key words
+	final static File SOURCE5 = new File("src\\5LetterKeyWords.txt");
+	final static File SOURCE7 = new File("src\\\\7LetterKeyWords.txt");
+	//source file lengths
+	final static int FIVELENGTH = 586;
+	final static int SEVENLENGTH = 500;
+	//create arrays for words
+	static String[] WORDS5 = new String[586];
+	static String[] WORDS7 = new String[500];
+
+	public Main() {
+	}
 
 	public static void main(String[] args) throws IOException{
+		//import keywords
+		WORDS5 = importWords5();
+		WORDS7 = importWords7();
 		//create frame and set parameters
 		makeFrame();
 		//create title screen
@@ -18,6 +32,33 @@ public class Main extends JFrame {
 		//import keywords
 	}
 
+	public static String[] importWords5() throws IOException {
+		//create temporary non final arrays to fill
+		String[] words5temp = new String[FIVELENGTH];
+		String[] words7temp = new String[SEVENLENGTH];
+		//create scanners to import txt files to arrays
+		Scanner fiveInput = new Scanner(SOURCE5);
+		Scanner sevenInput = new Scanner(SOURCE7);
+		//import txt files
+		for (int i = 0; i < FIVELENGTH; i++)
+		{
+			words5temp[i] = fiveInput.nextLine();
+		}
+		return words5temp;
+	}
+
+	public static String[] importWords7() throws IOException {
+		//create temporary non final arrays to fill
+		String[] words7temp = new String[SEVENLENGTH];
+		//create scanners to import txt files to arrays
+		Scanner sevenInput = new Scanner(SOURCE7);
+		//import txt files
+		for (int i = 0; i < SEVENLENGTH; i++)
+		{
+			words7temp[i] = sevenInput.nextLine();
+		}
+		return words7temp;
+	}
 	public static void makeFrame()
 	{
 		frame.setLayout(null);
@@ -64,22 +105,8 @@ public class Main extends JFrame {
 		//add action for easy mode
 		easy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// look into how to get word here
-				String wordfive = "abcde";
-				try {
-					// 5 letter word
-					String[] words5 = new String[586];
-					Generator five = new Generator("src/5LetterKeyWords.txt", words5);
-					wordfive = five.getRandom();
-				}
-				catch (FileNotFoundException err) {
-					System.out.println("file reading error");
-				}
-				catch (IOException er) {
-					System.out.println("error");
-				}
 				//call the easy class with wordfive as the key
-				new EasyMode(wordfive);
+				new EasyMode(WORDS5[(int) Math.random() * FIVELENGTH]);
 			}
 		});
 
