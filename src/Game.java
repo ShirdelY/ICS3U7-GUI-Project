@@ -7,8 +7,8 @@ public class Game extends JFrame implements KeyListener{
     //declare variables
     private int X = 0, Y = 0;
     private int letterWidth = 0, spaceWidth = 0;
-    private char[][] grid = new char[X][Y];
-    private char[] keyword = new char[X];
+    private char[][] grid;
+    private char[] keyword;
     private int index_x = 0, index_y = 0, keysLength;
     private String[] keys;
 
@@ -27,6 +27,8 @@ public class Game extends JFrame implements KeyListener{
             Y = 6;
             letterWidth = 84;
             spaceWidth = 20;
+            keyword = new char[X];
+            grid = new char[X][Y];
         }
         else if (difficulty == 1)
         {
@@ -34,10 +36,11 @@ public class Game extends JFrame implements KeyListener{
             Y = 6;
             letterWidth = 60;
             spaceWidth = 16;
+            keyword = new char[X];
+            grid = new char[X][Y];
         }
         //create character array from String keyword
-        char input;
-        for (int i = 0; i < 5; i++) keyword[i] = key.charAt(i);
+        for (int i = 0; i < key.length(); i++) keyword[i] = key.charAt(i);
         //import keyword source parameters
         this.keys = keys;
         this.keysLength = keysLength;
@@ -61,9 +64,9 @@ public class Game extends JFrame implements KeyListener{
         //initial grid corner
         int xcoord = 50, ycoord = 50;
         //initialize array as blank
-        for (int i = 0; i < X; i++)
+        for (int j = 0; j < Y; j++)
         {
-            for (int j = 0; j < Y; j++)
+            for (int i = 0; i < X; i++)
             {
                 labelArray[i][j] = new JLabel("test");
                 labelArray[i][j].setBackground(Color.BLUE);

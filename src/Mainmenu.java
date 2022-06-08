@@ -81,7 +81,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == easymode) {
 			// if easymode is pressed, it clears the frame and calls easy mode class
-			new Game(Main.getFive()[(int) (Math.random() * Main.getFivelength())], Main.getFive(), Main.getFivelength());
+			new Game(Main.getFive()[(int) (Math.random() * Main.getFivelength())], Main.getFive(), Main.getFivelength(), 0);
 			dispose();
 		}
 		if (e.getSource() == hardmode) {
