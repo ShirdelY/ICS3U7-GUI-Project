@@ -41,7 +41,7 @@ public class Instructions extends JFrame implements ActionListener {
 		ImageIcon pic = new ImageIcon(getClass().getResource("Instructions.jpg"));
 		JLabel displayField = new JLabel();
 		displayField.setIcon(pic);
-		displayField.setBounds(10, 100, 580, 390);
+		displayField.setBounds(10, 100, 580, 390); // we need to resize the image
 		add(displayField);
 		
 		pack();
@@ -58,8 +58,10 @@ public class Instructions extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == mainmenu) {
-			System.out.println("main menu");
+//			System.out.println("main menu");
 			// if main menu is pressed, we go back to the main menu by calling it
+			new Mainmenu();
+			dispose();
 		}
 	}
 }
