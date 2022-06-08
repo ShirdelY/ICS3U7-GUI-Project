@@ -58,7 +58,7 @@ public class Main extends JFrame {
 	 * getter method for "easy" (5 letter) keywords
 	 * @return array of five letter keywords
 	 */
-	public String[] getFive()
+	public static String[] getFive()
 	{
 		return WORDS5;
 	}
@@ -67,7 +67,7 @@ public class Main extends JFrame {
 	 * getter method for number of "easy" (5 letter) keywords
 	 * @return length of keyword array
 	 */
-	public int getFivelength()
+	public static int getFivelength()
 	{
 		return FIVELENGTH;
 	}
@@ -76,7 +76,7 @@ public class Main extends JFrame {
 	 * getter method for "hard" (7 letter) keywords
 	 * @return array of seven letter keywords
 	 */
-	public String[] getSeven()
+	public static String[] getSeven()
 	{
 		return WORDS7;
 	}
@@ -85,7 +85,7 @@ public class Main extends JFrame {
 	 * getter method for number of "easy" (5 letter) keywords
 	 * @return length of keyword array
 	 */
-	public int getSevenLength()
+	public static int getSevenLength()
 	{
 		return SEVENLENGTH;
 	}
