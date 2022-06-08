@@ -1,7 +1,4 @@
 import java.io.*;
-import java.util.*;
-
-import javax.swing.JFrame;
 public class Generator  {
 	FileReader file;
 	BufferedReader buffer;

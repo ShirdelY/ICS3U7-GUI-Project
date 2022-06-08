@@ -65,7 +65,7 @@ public class Main extends JFrame {
 		easy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// look into how to get word here
-				String wordfive;
+				String wordfive = "abcde";
 				try {
 					// 5 letter word
 					String[] words5 = new String[586];
@@ -79,6 +79,7 @@ public class Main extends JFrame {
 					System.out.println("error");
 				}
 				//call the easy class with wordfive as the key
+				new EasyMode(wordfive);
 			}
 		});
 
