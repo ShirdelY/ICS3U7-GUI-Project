@@ -5,8 +5,10 @@ import java.awt.event.KeyListener;
 import java.util.*;
 
 public class EasyMode extends JFrame implements KeyListener{
-    private char[][] grid = new char[5][6];
-    private char[] keyword = new char[5];
+    //declare variables
+    private final int X = 5, Y = 6;
+    private char[][] grid = new char[X][Y];
+    private char[] keyword = new char[X];
     private int index_x = 0, index_y = 0, keysLength;
     private String[] keys;
     EasyMode (String key, String[] keys, int keysLength) {
@@ -23,16 +25,27 @@ public class EasyMode extends JFrame implements KeyListener{
         this.setResizable(false);
         this.setSize(600,650);
         this.addKeyListener(this);
+        //initialize gameboard with spaces
+        for (int i = 0; i < X; i++)
+        {
+            for (int j = 0; j < Y; j++)
+            {
+                grid[i][j] = ' ';
+            }
+        }
     }
 
 
     @Override
     public void keyTyped(KeyEvent e) {
+        //diagnostic tool
         System.out.println(e.getKeyChar());
+        //check if character typed is a letter
         if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 65 && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 90)
         {
             if (index_x <= 4)
             {
+                //add letter to game board
                 grid[index_x][index_y] = e.getKeyChar();
                 index_x++;
             }
@@ -60,6 +73,7 @@ public class EasyMode extends JFrame implements KeyListener{
         }
     }
 
+    //not used but needed for "implements keyListener"
     @Override
     public void keyPressed(KeyEvent e) {
 
