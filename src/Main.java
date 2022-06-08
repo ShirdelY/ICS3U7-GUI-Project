@@ -106,20 +106,22 @@ public class Main extends JFrame {
 		easy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//call the easy class with wordfive as the key
-				new EasyMode(WORDS5[(int) Math.random() * FIVELENGTH]);
+				new EasyMode(WORDS5[(int) (Math.random() * FIVELENGTH)], WORDS5, FIVELENGTH);
 			}
 		});
 
-		//add option for tutorial
+		//add option for tutorial and add JButton parameters
 		JButton tutorial = new JButton("Tutorial");
 		tutorial.setBounds(100,200, 400, 50);
 		tutorial.setBackground(Color.GRAY);
 		frame.add(tutorial);
 
+		//open tutorial page when JButton is pressed
 		tutorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try
 				{
+					//create tutorial page
 					new Instructions();
 				}
 				catch (Exception IO)
