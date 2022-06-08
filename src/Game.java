@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 public class Game extends JFrame implements KeyListener{
     //declare variables
     private int X = 0, Y = 0;
+    private int letterWidth = 0, spaceWidth = 0;
     private char[][] grid = new char[X][Y];
     private char[] keyword = new char[X];
     private int index_x = 0, index_y = 0, keysLength;
@@ -24,11 +25,15 @@ public class Game extends JFrame implements KeyListener{
         {
             X = 5;
             Y = 6;
+            letterWidth = 84;
+            spaceWidth = 20;
         }
         else if (difficulty == 1)
         {
             X = 7;
             Y = 6;
+            letterWidth = 60;
+            spaceWidth = 16;
         }
         //create character array from String keyword
         char input;
@@ -63,10 +68,10 @@ public class Game extends JFrame implements KeyListener{
                 labelArray[i][j] = new JLabel("test");
                 labelArray[i][j].setBackground(Color.BLUE);
                 labelArray[i][j].setOpaque(true);
-                labelArray[i][j].setBounds(xcoord, ycoord, 60, 80);
+                labelArray[i][j].setBounds(xcoord, ycoord, letterWidth, 80);
                 this.add(labelArray[i][j]);
                 //increment next space
-                xcoord += 85;
+                xcoord += (letterWidth + spaceWidth);
             }
             ycoord += 105;
             xcoord = 50;
