@@ -81,27 +81,34 @@ public class Mainmenu extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == easymode) {
 			// if easymode is pressed, it clears the frame and calls easy mode class
-			new Game(Main.getFive()[(int) (Math.random() * Main.getFivelength())], Main.getFive(), Main.getFivelength() , 0);
+			new Game(Main.getFive()[(int) (Math.random() * Main.getFivelength())], Main.getFive(), Main.getFivelength());
+			dispose();
 		}
 		if (e.getSource() == hardmode) {
 			System.out.println("hard mode");
 			// if hardmode is pressed, it clears the frame and calls hard mode class
 		}
 		if (e.getSource() == instructions) {
-			System.out.println("instructions");
+//			System.out.println("instructions");
 			// if instructions is pressed, it clears the frame and calls instruction class
+			new Instructions();
+			dispose();
 		}
 		if (e.getSource() == stats) {
-			System.out.println("stats");
+			System.out.println("statistics");
 			// if instructions is pressed, it clears the frame and calls instruction class
 		}
 		if (e.getSource() == settings) {
-			System.out.println("settings");
+//			System.out.println("settings");
 			// if settings is pressed, it clears the frame and calls settings class
+			new Settings();
+			dispose();
 		}
 		if (e.getSource() == back) {
-			System.out.println("back");
+//			System.out.println("back");
 			// if back is pressed, we go to the start/title page by calling it
+			new Start();
+			dispose();
 		}
 	}
 }
