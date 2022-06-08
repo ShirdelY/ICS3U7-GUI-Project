@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 public class Start extends JFrame implements ActionListener {
 	// declaring button to start the game
-	JButton start;
+	private JButton start;
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing the title, and 1 button
 	 * @param - none
