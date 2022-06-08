@@ -27,8 +27,8 @@ public class Main extends JFrame {
 		WORDS7 = importWords7();
 		//create frame and set parameters
 		makeFrame();
-		//create title screen
-		titleScreen();
+		//create new title screen
+		new Start();
 		//import keywords
 	}
 
@@ -68,67 +68,40 @@ public class Main extends JFrame {
 		frame.setResizable(false);
 		frame.setSize(600,650);
 	}
-	static void titleScreen()
+
+	/**
+	 * getter method for "easy" (5 letter) keywords
+	 * @return array of five letter keywords
+	 */
+	public static String[] getFive()
 	{
-		//create main menu button
-		JButton mainMenu2 = new JButton("Main Menu");
-		mainMenu2.setBounds(200, 500, 200, 50);
-		mainMenu2.setBackground(Color.GRAY);
-		frame.add(mainMenu2);
-		//add action for main menu
-		mainMenu2.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e) {
-				//clear the screen
-				frame.getContentPane().removeAll();
-				frame.repaint();
-				//open main menu
-				mainMenu();
-			}
-		});
+		return WORDS5;
 	}
 
-	static void mainMenu()
+	/**
+	 * getter method for number of "easy" (5 letter) keywords
+	 * @return length of keyword array
+	 */
+	public static int getFivelength()
 	{
-		//create panel for buttons
-		JPanel panel = new JPanel();
-		panel.setBounds(50,50, 500, 500);
-		panel.setBackground(Color.LIGHT_GRAY);
-		frame.add(panel);
+		return FIVELENGTH;
+	}
 
-		//add option for easy mode
-		JButton easy = new JButton("Easy Mode");
-		easy.setBounds(100,100, 400, 50);
-		easy.setBackground(Color.GRAY);
-		frame.add(easy);
+	/**
+	 * getter method for "hard" (7 letter) keywords
+	 * @return array of seven letter keywords
+	 */
+	public static String[] getSeven()
+	{
+		return WORDS7;
+	}
 
-		//add action for easy mode
-		easy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//call the easy class with wordfive as the key
-				new EasyMode(WORDS5[(int) (Math.random() * FIVELENGTH)], WORDS5, FIVELENGTH);
-			}
-		});
-
-		//add option for tutorial and add JButton parameters
-		JButton tutorial = new JButton("Tutorial");
-		tutorial.setBounds(100,200, 400, 50);
-		tutorial.setBackground(Color.GRAY);
-		frame.add(tutorial);
-
-		//open tutorial page when JButton is pressed
-		tutorial.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try
-				{
-					//create tutorial page
-					new Instructions();
-				}
-				catch (Exception IO)
-				{
-					System.out.println("error");
-				}
-			}
-		});
+	/**
+	 * getter method for number of "easy" (5 letter) keywords
+	 * @return length of keyword array
+	 */
+	public static int getSevenLength()
+	{
+		return SEVENLENGTH;
 	}
 }

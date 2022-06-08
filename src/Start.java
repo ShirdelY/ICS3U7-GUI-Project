@@ -40,14 +40,7 @@ public class Start extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	/**
-	 * main method for calling the Start() constructor
-	 * @param args
-	 * @return - none
-	 */
-	public static void main(String[] args) {
-		new Start();
-	}
+
 	/**
 	 * actionPerformed method to manipulate and set specific instructions for the button
 	 * @param ActionEvent object
@@ -57,8 +50,8 @@ public class Start extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == start) {
-			System.out.println("start");
-			// if start is pressed, we go to the main menu by calling it
+			//create main menu
+			new Mainmenu();
 		}
 	}
 }

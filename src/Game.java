@@ -2,16 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.*;
 
-public class EasyMode extends JFrame implements KeyListener{
+public class Game extends JFrame implements KeyListener{
     //declare variables
     private final int X = 5, Y = 6;
     private char[][] grid = new char[X][Y];
     private char[] keyword = new char[X];
     private int index_x = 0, index_y = 0, keysLength;
     private String[] keys;
-    EasyMode (String key, String[] keys, int keysLength) {
+    Game (String key, String[] keys, int keysLength) {
         //create character array from String keyword
         char input;
         for (int i = 0; i < 5; i++) keyword[i] = key.charAt(i);

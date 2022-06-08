@@ -3,11 +3,9 @@
  * This class shows the main menu and its different buttons
  * @author shizacharania
  */
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -72,14 +70,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	/**
-	 * main method for calling the Mainmenu() constructor
-	 * @param args
-	 * @return - none
-	 */
-	public static void main(String[] args) {
-		new Mainmenu();
-	}
+
 	/**
 	 * actionPerformed method to manipulate and set specific instructions for the buttons
 	 * @param ActionEvent object
@@ -89,8 +80,8 @@ public class Mainmenu extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == easymode) {
-			System.out.println("easy mode");
 			// if easymode is pressed, it clears the frame and calls easy mode class
+			new Game(Main.getFive()[(int) (Math.random() * Main.getFivelength())], Main.getFive(), Main.getFivelength());
 		}
 		if (e.getSource() == hardmode) {
 			System.out.println("hard mode");
