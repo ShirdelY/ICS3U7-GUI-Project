@@ -25,8 +25,6 @@ public class Main extends JFrame {
 		//import keywords
 		WORDS5 = importWords5();
 		WORDS7 = importWords7();
-		//create frame and set parameters
-		makeFrame();
 		//create new title screen
 		new Start();
 		//import keywords
@@ -58,15 +56,6 @@ public class Main extends JFrame {
 			words7temp[i] = sevenInput.nextLine();
 		}
 		return words7temp;
-	}
-	public static void makeFrame()
-	{
-		frame.setLayout(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setVisible(true);
-		frame.setResizable(false);
-		frame.setSize(600,650);
 	}
 
 	/**
