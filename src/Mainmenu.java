@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Mainmenu extends JFrame implements ActionListener {
-	JButton easymode, hardmode, instructions, settings, back;
+	JButton easymode, hardmode, instructions, settings, stats, back;
 
 	Mainmenu() {
 		setLayout(null);
@@ -21,27 +21,32 @@ public class Mainmenu extends JFrame implements ActionListener {
 		setVisible(true);
 
 		JLabel label1 = new JLabel("Main Menu"); //center this after
-		label1.setBounds(250, 35, 100, 50);
+		label1.setBounds(250, 35, 100, 75);
 		add(label1);
 
-		// button for instructions, settings, easymode, hardmode, back
+		// button for instructions, settings, easymode, hardmode, stats, back
 		easymode = new JButton("Easy Mode");
-		easymode.setBounds(150, 100, 300, 75);
+		easymode.setBounds(150, 125, 300, 60);
 		add(easymode);
 		easymode.addActionListener(this);
 
 		hardmode = new JButton("Hard Mode");
-		hardmode.setBounds(150, 200, 300, 75);
+		hardmode.setBounds(150, 200, 300, 60);
 		add(hardmode);
 		hardmode.addActionListener(this);
 		
 		instructions = new JButton("Instructions");
-		instructions.setBounds(150, 300, 300, 75);
+		instructions.setBounds(150, 275, 300, 60);
 		add(instructions);
 		instructions.addActionListener(this);
-
+		
+		stats = new JButton("Statistics");
+		stats.setBounds(150, 350, 300, 60);
+		add(stats);
+		stats.addActionListener(this);
+		
 		settings = new JButton("Settings");
-		settings.setBounds(150, 400, 300, 75);
+		settings.setBounds(150, 425, 300, 60);
 		add(settings);
 		settings.addActionListener(this);
 		
@@ -70,6 +75,10 @@ public class Mainmenu extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == instructions) {
 			System.out.println("instructions");
+			// if instructions is pressed, it clears the frame and calls instruction class
+		}
+		if (e.getSource() == stats) {
+			System.out.println("stats");
 			// if instructions is pressed, it clears the frame and calls instruction class
 		}
 		if (e.getSource() == settings) {
