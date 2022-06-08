@@ -52,6 +52,7 @@ public class Start extends JFrame implements ActionListener {
 		if (e.getSource() == start) {
 			//create main menu
 			new Mainmenu();
+			dispose();
 		}
 	}
 }
