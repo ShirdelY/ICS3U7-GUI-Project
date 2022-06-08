@@ -7,19 +7,15 @@ import java.io.IOException;
 import java.util.*;
 
 public class Main extends JFrame {
-	public static JFrame frame = new JFrame();
 	//source files for key words
-	final static File SOURCE5 = new File("src/5LetterKeyWords.txt");
-	final static File SOURCE7 = new File("src/7LetterKeyWords.txt");
+	final private static File SOURCE5 = new File("src/5LetterKeyWords.txt");
+	final private static File SOURCE7 = new File("src/7LetterKeyWords.txt");
 	//source file lengths
-	final static int FIVELENGTH = 586;
-	final static int SEVENLENGTH = 500;
+	final private static int FIVELENGTH = 586;
+	final private static int SEVENLENGTH = 500;
 	//create arrays for words
-	static String[] WORDS5 = new String[586];
-	static String[] WORDS7 = new String[500];
-
-	public Main() {
-	}
+	private static String[] WORDS5 = new String[586];
+	private static String[] WORDS7 = new String[500];
 
 	public static void main(String[] args) throws IOException{
 		//import keywords
