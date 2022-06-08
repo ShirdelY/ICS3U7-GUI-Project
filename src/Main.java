@@ -9,8 +9,8 @@ import java.util.*;
 public class Main extends JFrame {
 	public static JFrame frame = new JFrame();
 	//source files for key words
-	final static File SOURCE5 = new File("src\\5LetterKeyWords.txt");
-	final static File SOURCE7 = new File("src\\\\7LetterKeyWords.txt");
+	final static File SOURCE5 = new File("src/5LetterKeyWords.txt");
+	final static File SOURCE7 = new File("src/7LetterKeyWords.txt");
 	//source file lengths
 	final static int FIVELENGTH = 586;
 	final static int SEVENLENGTH = 500;
