@@ -118,8 +118,10 @@ public class Credits extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == back) {
-			System.out.println("back");
+//			System.out.println("back");
 			// if back is pressed, we go back to the settings by calling it
+			new Settings();
+			dispose();
 		}
 	}
 }
