@@ -5,12 +5,31 @@ import java.awt.event.KeyListener;
 
 public class Game extends JFrame implements KeyListener{
     //declare variables
-    private final int X = 5, Y = 6;
+    private int X = 0, Y = 0;
     private char[][] grid = new char[X][Y];
     private char[] keyword = new char[X];
     private int index_x = 0, index_y = 0, keysLength;
     private String[] keys;
-    Game (String key, String[] keys, int keysLength) {
+
+    /**
+     * Generate game window for wordle
+     * @param key selected keyword for user to guess
+     * @param keys array of all keywords for given difficulty - to verify if entries are valid
+     * @param keysLength number of keywords in array
+     * @param difficulty 0 for easy, 1 for hard
+     */
+    Game (String key, String[] keys, int keysLength, int difficulty) {
+        //change grid size dependant on difficulty
+        if (difficulty == 0)
+        {
+            X = 5;
+            Y = 6;
+        }
+        else if (difficulty == 1)
+        {
+            X = 7;
+            Y = 6;
+        }
         //create character array from String keyword
         char input;
         for (int i = 0; i < 5; i++) keyword[i] = key.charAt(i);
@@ -52,10 +71,12 @@ public class Game extends JFrame implements KeyListener{
             ycoord += 105;
             xcoord = 50;
         }
-        //this.repaint();
     }
 
-
+    /**
+     * key press validation for entries
+     * @param e - key typed
+     */
     @Override
     public void keyTyped(KeyEvent e) {
         //diagnostic tool
@@ -63,6 +84,7 @@ public class Game extends JFrame implements KeyListener{
         //check if character typed is a letter
         if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 65 && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 90)
         {
+            //check if
             if (index_x <= 4)
             {
                 //add letter to game board
@@ -76,7 +98,7 @@ public class Game extends JFrame implements KeyListener{
             //set character to space so that it is "blank"
             grid[index_x][index_y] = 32;
         }
-        else if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) == 13 && index_x == 4)
+        else if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) == 13 && index_x == 5)
         {
             for (int i = 0; i < 586; i++)
             {
@@ -84,6 +106,7 @@ public class Game extends JFrame implements KeyListener{
                 {
                     //display yellow/green depending on if the letter is used in the keyword
                     index_y++;
+                    index_x = 0;
                 }
                 else
                 {
