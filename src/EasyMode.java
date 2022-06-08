@@ -33,6 +33,27 @@ public class EasyMode extends JFrame implements KeyListener{
                 grid[i][j] = ' ';
             }
         }
+        //create grid of jlabels
+        JLabel[][] labelArray = new JLabel[X][Y];
+        //initial grid corner
+        int xcoord = 50, ycoord = 50;
+        //initialize array as blank
+        for (int i = 0; i < X; i++)
+        {
+            for (int j = 0; j < Y; j++)
+            {
+                labelArray[i][j] = new JLabel("test");
+                labelArray[i][j].setBackground(Color.BLUE);
+                labelArray[i][j].setOpaque(true);
+                labelArray[i][j].setBounds(xcoord, ycoord, 60, 80);
+                this.add(labelArray[i][j]);
+                //increment next space
+                xcoord += 85;
+            }
+            ycoord += 105;
+            xcoord = 50;
+        }
+        //this.repaint();
     }
 
 
