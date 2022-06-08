@@ -1,7 +1,8 @@
 /**
- * 
+ * Settings.java - version 1
+ * This class is used as the setting frame and has different buttons to change
+ * the theme, see the credits, switch accounts (for login - version 2), see the main menu, and to exit
  * @author shizacharania
- *
  */
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,11 +25,10 @@ public class Settings extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
+		// label for title
 		JLabel label1 = new JLabel("SETTINGS"); //center this after
 		label1.setBounds(250, 35, 100, 50);
 		add(label1);
-
-		//		ActionListener click = new ActionListener();
 
 		// button for back, switch account, dark mode, light mode, logout
 		boolean isLight = true; // we can manipulate the value of this variable
@@ -85,11 +85,13 @@ public class Settings extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == theme) {
 			System.out.println("theme");
+			//if the button is in light mode
 			if (isLight) {
 				//show light mode
 				theme.setText("Dark Mode");
 				isLight = false;
 			}
+			//if the button is in dark mode
 			else if (!isLight) {
 				//show dark mode
 				theme.setText("Light Mode");
