@@ -53,13 +53,13 @@ public class Settings extends JFrame implements ActionListener {
 
 		// main menu button
 		mainmenu = new JButton("Main Menu");
-		mainmenu.setBounds(250, 425, 100, 50);
+		mainmenu.setBounds(150, 425, 300, 75);
 		add(mainmenu);
 		mainmenu.addActionListener(this);
 
 		// exit button
 		exit = new JButton("Exit");
-		exit.setBounds(250, 500, 100, 50);
+		exit.setBounds(250, 525, 100, 50);
 		add(exit);
 		exit.addActionListener(this);
 
@@ -84,34 +84,39 @@ public class Settings extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == theme) {
-			System.out.println("theme");
 			//if the button is in light mode
 			if (isLight) {
 				//show light mode
 				theme.setText("Dark Mode");
+				System.out.println("now in light mode");
 				isLight = false;
 			}
 			//if the button is in dark mode
 			else if (!isLight) {
 				//show dark mode
 				theme.setText("Light Mode");
+				System.out.println("now in dark mode");
 				isLight = true;
 			}
 		}
 		if (e.getSource() == credits) {
-			System.out.println("credits");
+//			System.out.println("credits");
 			// if credits is pressed, it clears the frame and calls credits class
+			new Credits();
+			dispose();
 		}
 		if (e.getSource() == switchacc) {
 			System.out.println("switch accounts");
 			// if switchacc is pressed, we go back to the login page by calling it
 		}
 		if (e.getSource() == mainmenu) {
-			System.out.println("main menu");
+//			System.out.println("main menu");
 			// if main menu is pressed, we go back to the main menu by calling it
+			new Mainmenu();
+			dispose();
 		}
 		if (e.getSource() == exit) {
-			System.out.println("exit");
+//			System.out.println("exit");
 			// if exit is pressed, we terminate the program
 			System.exit(0);
 		}
