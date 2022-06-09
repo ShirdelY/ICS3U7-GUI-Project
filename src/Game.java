@@ -53,9 +53,9 @@ public class Game extends JFrame implements KeyListener{
         this.setSize(1200,1000);
         this.addKeyListener(this);
         //initialize gameboard with spaces
-        for (int i = 0; i < column; i++)
+        for (int i = 0; i < row; i++)
         {
-            for (int j = 0; j < row; j++)
+            for (int j = 0; j < column; j++)
             {
                 grid[i][j] = ' ';
             }
@@ -88,7 +88,36 @@ public class Game extends JFrame implements KeyListener{
      */
     @Override
     public void keyTyped(KeyEvent e) {
+        //check if input is a letter
+        if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 65 && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 90)
+        {
+            if (index_column < column)
+            {
+                //add input letter to grid as uppercase
+                grid[index_row][index_column] = String.valueOf(e.getKeyChar()).toUpperCase().charAt(0);
+                index_column++;
+            }
+        }
+        //check if input was a backspace
+        else if (e.getKeyChar() == 8)
+        {
+            //makesure index will not go negative
+            if (index_column > 0)
+            {
+                index_column--;
+                //change letter to space to make it "blank"
+                grid[index_row][index_column] = ' ';
+            }
+        }
+        //check if enter key is pressed
+        else if (e.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            //check if guess is the correct length
+            if (index_column == row)
+            {
 
+            }
+        }
     }
 
     //not used but needed for "implements keyListener"
