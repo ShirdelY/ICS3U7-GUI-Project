@@ -91,17 +91,6 @@ public class Game extends JFrame implements KeyListener{
      */
     @Override
     public void keyTyped(KeyEvent e) {
-
-    }
-
-    //not used but needed for "implements keyListener"
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         //check if character typed is a letter
         if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 65 && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 90) {
             //check if
@@ -154,13 +143,24 @@ public class Game extends JFrame implements KeyListener{
                         if (grid[j][index_y] != keyword[j]) {
                             break;
                         }
-                            //dispose();
-                            //new Congratulations();
+                        //dispose();
+                        //new Congratulations();
                     }
                     index_y++;
                     break;
                 }
             }
         }
+
+    }
+
+    //not used but needed for "implements keyListener"
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
 }
