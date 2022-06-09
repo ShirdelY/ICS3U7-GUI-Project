@@ -147,6 +147,15 @@ public class Game extends JFrame implements KeyListener{
                         if (grid[j][index_y] == keyword[j])
                             labelArray[j][index_y].setBackground(Color.GREEN);
                     }
+
+                    for (int j = 0; j < X; j++)
+                    {
+                        if (grid[j][index_y] != keyword[j]) {
+                            break;
+                        }
+                            dispose();
+                            new Congratulations();
+                    }
                     index_y++;
                     break;
                 }
