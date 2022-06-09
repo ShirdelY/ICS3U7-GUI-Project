@@ -115,7 +115,8 @@ public class Game extends JFrame implements KeyListener{
             //check if guess is the correct length
             if (index_column == row)
             {
-
+                System.out.println(String.valueOf())
+                for (int i = 0; i < )
             }
         }
     }
