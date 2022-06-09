@@ -5,11 +5,11 @@ import java.awt.event.KeyListener;
 
 public class Game extends JFrame implements KeyListener{
     //declare variables
-    private int X = 0, Y = 0;
+    private int row = 0, column = 0;
     private int letterWidth = 0, spaceWidth = 0;
     private char[][] grid;
     private char[] keyword;
-    private int index_x = 0, index_y = 0, keysLength;
+    private int index_row = 0, index_column = 0,
     private String[] keys;
     JLabel[][] labelArray;
 
@@ -20,34 +20,32 @@ public class Game extends JFrame implements KeyListener{
      * @param keysLength number of keywords in array
      * @param difficulty 0 for easy, 1 for hard
      */
-    Game (String key, String[] keys, int keysLength, int difficulty) {
+    Game (String key, String[] keys, int difficulty) {
         System.out.println(key);
         //change grid size dependant on difficulty
         if (difficulty == 0)
         {
-            X = 5;
-            Y = 6;
+            column = 5;
+            row = 6;
             letterWidth = 84;
             spaceWidth = 20;
-            keyword = new char[X];
-            grid = new char[Y][X];
-            keysLength = X;
+            keyword = new char[column];
+            grid = new char[row][column];
         }
         else if (difficulty == 1)
         {
-            X = 7;
-            Y = 6;
+            column = 7;
+            row = 6;
             letterWidth = 60;
             spaceWidth = 16;
-            keyword = new char[X];
-            grid = new char[Y][X];
-            keysLength = X;
+            keyword = new char[column];
+            grid = new char[row][column];
         }
         //create character array from String keyword
-        for (int i = 0; i < key.length(); i++) keyword[i] = key.charAt(i);
+        for (int i = 0; i < key.length(); i++)
+            keyword[i] = key.charAt(i);
         //import keyword source parameters
         this.keys = keys;
-        this.keysLength = keysLength;
         //create JFrame
         this.setLayout(null);
         this.getContentPane().setBackground(Color.WHITE);
@@ -91,7 +89,7 @@ public class Game extends JFrame implements KeyListener{
      */
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
 
     //not used but needed for "implements keyListener"

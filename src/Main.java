@@ -64,29 +64,11 @@ public class Main extends JFrame {
 	}
 
 	/**
-	 * getter method for number of "easy" (5 letter) keywords
-	 * @return length of keyword array
-	 */
-	public static int getFivelength()
-	{
-		return FIVELENGTH;
-	}
-
-	/**
 	 * getter method for "hard" (7 letter) keywords
 	 * @return array of seven letter keywords
 	 */
 	public static String[] getSeven()
 	{
 		return WORDS7;
-	}
-
-	/**
-	 * getter method for number of "easy" (5 letter) keywords
-	 * @return length of keyword array
-	 */
-	public static int getSevenLength()
-	{
-		return SEVENLENGTH;
 	}
 }
