@@ -30,7 +30,7 @@ public class Game extends JFrame implements KeyListener{
             letterWidth = 84;
             spaceWidth = 20;
             keyword = new char[X];
-            grid = new char[X][Y];
+            grid = new char[Y][X];
             keysLength = X;
         }
         else if (difficulty == 1)
@@ -40,7 +40,7 @@ public class Game extends JFrame implements KeyListener{
             letterWidth = 60;
             spaceWidth = 16;
             keyword = new char[X];
-            grid = new char[X][Y];
+            grid = new char[Y][X];
             keysLength = X;
         }
         //create character array from String keyword
@@ -56,21 +56,21 @@ public class Game extends JFrame implements KeyListener{
         this.setSize(1200,1000);
         this.addKeyListener(this);
         //initialize gameboard with spaces
-        for (int i = 0; i < X; i++)
+        for (int i = 0; i < Y; i++)
         {
-            for (int j = 0; j < Y; j++)
+            for (int j = 0; j < X; j++)
             {
                 grid[i][j] = ' ';
             }
         }
         //create grid of jlabels
-        labelArray = new JLabel[X][Y];
+        labelArray = new JLabel[Y][X];
         //initial grid corner
         int xcoord = 50, ycoord = 50;
         //initialize array as blank
-        for (int j = 0; j < Y; j++)
+        for (int j = 0; j < X; j++)
         {
-            for (int i = 0; i < X; i++)
+            for (int i = 0; i < Y; i++)
             {
                 labelArray[i][j] = new JLabel(" ", SwingConstants.CENTER);
                 labelArray[i][j].setBackground(Color.GRAY);
@@ -91,67 +91,7 @@ public class Game extends JFrame implements KeyListener{
      */
     @Override
     public void keyTyped(KeyEvent e) {
-        //check if character typed is a letter
-        if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 65 && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 90) {
-            //check if
-            if (index_x < X) {
-                //add letter to game board
-                grid[index_x][index_y] = String.valueOf(e.getKeyChar()).toUpperCase().charAt(0);
-                labelArray[index_x][index_y].setText(String.valueOf(e.getKeyChar()).toUpperCase());
-                index_x++;
-            }
-        } else if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) == 8) {
-
-            //set character to space so that it is "blank"
-            if (index_x > 0)
-                index_x--;
-            for (int i = 0; i < X; i++)
-                labelArray[i][index_y].setBackground(Color.GRAY);
-            grid[index_x][index_y] = 32;
-            labelArray[index_x][index_y].setText(String.valueOf(grid[index_x][index_y]));
-
-        }
-        else if (e.getKeyChar() == 91 )
-        {
-            for (int i = 0; i < keys.length; i++) {
-                //diagnostic tool
-                System.out.println((String.valueOf(grid[0][index_y] ) + String.valueOf(grid[1][index_y] ) + String.valueOf(grid[2][index_y] ) + String.valueOf(grid[3][index_y] ) + String.valueOf(grid[4][index_y] )));
-
-                if ((String.valueOf(grid[0][index_y] ) + String.valueOf(grid[1][index_y] ) + String.valueOf(grid[2][index_y] ) + String.valueOf(grid[3][index_y] ) + String.valueOf(grid[4][index_y] )).toUpperCase().equals(keys[i].toUpperCase()))
-                {
-                    //display yellow/green depending on if the letter is used in the keyword
-                    index_x = 0;
-                    for (int x = 0; x < X; x++)
-                    {
-                        for (int y = 0; y < X; y++)
-                        {
-                            if (grid[x][index_y] == keyword[y])
-                            {
-                                labelArray[x][index_y].setBackground(Color.ORANGE);
-                            }
-                        }
-                    }
-                    for (int j = 0; j < X; j++)
-                    {
-                        if (grid[j][index_y] == keyword[j])
-                            labelArray[j][index_y].setBackground(Color.GREEN);
-                    }
-                    repaint();
-
-                    for (int j = 0; j < X; j++)
-                    {
-                        if (grid[j][index_y] != keyword[j]) {
-                            break;
-                        }
-                        //dispose();
-                        //new Congratulations();
-                    }
-                    index_y++;
-                    break;
-                }
-            }
-        }
-
+        
     }
 
     //not used but needed for "implements keyListener"
