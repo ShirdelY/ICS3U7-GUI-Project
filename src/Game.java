@@ -9,7 +9,7 @@ public class Game extends JFrame implements KeyListener{
     private int letterWidth = 0, spaceWidth = 0;
     private char[][] grid;
     private char[] keyword;
-    private int index_row = 0, index_column = 0,
+    private int index_row = 0, index_column = 0;
     private String[] keys;
     JLabel[][] labelArray;
 
@@ -17,7 +17,6 @@ public class Game extends JFrame implements KeyListener{
      * Generate game window for wordle
      * @param key selected keyword for user to guess
      * @param keys array of all keywords for given difficulty - to verify if entries are valid
-     * @param keysLength number of keywords in array
      * @param difficulty 0 for easy, 1 for hard
      */
     Game (String key, String[] keys, int difficulty) {
@@ -54,27 +53,27 @@ public class Game extends JFrame implements KeyListener{
         this.setSize(1200,1000);
         this.addKeyListener(this);
         //initialize gameboard with spaces
-        for (int i = 0; i < Y; i++)
+        for (int i = 0; i < column; i++)
         {
-            for (int j = 0; j < X; j++)
+            for (int j = 0; j < row; j++)
             {
                 grid[i][j] = ' ';
             }
         }
         //create grid of jlabels
-        labelArray = new JLabel[Y][X];
+        labelArray = new JLabel[row][column];
         //initial grid corner
         int xcoord = 50, ycoord = 50;
         //initialize array as blank
-        for (int j = 0; j < X; j++)
+        for (int j = 0; j < row; j++)
         {
-            for (int i = 0; i < Y; i++)
+            for (int i = 0; i < column; i++)
             {
-                labelArray[i][j] = new JLabel(" ", SwingConstants.CENTER);
-                labelArray[i][j].setBackground(Color.GRAY);
-                labelArray[i][j].setOpaque(true);
-                labelArray[i][j].setBounds(xcoord, ycoord, letterWidth, 80);
-                this.add(labelArray[i][j]);
+                labelArray[j][i] = new JLabel(" ", SwingConstants.CENTER);
+                labelArray[j][i].setBackground(Color.GRAY);
+                labelArray[j][i].setOpaque(true);
+                labelArray[j][i].setBounds(xcoord, ycoord, letterWidth, 80);
+                this.add(labelArray[j][i]);
                 //increment next space
                 xcoord += (letterWidth + spaceWidth);
             }
