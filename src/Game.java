@@ -11,7 +11,6 @@ public class Game extends JFrame implements KeyListener{
     private char[] keyword;
     private int index_x = 0, index_y = 0, keysLength;
     private String[] keys;
-    boolean incorrect = true;
     JLabel[][] labelArray;
 
     /**
@@ -92,6 +91,17 @@ public class Game extends JFrame implements KeyListener{
      */
     @Override
     public void keyTyped(KeyEvent e) {
+
+    }
+
+    //not used but needed for "implements keyListener"
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
         //check if character typed is a letter
         if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 65 && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 90) {
             //check if
@@ -111,43 +121,36 @@ public class Game extends JFrame implements KeyListener{
             grid[index_x][index_y] = 32;
             labelArray[index_x][index_y].setText(String.valueOf(grid[index_x][index_y]));
 
-        } else if (e.getKeyChar() == 91 )
+        }
+        else if (e.getKeyChar() == 91 )
         {
-            for (int i = 0; i < keysLength; i++) {
+            for (int i = 0; i < keys.length; i++) {
                 //diagnostic tool
                 System.out.println((String.valueOf(grid[0][index_y] ) + String.valueOf(grid[1][index_y] ) + String.valueOf(grid[2][index_y] ) + String.valueOf(grid[3][index_y] ) + String.valueOf(grid[4][index_y] )));
+
                 if ((String.valueOf(grid[0][index_y] ) + String.valueOf(grid[1][index_y] ) + String.valueOf(grid[2][index_y] ) + String.valueOf(grid[3][index_y] ) + String.valueOf(grid[4][index_y] )).toUpperCase().equals(keys[i].toUpperCase()))
                 {
                     //display yellow/green depending on if the letter is used in the keyword
                     index_x = 0;
+                    for (int x = 0; x < X; x++)
+                    {
+                        for (int y = 0; y < X; y++)
+                        {
+                            if (grid[x][index_y] == keyword[y])
+                            {
+                                labelArray[x][index_y].setBackground(Color.ORANGE);
+                            }
+                        }
+                    }
                     for (int j = 0; j < X; j++)
                     {
                         if (grid[j][index_y] == keyword[j])
                             labelArray[j][index_y].setBackground(Color.GREEN);
                     }
                     index_y++;
-                    incorrect = false;
                     break;
                 }
             }
-
-            if (incorrect)
-            {
-                for (int x = 0; x < X; x++)
-                    labelArray[x][index_y].setBackground(Color.RED);
-            }
-            incorrect = false;
         }
-    }
-
-    //not used but needed for "implements keyListener"
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
     }
 }
