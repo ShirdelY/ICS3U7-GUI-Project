@@ -76,7 +76,7 @@ public class Game extends JFrame implements KeyListener{
             {
                 //add new jlabel for grid sector
                 labelArray[j][i] = new JLabel(" ", SwingConstants.CENTER);
-                labelArray[j][i].setBackground(Color.GRAY);
+                labelArray[j][i].setBackground(Color.LIGHT_GRAY);
                 labelArray[j][i].setOpaque(true);
                 labelArray[j][i].setBounds(xcoord, ycoord, letterWidth, letterWidth);
                 this.add(labelArray[j][i]);
@@ -90,6 +90,10 @@ public class Game extends JFrame implements KeyListener{
         }
     }
 
+
+    void makeKeyboard() {
+
+    }
     /**
      * key press validation for entries
      * @param e - key typed
@@ -104,6 +108,7 @@ public class Game extends JFrame implements KeyListener{
                 //add input letter to grid as uppercase
                 grid[index_row][index_column] = String.valueOf(e.getKeyChar()).toUpperCase().charAt(0);
                 labelArray[index_row][index_column].setText(String.valueOf(grid[index_row][index_column]));
+                labelArray[index_row][index_column].setBackground(Color.GRAY);
                 index_column++;
             }
         }
@@ -117,6 +122,7 @@ public class Game extends JFrame implements KeyListener{
                 //change letter to space to make it "blank"
                 grid[index_row][index_column] = ' ';
                 labelArray[index_row][index_column].setText(String.valueOf(grid[index_row][index_column]));
+                labelArray[index_row][index_column].setBackground(Color.LIGHT_GRAY);
             }
         }
         //check if enter key is pressed
