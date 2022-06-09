@@ -12,7 +12,7 @@ import javax.swing.*;
 
 public class Settings extends JFrame implements ActionListener {
 	// declaring buttons and isLight for dark/light mode
-	JButton theme, credits, switchacc, mainmenu, exit;
+	JButton theme, credits, mainmenu, exit;
 	boolean isLight;
 
 	/**
@@ -35,31 +35,25 @@ public class Settings extends JFrame implements ActionListener {
 		
 		// theme button
 		theme = new JButton("Dark Mode");
-		theme.setBounds(150, 125, 300, 75);
+		theme.setBounds(150, 175, 300, 75);
 		add(theme);
 		theme.addActionListener(this);
 
 		// credits button
 		credits = new JButton("Credits");
-		credits.setBounds(150, 225, 300, 75);
+		credits.setBounds(150, 275, 300, 75);
 		add(credits);
 		credits.addActionListener(this);
 
-		// switch buttons
-		switchacc = new JButton("Switch Accounts");
-		switchacc.setBounds(150, 325, 300, 75);
-		add(switchacc);
-		switchacc.addActionListener(this);
-
 		// main menu button
 		mainmenu = new JButton("Main Menu");
-		mainmenu.setBounds(150, 425, 300, 75);
+		mainmenu.setBounds(150, 375, 300, 75);
 		add(mainmenu);
 		mainmenu.addActionListener(this);
 
 		// exit button
 		exit = new JButton("Exit");
-		exit.setBounds(250, 525, 100, 50);
+		exit.setBounds(250, 475, 100, 50);
 		add(exit);
 		exit.addActionListener(this);
 
@@ -104,10 +98,6 @@ public class Settings extends JFrame implements ActionListener {
 			// if credits is pressed, it clears the frame and calls credits class
 			new Credits();
 			dispose();
-		}
-		if (e.getSource() == switchacc) {
-			System.out.println("switch accounts");
-			// if switchacc is pressed, we go back to the login page by calling it
 		}
 		if (e.getSource() == mainmenu) {
 //			System.out.println("main menu");
