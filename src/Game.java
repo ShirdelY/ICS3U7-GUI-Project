@@ -27,8 +27,8 @@ public class Game extends JFrame implements KeyListener{
         {
             column = 5;
             row = 6;
-            letterWidth = 84;
-            spaceWidth = 20;
+            letterWidth = 42;
+            spaceWidth = 10;
             keyword = new char[column];
             grid = new char[row][column];
         }
@@ -36,8 +36,8 @@ public class Game extends JFrame implements KeyListener{
         {
             column = 7;
             row = 6;
-            letterWidth = 60;
-            spaceWidth = 16;
+            letterWidth = 30;
+            spaceWidth = 8;
             keyword = new char[column];
             grid = new char[row][column];
         }
@@ -51,7 +51,7 @@ public class Game extends JFrame implements KeyListener{
         this.getContentPane().setBackground(Color.WHITE);
         this.setVisible(true);
         this.setResizable(false);
-        this.setSize(1200,1000);
+        this.setSize(600,650);
         this.addKeyListener(this);
         //initialize gameboard with spaces
         for (int i = 0; i < row; i++)
@@ -70,6 +70,7 @@ public class Game extends JFrame implements KeyListener{
         {
             for (int i = 0; i < column; i++)
             {
+                //add new jlabel for grid sector
                 labelArray[j][i] = new JLabel(" ", SwingConstants.CENTER);
                 labelArray[j][i].setBackground(Color.GRAY);
                 labelArray[j][i].setOpaque(true);
@@ -78,7 +79,9 @@ public class Game extends JFrame implements KeyListener{
                 //increment next space
                 xcoord += (letterWidth + spaceWidth);
             }
+            //increment y coordinate to next row
             ycoord += 105;
+            //reset the column coordinate
             xcoord = 50;
         }
     }
@@ -126,13 +129,10 @@ public class Game extends JFrame implements KeyListener{
                     System.out.print(String.valueOf(grid[index_row][x]).charAt(0));
                 }
                 System.out.println();
-                for (int i = 0; i < keys.length; i++)
-                {
-                    for (int j = 0; j < column; j++)
-                    {
+                for (String key : keys) {
+                    for (int j = 0; j < column; j++) {
                         valid = true;
-                        if (grid[index_row][j] != keys[i].charAt(j))
-                        {
+                        if (grid[index_row][j] != key.charAt(j)) {
                             valid = false;
                             break;
                         }
