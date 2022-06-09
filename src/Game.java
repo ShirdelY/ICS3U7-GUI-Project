@@ -13,6 +13,7 @@ public class Game extends JFrame implements KeyListener{
     private String[] keys;
     JLabel[][] labelArray;
     boolean valid = false;
+    int startcorner;
 
     /**
      * Generate game window for wordle
@@ -22,24 +23,26 @@ public class Game extends JFrame implements KeyListener{
      */
     Game (String key, String[] keys, int difficulty) {
         System.out.println(key);
-        //change grid size dependant on difficulty
+        //change grivd size dependant on difficulty
         if (difficulty == 0)
         {
             column = 5;
             row = 6;
-            letterWidth = 84;
-            spaceWidth = 15;
+            letterWidth = 50;
+            spaceWidth = 10;
             keyword = new char[column];
             grid = new char[row][column];
+            startcorner = (600 - (5 * letterWidth + 4 * spaceWidth))/2;
         }
         else if (difficulty == 1)
         {
             column = 7;
             row = 6;
-            letterWidth = 60;
-            spaceWidth = 16;
+            letterWidth = 30;
+            spaceWidth = 10;
             keyword = new char[column];
             grid = new char[row][column];
+            startcorner = (600 - (7 * letterWidth + 6 * spaceWidth))/2;
         }
         //create character array from String keyword
         for (int i = 0; i < key.length(); i++)
@@ -65,7 +68,7 @@ public class Game extends JFrame implements KeyListener{
         //create grid of jlabels
         labelArray = new JLabel[row][column];
         //initial grid corner
-        int xcoord = 50, ycoord = 50;
+        int xcoord = startcorner, ycoord = 50;
         //initialize array as blank
         for (int j = 0; j < row; j++)
         {
@@ -83,7 +86,7 @@ public class Game extends JFrame implements KeyListener{
             //increment y coordinate to next row
             ycoord += letterWidth + spaceWidth;
             //reset the column coordinate
-            xcoord = 50;
+            xcoord = startcorner;
         }
     }
 
@@ -167,14 +170,11 @@ public class Game extends JFrame implements KeyListener{
             }
         }
     }
-
-    //not used but needed for "implements keyListener"
-    @Override
+    //not used but needed for "implements keyListener
     public void keyPressed(KeyEvent e) {
 
     }
 
-    @Override
     public void keyReleased(KeyEvent e) {
     }
 }
