@@ -12,6 +12,7 @@ public class Game extends JFrame implements KeyListener{
     private int index_row = 0, index_column = 0;
     private String[] keys;
     JLabel[][] labelArray;
+    boolean valid = false;
 
     /**
      * Generate game window for wordle
@@ -95,6 +96,7 @@ public class Game extends JFrame implements KeyListener{
             {
                 //add input letter to grid as uppercase
                 grid[index_row][index_column] = String.valueOf(e.getKeyChar()).toUpperCase().charAt(0);
+                labelArray[index_row][index_column].setText(String.valueOf(grid[index_row][index_column]));
                 index_column++;
             }
         }
@@ -107,10 +109,13 @@ public class Game extends JFrame implements KeyListener{
                 index_column--;
                 //change letter to space to make it "blank"
                 grid[index_row][index_column] = ' ';
+                labelArray[index_row][index_column].setText(String.valueOf(grid[index_row][index_column]));
             }
         }
         //check if enter key is pressed
-        else if (e.getKeyCode()==KeyEvent.VK_ENTER)
+
+        //ADD ONSCREEN KEYBOARD
+        if (e.getKeyCode()==KeyEvent.VK_ENTER)
         {
             //check if guess is the correct length
             if (index_column == row)
@@ -125,9 +130,38 @@ public class Game extends JFrame implements KeyListener{
                 {
                     for (int j = 0; j < column; j++)
                     {
+                        valid = true;
                         if (grid[index_row][j] != keys[i].charAt(j))
-                            
+                        {
+                            valid = false;
+                            break;
+                        }
                     }
+                    if (valid)
+                        break;
+                }
+                if (valid)
+                {
+                    //check for yellow letters
+                    for (int i = 0; i < column; i++)
+                    {
+                        for (int j = 0; j < column; j++)
+                        {
+                            if (grid[index_row][i] == keyword[j])
+                            {
+                                labelArray[index_row][i].setBackground(Color.ORANGE);
+                                break;
+                            }
+                        }
+                    }
+                    //check for green letters
+                    for (int i = 0; i < column; i++)
+                    {
+                        if (grid[index_row][i] == keyword[i])
+                            labelArray[index_row][i].setBackground(Color.GREEN);
+                    }
+                    repaint();
+                    index_row++;
                 }
             }
         }
