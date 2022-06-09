@@ -27,8 +27,8 @@ public class Game extends JFrame implements KeyListener{
         {
             column = 5;
             row = 6;
-            letterWidth = 42;
-            spaceWidth = 10;
+            letterWidth = 84;
+            spaceWidth = 15;
             keyword = new char[column];
             grid = new char[row][column];
         }
@@ -36,8 +36,8 @@ public class Game extends JFrame implements KeyListener{
         {
             column = 7;
             row = 6;
-            letterWidth = 30;
-            spaceWidth = 8;
+            letterWidth = 60;
+            spaceWidth = 16;
             keyword = new char[column];
             grid = new char[row][column];
         }
@@ -51,7 +51,8 @@ public class Game extends JFrame implements KeyListener{
         this.getContentPane().setBackground(Color.WHITE);
         this.setVisible(true);
         this.setResizable(false);
-        this.setSize(600,650);
+        this.setPreferredSize(new Dimension(600, 650));
+        this.pack();
         this.addKeyListener(this);
         //initialize gameboard with spaces
         for (int i = 0; i < row; i++)
@@ -74,13 +75,13 @@ public class Game extends JFrame implements KeyListener{
                 labelArray[j][i] = new JLabel(" ", SwingConstants.CENTER);
                 labelArray[j][i].setBackground(Color.GRAY);
                 labelArray[j][i].setOpaque(true);
-                labelArray[j][i].setBounds(xcoord, ycoord, letterWidth, 80);
+                labelArray[j][i].setBounds(xcoord, ycoord, letterWidth, letterWidth);
                 this.add(labelArray[j][i]);
                 //increment next space
                 xcoord += (letterWidth + spaceWidth);
             }
             //increment y coordinate to next row
-            ycoord += 105;
+            ycoord += letterWidth + spaceWidth;
             //reset the column coordinate
             xcoord = 50;
         }
