@@ -8,13 +8,13 @@ import java.util.*;
 
 public class Main extends JFrame {
 	//source files for key words
-	final private static File SOURCE5 = new File("5LetterKeyWords.txt");
-	final private static File SOURCE7 = new File("7LetterKeyWords.txt");
+	final private static File SOURCE5 = new File("src/5LetterKeyWords.txt");
+	final private static File SOURCE7 = new File("src/7LetterKeyWords.txt");
 	//source file lengths
-	final private static int FIVELENGTH = 586;
+	final private static int FIVELENGTH = 12972;
 	final private static int SEVENLENGTH = 500;
 	//create arrays for words
-	private static String[] WORDS5 = new String[586];
+	private static String[] WORDS5 = new String[12972];
 	private static String[] WORDS7 = new String[500];
 
 	public static void main(String[] args) throws IOException{
