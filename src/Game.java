@@ -15,6 +15,7 @@ public class Game extends JFrame implements KeyListener{
     boolean valid = false;
     int startcorner;
     String guess;
+    final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
 
     /**
      * Generate game window for wordle
@@ -93,7 +94,7 @@ public class Game extends JFrame implements KeyListener{
 
 
     void makeKeyboard() {
-
+        
     }
     /**
      * key press validation for entries
