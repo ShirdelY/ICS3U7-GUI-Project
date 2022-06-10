@@ -14,6 +14,7 @@ public class Game extends JFrame implements KeyListener{
     JLabel[][] labelArray;
     boolean valid = false;
     int startcorner;
+    String guess;
 
     /**
      * Generate game window for wordle
@@ -128,24 +129,25 @@ public class Game extends JFrame implements KeyListener{
         //check if enter key is pressed
 
         //ADD ONSCREEN KEYBOARD
-        if (e.getKeyChar() == '0')
+        else if (e.getKeyChar() == '[')
         {
             //check if guess is the correct length
             if (index_column == column)
             {
+                //convert the guess input intpo a string
+                guess = "";
+                for (int i = 0; i < column; i++)
+                    guess += String.valueOf(grid[index_row][i]);
                 //check if the guess is a valid keyword
+                valid = false;
                 for (int j = 0; j < keys.length; j++) {
-                    valid = true;
-                    for (int i = 0; i < column; i++) {
-                        if (grid[index_row][i] != keys[j].charAt(i)) {
-                            valid = false;
-                            break;
-                        }
-                    }
-                    System.out.println(valid);
-                    if (valid)
+                    if (keys[j].equals(guess))
+                    {
+                        valid = true;
                         break;
+                    }
                 }
+
                 if (valid)
                 {
                     //check for yellow letters
@@ -169,6 +171,12 @@ public class Game extends JFrame implements KeyListener{
                     }
                     repaint();
                     index_row++;
+                }
+                //guess is not a word, turn boxes red to indicate such
+                else
+                {
+                    for (int i = 0; i < column; i++)
+                        labelArray[index_row][i].setBackground(Color.RED);
                 }
             }
         }
