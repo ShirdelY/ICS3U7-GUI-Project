@@ -57,14 +57,7 @@ public class Loser extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	/**
-	 * main method for calling the Loser() constructor
-	 * @param args
-	 * @return - none
-	 */
-	public static void main(String[] args) {
-		new Loser("abuse"); // we can change up the word
-	}
+
 	/**
 	 * actionPerformed method to manipulate and set specific instructions for the buttons
 	 * @param ActionEvent object

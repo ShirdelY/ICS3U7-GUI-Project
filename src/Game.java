@@ -14,7 +14,7 @@ public class Game extends JFrame implements KeyListener{
     JLabel[][] labelArray;
     boolean valid = false;
     int startcorner;
-    String guess;
+    String guess, keyString;
     final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
     int keyboard_x = 128, keyboard_y = 460;
     /**
@@ -25,7 +25,7 @@ public class Game extends JFrame implements KeyListener{
      */
     Game (String key, String[] keys, int difficulty) {
         System.out.println(key);
-        //change grivd size dependant on difficulty
+        //change grid size dependant on difficulty
         if (difficulty == 0)
         {
             column = 5;
@@ -51,6 +51,7 @@ public class Game extends JFrame implements KeyListener{
             keyword[i] = key.toUpperCase().charAt(i);
         //import keyword source parameters
         this.keys = keys;
+        keyString = key;
         //create JFrame
         this.setLayout(null);
         this.getContentPane().setBackground(Color.WHITE);
@@ -90,12 +91,14 @@ public class Game extends JFrame implements KeyListener{
             //reset the column coordinate
             xcoord = startcorner;
         }
+        //create kayboard
+        makeKeyboard();
     }
-
 
     void makeKeyboard() {
 
     }
+
     /**
      * key press validation for entries
      * @param e - key typed
@@ -128,64 +131,69 @@ public class Game extends JFrame implements KeyListener{
             }
         }
         //check if enter key is pressed
-
         //ADD ONSCREEN KEYBOARD
         else if (e.getKeyChar() == '[')
         {
-            //check if guess is the correct length
-            if (index_column == column)
+            if (index_row < row)
             {
-                //convert the guess input intpo a string
-                guess = "";
-                for (int i = 0; i < column; i++)
-                    guess += String.valueOf(grid[index_row][i]);
-                //check if the guess is a valid keyword
-                valid = false;
-                for (int j = 0; j < keys.length; j++) {
-                    if (keys[j].toUpperCase().equals(guess))
-                    {
-                        valid = true;
-                        break;
-                    }
-                }
-                //guess is a word, proceed
-                if (valid)
+                //check if guess is the correct length
+                //make sure there are guess remaining
+                if (index_column == column)
                 {
-                    //check for letters to see if they are used in the keyword
-                    //if so, change background to yellow
-                    System.out.println("valid");
+                    //convert the guess input intpo a string
+                    guess = "";
                     for (int i = 0; i < column; i++)
-                    {
-                        for (int j = 0; j < column; j++)
+                        guess += String.valueOf(grid[index_row][i]);
+                    //check if the guess is a valid keyword
+                    valid = false;
+                    for (int j = 0; j < keys.length; j++) {
+                        if (keys[j].toUpperCase().equals(guess))
                         {
-                            if (grid[index_row][i] == keyword[j])
-                            {
-                                //orange looks better than default yellow
-                                labelArray[index_row][i].setBackground(Color.ORANGE);
-                            }
+                            valid = true;
+                            break;
                         }
                     }
-                    //check for letters that are in the same position as the keyword
-                    //if so, set background to green
-                    for (int i = 0; i < column; i++)
+                    //guess is a word, proceed
+                    if (valid)
                     {
-                        if (grid[index_row][i] == keyword[i])
-                            labelArray[index_row][i].setBackground(Color.GREEN);
+                        //check for letters to see if they are used in the keyword
+                        //if so, change background to yellow
+                        System.out.println("valid");
+                        for (int i = 0; i < column; i++)
+                        {
+                            for (int j = 0; j < column; j++)
+                            {
+                                if (grid[index_row][i] == keyword[j])
+                                {
+                                    //orange looks better than default yellow
+                                    labelArray[index_row][i].setBackground(Color.ORANGE);
+                                }
+                            }
+                        }
+                        //check for letters that are in the same position as the keyword
+                        //if so, set background to green
+                        for (int i = 0; i < column; i++)
+                        {
+                            if (grid[index_row][i] == keyword[i])
+                                labelArray[index_row][i].setBackground(Color.GREEN);
+                        }
+                        //reload screed
+                        repaint();
+                        //move to next row for next guess
+                        index_row++;
+                        //reset column index back to start
+                        index_column = 0;
                     }
-                    //reload screed
-                    repaint();
-                    //move to next row for next guess
-                    index_row++;
-                    //reset column index back to start
-                    index_column = 0;
-                }
-                //guess is not a word, turn boxes red to indicate such
-                else
-                {
-                    for (int i = 0; i < column; i++)
-                        labelArray[index_row][i].setBackground(Color.RED);
+                    //guess is not a word, turn boxes red to indicate such
+                    else
+                    {
+                        for (int i = 0; i < column; i++)
+                            labelArray[index_row][i].setBackground(Color.RED);
+                    }
                 }
             }
+            else
+                new Loser(keyString);
         }
     }
     //not used but needed for "implements keyListener"
