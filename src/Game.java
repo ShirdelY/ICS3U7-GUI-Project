@@ -69,7 +69,7 @@ public class Game extends JFrame implements KeyListener{
         labelArray = new JLabel[row][column];
         //initial grid corner
         int xcoord = startcorner, ycoord = 50;
-        //initialize array as blank
+        //initialize JLabel array as blank
         for (int j = 0; j < row; j++)
         {
             for (int i = 0; i < column; i++)
@@ -78,13 +78,13 @@ public class Game extends JFrame implements KeyListener{
                 labelArray[j][i] = new JLabel(" ", SwingConstants.CENTER);
                 labelArray[j][i].setBackground(Color.LIGHT_GRAY);
                 labelArray[j][i].setOpaque(true);
-                labelArray[j][i].setBounds(xcoord, ycoord, letterWidth, letterWidth);
+                labelArray[j][i].setBounds(xcoord, ycoord, letterWidth, 50);
                 this.add(labelArray[j][i]);
                 //increment next space
                 xcoord += (letterWidth + spaceWidth);
             }
             //increment y coordinate to next row
-            ycoord += letterWidth + spaceWidth;
+            ycoord += 50 + spaceWidth;
             //reset the column coordinate
             xcoord = startcorner;
         }
@@ -101,7 +101,7 @@ public class Game extends JFrame implements KeyListener{
     @Override
     public void keyTyped(KeyEvent e) {
         //check if input is a letter
-        if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 65 && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 90)
+        if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 'A' && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 'Z')
         {
             if (index_column < column)
             {
@@ -128,31 +128,28 @@ public class Game extends JFrame implements KeyListener{
         //check if enter key is pressed
 
         //ADD ONSCREEN KEYBOARD
-        if (e.getKeyCode()==KeyEvent.VK_ENTER)
+        if (e.getKeyChar() == '0')
         {
             //check if guess is the correct length
-            if (index_column == row)
+            if (index_column == column)
             {
-                //diagnostic tool
-                for (int x = 0; x < column; x++)
-                {
-                    System.out.print(String.valueOf(grid[index_row][x]).charAt(0));
-                }
-                System.out.println();
-                for (String key : keys) {
-                    for (int j = 0; j < column; j++) {
-                        valid = true;
-                        if (grid[index_row][j] != key.charAt(j)) {
+                //check if the guess is a valid keyword
+                for (int j = 0; j < keys.length; j++) {
+                    valid = true;
+                    for (int i = 0; i < column; i++) {
+                        if (grid[index_row][i] != keys[j].charAt(i)) {
                             valid = false;
                             break;
                         }
                     }
+                    System.out.println(valid);
                     if (valid)
                         break;
                 }
                 if (valid)
                 {
                     //check for yellow letters
+                    System.out.println("valid");
                     for (int i = 0; i < column; i++)
                     {
                         for (int j = 0; j < column; j++)
