@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Locale;
 
 public class Game extends JFrame implements KeyListener{
     //declare variables
@@ -76,7 +75,7 @@ public class Game extends JFrame implements KeyListener{
         {
             for (int i = 0; i < column; i++)
             {
-                //add new jlabel for grid sector
+                //add new JLabel for grid sector
                 labelArray[j][i] = new JLabel(" ", SwingConstants.CENTER);
                 labelArray[j][i].setBackground(Color.LIGHT_GRAY);
                 labelArray[j][i].setOpaque(true);
@@ -148,10 +147,11 @@ public class Game extends JFrame implements KeyListener{
                         break;
                     }
                 }
-
+                //guess is a word, proceed
                 if (valid)
                 {
-                    //check for yellow letters
+                    //check for letters to see if they are used in the keyword
+                    //if so, change background to yellow
                     System.out.println("valid");
                     for (int i = 0; i < column; i++)
                     {
@@ -159,18 +159,23 @@ public class Game extends JFrame implements KeyListener{
                         {
                             if (grid[index_row][i] == keyword[j])
                             {
+                                //orange looks better than default yellow
                                 labelArray[index_row][i].setBackground(Color.ORANGE);
                             }
                         }
                     }
-                    //check for green letters
+                    //check for letters that are in the same position as the keyword
+                    //if so, set background to green
                     for (int i = 0; i < column; i++)
                     {
                         if (grid[index_row][i] == keyword[i])
                             labelArray[index_row][i].setBackground(Color.GREEN);
                     }
+                    //reload screed
                     repaint();
+                    //move to next row for next guess
                     index_row++;
+                    //reset column index back to start
                     index_column = 0;
                 }
                 //guess is not a word, turn boxes red to indicate such
@@ -182,7 +187,7 @@ public class Game extends JFrame implements KeyListener{
             }
         }
     }
-    //not used but needed for "implements keyListener
+    //not used but needed for "implements keyListener"
     public void keyPressed(KeyEvent e) {
 
     }

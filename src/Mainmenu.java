@@ -85,8 +85,9 @@ public class Mainmenu extends JFrame implements ActionListener {
 			dispose();
 		}
 		if (e.getSource() == hardmode) {
-			System.out.println("hard mode");
 			// if hardmode is pressed, it clears the frame and calls hard mode class
+			new Game(Main.getSeven()[(int) (Math.random() * Main.getSeven().length)], Main.getSeven(), 1);
+			dispose();
 		}
 		if (e.getSource() == instructions) {
 //			System.out.println("instructions");
