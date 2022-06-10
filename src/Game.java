@@ -117,7 +117,7 @@ public class Game extends JFrame implements KeyListener{
         //check if input was a backspace
         else if (e.getKeyChar() == 8)
         {
-            //makesure index will not go negative
+            //make sure index will not go negative
             if (index_column > 0)
             {
                 index_column--;
@@ -171,6 +171,7 @@ public class Game extends JFrame implements KeyListener{
                     }
                     repaint();
                     index_row++;
+                    index_column = 0;
                 }
                 //guess is not a word, turn boxes red to indicate such
                 else
