@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Locale;
 
 public class Game extends JFrame implements KeyListener{
     //declare variables
@@ -47,7 +48,7 @@ public class Game extends JFrame implements KeyListener{
         }
         //create character array from String keyword
         for (int i = 0; i < key.length(); i++)
-            keyword[i] = key.charAt(i);
+            keyword[i] = key.toUpperCase().charAt(i);
         //import keyword source parameters
         this.keys = keys;
         //create JFrame
@@ -141,7 +142,7 @@ public class Game extends JFrame implements KeyListener{
                 //check if the guess is a valid keyword
                 valid = false;
                 for (int j = 0; j < keys.length; j++) {
-                    if (keys[j].equals(guess))
+                    if (keys[j].toUpperCase().equals(guess))
                     {
                         valid = true;
                         break;
@@ -159,7 +160,6 @@ public class Game extends JFrame implements KeyListener{
                             if (grid[index_row][i] == keyword[j])
                             {
                                 labelArray[index_row][i].setBackground(Color.ORANGE);
-                                break;
                             }
                         }
                     }
