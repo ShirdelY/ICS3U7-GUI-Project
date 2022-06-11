@@ -53,13 +53,13 @@ public class Game extends JFrame implements KeyListener{
         this.keys = keys;
         keyString = key;
         //create JFrame
-        this.setLayout(null);
-        this.getContentPane().setBackground(Color.WHITE);
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setPreferredSize(new Dimension(600, 650));
-        this.pack();
-        this.addKeyListener(this);
+        setLayout(null);
+        getContentPane().setBackground(Color.WHITE);
+        setVisible(true);
+        setResizable(false);
+        setPreferredSize(new Dimension(600, 650));
+        pack();
+        addKeyListener(this);
         //initialize gameboard with spaces
         for (int i = 0; i < row; i++)
         {
@@ -91,13 +91,123 @@ public class Game extends JFrame implements KeyListener{
             //reset the column coordinate
             xcoord = startcorner;
         }
-        //create kayboard
-        makeKeyboard();
+        
+        //create keyboard
+        
+//        JPanel keyboardPanel = new JPanel();
+        JButton[] buttonKeysFirstRow = new JButton[10];
+        JButton[] buttonKeysSecondRow = new JButton[9];
+        JButton[] buttonKeysThirdRow = new JButton[9];
+        
+        String[][] keys1 = {{ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"},
+				{"A", "S", "D", "F", "G", "H", "J", "K", "L"}, 
+				{"Enter", "Z", "X", "C", "V", "B", "N", "M", "Delete"}};
+//        
+        Box[] keyboard = new Box[3];
+        for (int i = 0; i < keyboard.length; i++) {
+        	keyboard[i] = Box.createHorizontalBox();
+        	switch (i) {
+        	case 0:
+        		for (int j = 0; j < buttonKeysFirstRow.length; j++) {
+                    keyboard[i].add(new JButton(keys1[i][j]));
+        		}
+        		break;
+        	case 1:
+        		for (int j = 0; j < buttonKeysSecondRow.length; j++) {
+        			keyboard[i].add(new JButton(keys1[i][j]));
+        		}
+        		break;
+        	case 2:
+        		for (int j = 0; j < buttonKeysThirdRow.length; j++) {
+        			keyboard[i].add(new JButton(keys1[i][j]));
+        		}
+        		break;
+        	}
+        	add(keyboard[i]);
+        }
+        this.pack();
+        this.setVisible(true);
+        
+//        keyboardPanel.add(keyboard);
     }
+        
+//        
+//        setLayout(new GridBagLayout());
+//        for (String[] row: keys1) {
+//			JPanel rowKeys = new JPanel();
+//			rowKeys.setLayout(new GridLayout(4, row.length));
+//			for (String key2: row) {
+//				rowKeys.add(new JButton(key2));
+//			}
+//			add(rowKeys);
+//		}
+//    }
+//    private void MakeKeyboard() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	public static class MakeKeyboard extends JFrame {
+//		
+//
+//		MakeKeyboard() {
+//			setLayout(new GridLayout(6,2));
+//			for (String[] row: keys) {
+//				JPanel rowKeys = new JPanel();
+//				rowKeys.setLayout(new GridLayout(1, row.length));
+//				for (String key: row) {
+//					rowKeys.add(new JButton(key));
+//				}
+//				add(rowKeys);
+//			}
+//		}
+//	}
 
-    void makeKeyboard() {
-
-    }
+//    void makeKeyboard() {
+//        JPanel typeKeyboard = new JPanel();
+//        typeKeyboard.setLayout(new GridLayout(3,1));
+//    	
+//    	String[] row1 = { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
+//    	String[] row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
+//    	String[] row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Delete"};
+//
+//    	Button[] set_row1 = new Button[row1.length];
+//        JPanel p1 = new JPanel(new GridLayout(1, row1.length));
+//        for (String b: row1) {
+//        	p1.add(new JButton(b));
+//        }
+//        this.add(p1);
+//        
+//        Button[] set_row2 = new Button[row2.length];
+//        JPanel p2 = new JPanel(new GridLayout(1, row2.length));
+//        for (String b: row2) {
+//        	p2.add(new JButton(b));
+//        }
+//        typeKeyboard.add(p2);
+//        
+//        Button[] set_row3 = new Button[row3.length];
+//        JPanel p3 = new JPanel(new GridLayout(1, row3.length));
+//        for (String b: row3) {
+//        	p3.add(new JButton(b));
+//        }
+//        typeKeyboard.add(p3);
+//        this.add(p1);
+//        this.add(p2);
+//        this.add(p3);
+//        this.getContentPane().add(typeKeyboard);
+//        this.pack();
+//        this.setVisible(true);
+//
+//    		setLayout(new GridLayout(10,2));
+//    		for (String[] row: keys) {
+//    			JPanel rowKeys = new JPanel();
+//    			rowKeys.setLayout(new GridLayout(1, row.length));
+//    			for (String key: row) {
+//    				rowKeys.add(new JButton(key));
+//    			}
+//    			add(rowKeys);
+//    		}
+//    }
 
     /**
      * key press validation for entries
