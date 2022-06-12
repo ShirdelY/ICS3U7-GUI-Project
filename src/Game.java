@@ -91,24 +91,31 @@ public class Game extends JFrame implements KeyListener{
             //reset the column coordinate
             xcoord = startcorner;
         }
-        
         //create keyboard
-        
+
         JPanel keyboardPanel = new JPanel();
         JButton[] buttonKeysFirstRow = new JButton[10];
         JButton[] buttonKeysSecondRow = new JButton[9];
         JButton[] buttonKeysThirdRow = new JButton[9];
-        
+
         String[][] keys1 = {{ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"},
-				{"A", "S", "D", "F", "G", "H", "J", "K", "L"}, 
-				{"Enter", "Z", "X", "C", "V", "B", "N", "M", "Delete"}};
+                {"A", "S", "D", "F", "G", "H", "J", "K", "L"},
+                {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Delete"}};
 
         for (int i = 0; i < buttonKeysFirstRow.length; i++)
         {
+            buttonKeysFirstRow[i] = new JButton(keys1[0][i]);
+            buttonKeysFirstRow[i].setBackground(Color.LIGHT_GRAY);
+            buttonKeysFirstRow[i].setOpaque(true);
+            buttonKeysFirstRow[i].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+            this.add(buttonKeysFirstRow[i]);
 
+            xcoord += BUTTON_WIDTH + BUTTON_SPACE;
         }
+        xcoord = 128;
+        ycoord += BUTTON_HEIGHT + BUTTON_SPACE;
     }
-    
+
     /**
      * key press validation for entries
      * @param e - key typed
