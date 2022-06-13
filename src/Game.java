@@ -257,7 +257,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                 //check if guess is the correct length
                 //make sure there are guess remaining
                 if (index_column == column) {
-                    //convert the guess input intpo a string
+                    //convert the guess input into a string
                     guess = "";
                     for (int i = 0; i < column; i++)
                         guess += String.valueOf(grid[index_row][i]);
