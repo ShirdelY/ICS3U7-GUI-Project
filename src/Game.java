@@ -20,6 +20,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
     final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
     int keyboard_x = 128, keyboard_y = 425;
     final int KEY_START_X = 128;
+    final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 
     /**
      * Generate game window for wordle
@@ -113,6 +114,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
             //get rid of button border
             row1_buttons[a].setBorder(BorderFactory.createEmptyBorder());
             row1_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+            row1_buttons[a].setBackground(Color.LIGHT_GRAY);
             //set un-focusable to fix key listener conflict
             row1_buttons[a].setFocusable(false);
             //increment column coordinate to next space
@@ -136,6 +138,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
             //get rid of button border
             row2_buttons[b].setBorder(BorderFactory.createEmptyBorder());
             row2_buttons[b].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+            row2_buttons[b].setBackground(Color.LIGHT_GRAY);
             //set un-focusable to fix key listener conflict
             row2_buttons[b].setFocusable(false);
             //increment column coordinate to next space
@@ -158,6 +161,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
             row3_buttons[a] = new JButton(ROW3[a]);
             //get rid of button border
             row3_buttons[a].setBorder(BorderFactory.createEmptyBorder());
+            row3_buttons[a].setBackground(Color.LIGHT_GRAY);
             //set un-focusable to fix key listener conflict
             row3_buttons[a].setFocusable(false);
             //check if button should be back or enter key
@@ -223,6 +227,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                 grid[index_row][index_column] = String.valueOf(in).toUpperCase().charAt(0);
                 labelArray[index_row][index_column].setText(String.valueOf(grid[index_row][index_column]));
                 labelArray[index_row][index_column].setBackground(Color.GRAY);
+                labelArray[index_row][index_column].setForeground(Color.WHITE);
                 index_column++;
             }
         }
@@ -273,7 +278,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                             for (int j = 0; j < column; j++) {
                                 if (grid[index_row][i] == keyword[j]) {
                                     //orange looks better than default yellow
-                                    labelArray[index_row][i].setBackground(Color.ORANGE);
+                                    labelArray[index_row][i].setBackground(YELLOW);
                                 }
                             }
                         }
@@ -281,7 +286,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                         //if so, set background to green
                         for (int i = 0; i < column; i++) {
                             if (grid[index_row][i] == keyword[i])
-                                labelArray[index_row][i].setBackground(Color.GREEN);
+                                labelArray[index_row][i].setBackground(GREEN);
                         }
                         //reload screed
                         repaint();
