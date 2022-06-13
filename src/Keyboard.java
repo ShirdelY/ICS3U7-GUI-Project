@@ -1,6 +1,4 @@
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +12,7 @@ import javax.swing.SwingUtilities;
  * @author shizacharania
  * https://stackoverflow.com/questions/20975592/inconsistent-behavior/20976091
  */
-public class Keyboard extends JPanel {
+public class Keyboard extends JFrame {
 	private int row = 0, column = 0;
 	private int letterWidth = 0, spaceWidth = 0;
 	private char[][] grid;
@@ -43,7 +41,8 @@ public class Keyboard extends JPanel {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
-		frame.setSize(600,650);
+		frame.setSize(600, 650);
+		pack();
 		frame.setVisible(true);
 
 //		top_panel.add(label1);
@@ -117,33 +116,44 @@ public class Keyboard extends JPanel {
 		bottom_panel.setLayout(new GridLayout(3,1));
 		String[] row1 = { "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
     	String[] row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
-    	String[] row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Delete"};
-		
-    	JPanel p1 = new JPanel(new GridLayout(1, row1.length));
-    	for (String b: row1) {
-    		JButton button = new JButton(b); 
-//    		button.setBounds(); - add measurement
-    		p1.add(button);
+    	String[] row3 = {"Z", "X", "C", "V", "B", "N", "M"};
+		int keyxcoord = 128, keyycoord = 460;
+    	JPanel p1 = new JPanel();
+		JButton[] row1a = new JButton[10];
+    	for (int b = 0; b < row1.length; b++) {
+    		row1a[b] = new JButton(row1[b]);
+			row1a[b].setBounds(keyxcoord, keyycoord, 30, 50);
+			keyxcoord += 35;
+    		p1.add(row1a[b]);
     	}
+		keyxcoord = 128;
+		keyycoord += 55;
+		keyxcoord += 26;
     	bottom_panel.add(p1);
-    	
-    	JPanel p2 = new JPanel(new GridLayout(1, row2.length));
-    	for (String b: row2) {
-    		JButton button = new JButton(b); 
-//    		button.setBounds(); - add measurement
-    		p2.add(button);
-    	}
-    	bottom_panel.add(p2);
-    	
-    	JPanel p3 = new JPanel(new GridLayout(1, row3.length));
-    	for (String b: row3) {
-    		JButton button = new JButton(b); 
-//    		button.setBounds(); - add measurement
-    		p3.add(button);
-    	}
-    	bottom_panel.add(p3);
-    	
-    }
+
+		JPanel p2 = new JPanel();
+		JButton[] row2a = new JButton[9];
+		for (int b = 0; b < row2.length; b++) {
+			row2a[b] = new JButton(row2[b]);
+			row2a[b].setBounds(keyxcoord, keyycoord, 30, 50);
+			keyxcoord += 35;
+			p2.add(row2a[b]);
+		}
+		keyxcoord = 128;
+		keyycoord += 55;
+		keyxcoord += 26;
+		keyxcoord += 55;
+		bottom_panel.add(p2);
+
+		JPanel p3 = new JPanel();
+		JButton[] row3a = new JButton[7];
+		for (int b = 0; b < row3.length; b++) {
+			row3a[b] = new JButton(row3[b]);
+			row3a[b].setBounds(keyxcoord, keyycoord, 30, 50);
+			keyxcoord += 35;
+			p3.add(row3a[b]);
+		}
+	}
 	public static void main(String[] args) {
 		new Keyboard("crane", 0);
 	}
