@@ -20,8 +20,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
     final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
     int keyboard_x = 128, keyboard_y = 425;
     final int KEY_START_X = 128;
-    String[] row1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"}, row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"} , row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
-    JButton[] row1_buttons = new JButton[10];
+
     /**
      * Generate game window for wordle
      * @param key selected keyword for user to guess
@@ -106,13 +105,15 @@ public class Game extends JFrame implements KeyListener, ActionListener {
      */
     public void makeKeyboard() {
         //create first row of keys
+        JButton[] row1_buttons = new JButton[10];
+        final String[] ROW1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         //initialize each JButton
         for (int a = 0; a < 10; a++) {
-            row1_buttons[a] = new JButton(row1[a]);
+            row1_buttons[a] = new JButton(ROW1[a]);
             //get rid of button border
             row1_buttons[a].setBorder(BorderFactory.createEmptyBorder());
             row1_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
-            //set unfocusable to fix keylistener conflict
+            //set un-focusable to fix key listener conflict
             row1_buttons[a].setFocusable(false);
             //increment column coordinate to next space
             keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
@@ -128,9 +129,10 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 
         //create second row of keys
         JButton[] row2_buttons = new JButton[9];
+        final String[] ROW2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         //initialize each JButton
         for (int b = 0; b < 9; b++) {
-            row2_buttons[b] = new JButton(row2[b]);
+            row2_buttons[b] = new JButton(ROW2[b]);
             //get rid of button border
             row2_buttons[b].setBorder(BorderFactory.createEmptyBorder());
             row2_buttons[b].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -150,15 +152,16 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 
         //create third row of keys
         JButton[] row3_buttons = new JButton[10];
+        final String[] ROW3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
         //initialize each JButton
         for (int a = 0; a < 9; a++) {
-            row3_buttons[a] = new JButton(row3[a]);
+            row3_buttons[a] = new JButton(ROW3[a]);
             //get rid of button border
             row3_buttons[a].setBorder(BorderFactory.createEmptyBorder());
-            //set unfocusable to fix keylistener conflict
+            //set un-focusable to fix key listener conflict
             row3_buttons[a].setFocusable(false);
             //check if button should be back or enter key
-            if (a == 0 || a == row3.length-1) {
+            if (a == 0 || a == ROW3.length-1) {
                 //make these buttons 1.5 button widths wide
                 row3_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2), BUTTON_HEIGHT);
                 keyboard_x += BUTTON_WIDTH + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2) + BUTTON_SPACE;
@@ -179,16 +182,34 @@ public class Game extends JFrame implements KeyListener, ActionListener {
     {
         System.out.println(e.getActionCommand());
         switch (e.getActionCommand()) {
-            case ("Q") -> gameUpdate('Q');
-            case ("W") -> gameUpdate('W');
+            case ("A") -> gameUpdate('A');
+            case ("B") -> gameUpdate('B');
+            case ("C") -> gameUpdate('C');
+            case ("D") -> gameUpdate('D');
             case ("E") -> gameUpdate('E');
-            case ("R") -> gameUpdate('R');
-            case ("T") -> gameUpdate('T');
-            case ("Y") -> gameUpdate('Y');
-            case ("U") -> gameUpdate('U');
+            case ("F") -> gameUpdate('F');
+            case ("G") -> gameUpdate('G');
+            case ("H") -> gameUpdate('H');
             case ("I") -> gameUpdate('I');
+            case ("J") -> gameUpdate('J');
+            case ("K") -> gameUpdate('K');
+            case ("L") -> gameUpdate('L');
+            case ("M") -> gameUpdate('M');
+            case ("N") -> gameUpdate('N');
             case ("O") -> gameUpdate('O');
             case ("P") -> gameUpdate('P');
+            case ("Q") -> gameUpdate('Q');
+            case ("R") -> gameUpdate('R');
+            case ("S") -> gameUpdate('S');
+            case ("T") -> gameUpdate('T');
+            case ("U") -> gameUpdate('U');
+            case ("V") -> gameUpdate('V');
+            case ("W") -> gameUpdate('W');
+            case ("X") -> gameUpdate('X');
+            case ("Y") -> gameUpdate('Y');
+            case ("Z") -> gameUpdate('Z');
+            case ("Enter") -> gameUpdate((char) 8);
+            case ("Back") -> gameUpdate((char) 10);
         }
     }
     public void gameUpdate(char in)
