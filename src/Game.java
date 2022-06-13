@@ -91,50 +91,74 @@ public class Game extends JFrame implements KeyListener{
             //reset the column coordinate
             xcoord = startcorner;
         }
-
+        //create keyboard
         makeKeyboard();
+        //add keylistener for keyboard input
         addKeyListener(this);
     }
 
     public void makeKeyboard() {
+        //create first row of keys
         String[] row1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         JButton[] row1_buttons = new JButton[10];
+        //initialize each JButton
         for (int a = 0; a < 10; a++) {
             row1_buttons[a] = new JButton(row1[a]);
+            //get rid of button border
             row1_buttons[a].setBorder(BorderFactory.createEmptyBorder());
             row1_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+            //set unfocusable to fix keylistener conflict
             row1_buttons[a].setFocusable(false);
+            //increment column coordinate to next space
             keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
             this.add(row1_buttons[a]);
         }
 
+        //increment row coordinate to next space
         keyboard_y += BUTTON_HEIGHT + BUTTON_SPACE;
+        //reset column coordinate and shift half a space over
         keyboard_x = KEY_START_X + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2);
+
+        //create second row of keys
         String[] row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         JButton[] row2_buttons = new JButton[9];
+        //initialize each JButton
         for (int b = 0; b < 9; b++) {
             row2_buttons[b] = new JButton(row2[b]);
+            //get rid of button border
             row2_buttons[b].setBorder(BorderFactory.createEmptyBorder());
             row2_buttons[b].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+            //set unfocusable to fix keylistener conflict
             row2_buttons[b].setFocusable(false);
+            //increment column coordinate to next space
             keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
             this.add(row2_buttons[b]);
         }
 
+        //increment row coordinate to next space
         keyboard_y += BUTTON_HEIGHT + BUTTON_SPACE;
+        //reset column coordinate
         keyboard_x = KEY_START_X;
+
+        //create third row of keys
         String[] row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
         JButton[] row3_buttons = new JButton[10];
+        //initialize each JButton
         for (int a = 0; a < 9; a++) {
             row3_buttons[a] = new JButton(row3[a]);
+            //get rid of button border
             row3_buttons[a].setBorder(BorderFactory.createEmptyBorder());
+            //set unfocusable to fix keylistener conflict
             row3_buttons[a].setFocusable(false);
+            //check if button should be back or enter key
             if (a == 0 || a == row3.length-1) {
+                //make these buttons 1.5 button widths wide
                 row3_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2), BUTTON_HEIGHT);
                 keyboard_x += BUTTON_WIDTH + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2) + BUTTON_SPACE;
                 this.add(row3_buttons[a]);
             }
             else {
+                //make these buttons regular size
                 row3_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
                 keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
                 this.add(row3_buttons[a]);
