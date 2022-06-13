@@ -229,6 +229,13 @@ public class Game extends JFrame implements KeyListener, ActionListener {
         //check if input was a backspace
         else if (in == 8)
         {
+            if (index_column == column)
+            {
+                for (int i = 0; i < column; i++)
+                {
+                    labelArray[index_row][i].setBackground(Color.GRAY);
+                }
+            }
             //make sure index will not go negative
             if (index_column > 0)
             {
