@@ -1,9 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Game extends JFrame implements KeyListener{
+public class Game extends JFrame implements KeyListener, ActionListener {
     //declare variables
     private int row = 0, column = 0;
     private int letterWidth = 0, spaceWidth = 0;
@@ -115,7 +117,13 @@ public class Game extends JFrame implements KeyListener{
             //increment column coordinate to next space
             keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
             this.add(row1_buttons[a]);
+            //add action listener
+            row1_buttons[a].addActionListener(this);
         }
+
+        //create action listeners for first row
+        ActionListener[] row1actions = new ActionListener[10];
+
 
         //increment row coordinate to next space
         keyboard_y += BUTTON_HEIGHT + BUTTON_SPACE;
@@ -131,11 +139,13 @@ public class Game extends JFrame implements KeyListener{
             //get rid of button border
             row2_buttons[b].setBorder(BorderFactory.createEmptyBorder());
             row2_buttons[b].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
-            //set unfocusable to fix keylistener conflict
+            //set un-focusable to fix key listener conflict
             row2_buttons[b].setFocusable(false);
             //increment column coordinate to next space
             keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
             this.add(row2_buttons[b]);
+            //add action listener
+            row2_buttons[b].addActionListener(this);
         }
 
         //increment row coordinate to next space
@@ -166,9 +176,15 @@ public class Game extends JFrame implements KeyListener{
                 keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
                 this.add(row3_buttons[a]);
             }
+            //add action listener
+            row3_buttons[a].addActionListener(this);
         }
     }
-    
+
+    public void actionPerformed(ActionEvent e)
+    {
+
+    }
     public void gameUpdate(char in)
     {
         if (String.valueOf(in).toUpperCase().charAt(0) >= 'A' && String.valueOf(in).toUpperCase().charAt(0) <= 'Z')
@@ -196,7 +212,7 @@ public class Game extends JFrame implements KeyListener{
             }
         }
         //check if enter key is pressed
-        else if (in == 13) {
+        else if (in == 10) {
             if (index_row < row) {
                 //check if guess is the correct length
                 //make sure there are guess remaining
