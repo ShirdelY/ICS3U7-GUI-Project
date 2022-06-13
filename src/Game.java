@@ -12,7 +12,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
     private char[][] grid;
     private char[] keyword;
     private int index_row = 0, index_column = 0;
-    private String[] keys;
+    private final String[] keys;
     JLabel[][] labelArray;
     boolean valid = false;
     int startcorner;
@@ -20,6 +20,8 @@ public class Game extends JFrame implements KeyListener, ActionListener {
     final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
     int keyboard_x = 128, keyboard_y = 425;
     final int KEY_START_X = 128;
+    String[] row1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"}, row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"} , row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
+    JButton[] row1_buttons = new JButton[10];
     /**
      * Generate game window for wordle
      * @param key selected keyword for user to guess
@@ -104,8 +106,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
      */
     public void makeKeyboard() {
         //create first row of keys
-        String[] row1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
-        JButton[] row1_buttons = new JButton[10];
         //initialize each JButton
         for (int a = 0; a < 10; a++) {
             row1_buttons[a] = new JButton(row1[a]);
@@ -121,17 +121,12 @@ public class Game extends JFrame implements KeyListener, ActionListener {
             row1_buttons[a].addActionListener(this);
         }
 
-        //create action listeners for first row
-        ActionListener[] row1actions = new ActionListener[10];
-
-
         //increment row coordinate to next space
         keyboard_y += BUTTON_HEIGHT + BUTTON_SPACE;
         //reset column coordinate and shift half a space over
         keyboard_x = KEY_START_X + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2);
 
         //create second row of keys
-        String[] row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         JButton[] row2_buttons = new JButton[9];
         //initialize each JButton
         for (int b = 0; b < 9; b++) {
@@ -154,7 +149,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
         keyboard_x = KEY_START_X;
 
         //create third row of keys
-        String[] row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
         JButton[] row3_buttons = new JButton[10];
         //initialize each JButton
         for (int a = 0; a < 9; a++) {
@@ -183,10 +177,23 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 
     public void actionPerformed(ActionEvent e)
     {
-
+        System.out.println(e.getActionCommand());
+        switch (e.getActionCommand()) {
+            case ("Q") -> gameUpdate('Q');
+            case ("W") -> gameUpdate('W');
+            case ("E") -> gameUpdate('E');
+            case ("R") -> gameUpdate('R');
+            case ("T") -> gameUpdate('T');
+            case ("Y") -> gameUpdate('Y');
+            case ("U") -> gameUpdate('U');
+            case ("I") -> gameUpdate('I');
+            case ("O") -> gameUpdate('O');
+            case ("P") -> gameUpdate('P');
+        }
     }
     public void gameUpdate(char in)
     {
+        System.out.print(in);
         if (String.valueOf(in).toUpperCase().charAt(0) >= 'A' && String.valueOf(in).toUpperCase().charAt(0) <= 'Z')
         {
             if (index_column < column)
