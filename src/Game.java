@@ -16,7 +16,8 @@ public class Game extends JFrame implements KeyListener{
     int startcorner;
     String guess, keyString;
     final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
-    int keyboard_x = 128, keyboard_y = 460;
+    int keyboard_x = 128, keyboard_y = 425;
+    final int KEY_START_X = 128;
     /**
      * Generate game window for wordle
      * @param key selected keyword for user to guess
@@ -59,7 +60,6 @@ public class Game extends JFrame implements KeyListener{
         setResizable(false);
         setPreferredSize(new Dimension(600, 650));
         pack();
-        addKeyListener(this);
         //initialize gameboard with spaces
         for (int i = 0; i < row; i++)
         {
@@ -91,69 +91,72 @@ public class Game extends JFrame implements KeyListener{
             //reset the column coordinate
             xcoord = startcorner;
         }
-        
-        int keyxcoord = 0;
 
+        makeKeyboard();
+        addKeyListener(this);
+    }
+
+    public void makeKeyboard() {
         String[] row1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         JButton[] row1_buttons = new JButton[10];
         for (int a = 0; a < 10; a++) {
-        	JButton letter_button = new JButton(row1[a]);
-        	row1_buttons[a] = letter_button;
-        	letter_button.setBounds(keyxcoord, 450, 60, 50);
-			keyxcoord += 60;
-			this.add(letter_button); 
-		}
-        
-        keyxcoord = 30;
+            row1_buttons[a] = new JButton(row1[a]);
+            row1_buttons[a].setBorder(BorderFactory.createEmptyBorder());
+            row1_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+            row1_buttons[a].setFocusable(false);
+            keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
+            this.add(row1_buttons[a]);
+        }
+
+        keyboard_y += BUTTON_HEIGHT + BUTTON_SPACE;
+        keyboard_x = KEY_START_X + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2);
         String[] row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         JButton[] row2_buttons = new JButton[9];
         for (int b = 0; b < 9; b++) {
-        	JButton letter_button = new JButton(row2[b]);
-        	row2_buttons[b] = letter_button;
-        	letter_button.setBounds(keyxcoord, 505, 60, 50);
-			keyxcoord += 60;
-			this.add(letter_button); 
-		}
-        
-        keyxcoord = 0;
+            row2_buttons[b] = new JButton(row2[b]);
+            row2_buttons[b].setBorder(BorderFactory.createEmptyBorder());
+            row2_buttons[b].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+            row2_buttons[b].setFocusable(false);
+            keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
+            this.add(row2_buttons[b]);
+        }
+
+        keyboard_y += BUTTON_HEIGHT + BUTTON_SPACE;
+        keyboard_x = KEY_START_X;
         String[] row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
         JButton[] row3_buttons = new JButton[10];
         for (int a = 0; a < 9; a++) {
-        	JButton letter_button = new JButton(row3[a]);
-        	row3_buttons[a] = letter_button;
-        	if (a == 0 || a == row3.length-1) {
-				letter_button.setBounds(keyxcoord, 560, 90, 50);
-				keyxcoord += 90;
-				this.add(letter_button); 
-				continue;
-			}
-        	letter_button.setBounds(keyxcoord, 560, 60, 50);
-			keyxcoord += 60;
-			
-			this.add(letter_button); 
-		}
+            row3_buttons[a] = new JButton(row3[a]);
+            row3_buttons[a].setBorder(BorderFactory.createEmptyBorder());
+            row3_buttons[a].setFocusable(false);
+            if (a == 0 || a == row3.length-1) {
+                row3_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2), BUTTON_HEIGHT);
+                keyboard_x += BUTTON_WIDTH + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2) + BUTTON_SPACE;
+                this.add(row3_buttons[a]);
+            }
+            else {
+                row3_buttons[a].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
+                keyboard_x += BUTTON_WIDTH + BUTTON_SPACE;
+                this.add(row3_buttons[a]);
+            }
+        }
     }
-
-    /**
-     * key press validation for entries
-     * @param e - key typed
-     */
-    @Override
-    public void keyTyped(KeyEvent e) {
-        //check if input is a letter
-        if (String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) >= 'A' && String.valueOf(e.getKeyChar()).toUpperCase().charAt(0) <= 'Z')
+    
+    public void gameUpdate(char in)
+    {
+        if (String.valueOf(in).toUpperCase().charAt(0) >= 'A' && String.valueOf(in).toUpperCase().charAt(0) <= 'Z')
         {
             if (index_column < column)
             {
                 //add input letter to grid as uppercase
-                grid[index_row][index_column] = String.valueOf(e.getKeyChar()).toUpperCase().charAt(0);
+                grid[index_row][index_column] = String.valueOf(in).toUpperCase().charAt(0);
                 labelArray[index_row][index_column].setText(String.valueOf(grid[index_row][index_column]));
                 labelArray[index_row][index_column].setBackground(Color.GRAY);
                 index_column++;
             }
         }
         //check if input was a backspace
-        else if (e.getKeyChar() == 8)
+        else if (in == 8)
         {
             //make sure index will not go negative
             if (index_column > 0)
@@ -166,15 +169,11 @@ public class Game extends JFrame implements KeyListener{
             }
         }
         //check if enter key is pressed
-        //ADD ONSCREEN KEYBOARD
-        else if (e.getKeyChar() == '[')
-        {
-            if (index_row < row)
-            {
+        else if (in == 13) {
+            if (index_row < row) {
                 //check if guess is the correct length
                 //make sure there are guess remaining
-                if (index_column == column)
-                {
+                if (index_column == column) {
                     //convert the guess input intpo a string
                     guess = "";
                     for (int i = 0; i < column; i++)
@@ -182,24 +181,19 @@ public class Game extends JFrame implements KeyListener{
                     //check if the guess is a valid keyword
                     valid = false;
                     for (int j = 0; j < keys.length; j++) {
-                        if (keys[j].toUpperCase().equals(guess))
-                        {
+                        if (keys[j].toUpperCase().equals(guess)) {
                             valid = true;
                             break;
                         }
                     }
                     //guess is a word, proceed
-                    if (valid)
-                    {
+                    if (valid) {
                         //check for letters to see if they are used in the keyword
                         //if so, change background to yellow
                         System.out.println("valid");
-                        for (int i = 0; i < column; i++)
-                        {
-                            for (int j = 0; j < column; j++)
-                            {
-                                if (grid[index_row][i] == keyword[j])
-                                {
+                        for (int i = 0; i < column; i++) {
+                            for (int j = 0; j < column; j++) {
+                                if (grid[index_row][i] == keyword[j]) {
                                     //orange looks better than default yellow
                                     labelArray[index_row][i].setBackground(Color.ORANGE);
                                 }
@@ -207,8 +201,7 @@ public class Game extends JFrame implements KeyListener{
                         }
                         //check for letters that are in the same position as the keyword
                         //if so, set background to green
-                        for (int i = 0; i < column; i++)
-                        {
+                        for (int i = 0; i < column; i++) {
                             if (grid[index_row][i] == keyword[i])
                                 labelArray[index_row][i].setBackground(Color.GREEN);
                         }
@@ -220,16 +213,23 @@ public class Game extends JFrame implements KeyListener{
                         index_column = 0;
                     }
                     //guess is not a word, turn boxes red to indicate such
-                    else
-                    {
+                    else {
                         for (int i = 0; i < column; i++)
                             labelArray[index_row][i].setBackground(Color.RED);
                     }
                 }
-            }
-            else
+            } else
                 new Loser(keyString);
         }
+    }
+    /**
+     * key press validation for entries
+     * @param e - key typed
+     */
+    @Override
+    public void keyTyped(KeyEvent e) {
+        gameUpdate(e.getKeyChar());
+        System.out.print(e.getKeyChar());
     }
     //not used but needed for "implements keyListener"
     public void keyPressed(KeyEvent e) {
