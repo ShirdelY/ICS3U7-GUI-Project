@@ -91,29 +91,47 @@ public class Game extends JFrame implements KeyListener{
             //reset the column coordinate
             xcoord = startcorner;
         }
-        //create keyboard
+        
+        int keyxcoord = 0;
 
-        JPanel keyboardPanel = new JPanel();
-        JButton[] buttonKeysFirstRow = new JButton[10];
-        JButton[] buttonKeysSecondRow = new JButton[9];
-        JButton[] buttonKeysThirdRow = new JButton[9];
-
-        String[][] keys1 = {{ "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"},
-                {"A", "S", "D", "F", "G", "H", "J", "K", "L"},
-                {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Delete"}};
-
-        for (int i = 0; i < buttonKeysFirstRow.length; i++)
-        {
-            buttonKeysFirstRow[i] = new JButton(keys1[0][i]);
-            buttonKeysFirstRow[i].setBackground(Color.LIGHT_GRAY);
-            buttonKeysFirstRow[i].setOpaque(true);
-            buttonKeysFirstRow[i].setBounds(keyboard_x, keyboard_y, BUTTON_WIDTH, BUTTON_HEIGHT);
-            this.add(buttonKeysFirstRow[i]);
-
-            xcoord += BUTTON_WIDTH + BUTTON_SPACE;
-        }
-        xcoord = 128;
-        ycoord += BUTTON_HEIGHT + BUTTON_SPACE;
+        String[] row1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
+        JButton[] row1_buttons = new JButton[10];
+        for (int a = 0; a < 10; a++) {
+        	JButton letter_button = new JButton(row1[a]);
+        	row1_buttons[a] = letter_button;
+        	letter_button.setBounds(keyxcoord, 450, 60, 50);
+			keyxcoord += 60;
+			this.add(letter_button); 
+		}
+        
+        keyxcoord = 30;
+        String[] row2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
+        JButton[] row2_buttons = new JButton[9];
+        for (int b = 0; b < 9; b++) {
+        	JButton letter_button = new JButton(row2[b]);
+        	row2_buttons[b] = letter_button;
+        	letter_button.setBounds(keyxcoord, 505, 60, 50);
+			keyxcoord += 60;
+			this.add(letter_button); 
+		}
+        
+        keyxcoord = 0;
+        String[] row3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
+        JButton[] row3_buttons = new JButton[10];
+        for (int a = 0; a < 9; a++) {
+        	JButton letter_button = new JButton(row3[a]);
+        	row3_buttons[a] = letter_button;
+        	if (a == 0 || a == row3.length-1) {
+				letter_button.setBounds(keyxcoord, 560, 90, 50);
+				keyxcoord += 90;
+				this.add(letter_button); 
+				continue;
+			}
+        	letter_button.setBounds(keyxcoord, 560, 60, 50);
+			keyxcoord += 60;
+			
+			this.add(letter_button); 
+		}
     }
 
     /**
