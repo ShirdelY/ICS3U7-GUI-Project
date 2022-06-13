@@ -97,6 +97,9 @@ public class Game extends JFrame implements KeyListener{
         addKeyListener(this);
     }
 
+    /**
+     * create onscreen keyboard
+     */
     public void makeKeyboard() {
         //create first row of keys
         String[] row1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
