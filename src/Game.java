@@ -208,8 +208,8 @@ public class Game extends JFrame implements KeyListener, ActionListener {
             case ("X") -> gameUpdate('X');
             case ("Y") -> gameUpdate('Y');
             case ("Z") -> gameUpdate('Z');
-            case ("Enter") -> gameUpdate((char) 8);
-            case ("Back") -> gameUpdate((char) 10);
+            case ("Enter") -> gameUpdate((char) 10);
+            case ("Back") -> gameUpdate((char) 8);
         }
     }
     public void gameUpdate(char in)
