@@ -51,7 +51,7 @@ public class Start extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == start) {
 			//create main menu
-			new Mainmenu();
+			new Login();
 			dispose();
 		}
 	}
