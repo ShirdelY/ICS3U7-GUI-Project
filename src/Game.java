@@ -22,7 +22,8 @@ public class Game extends JFrame implements KeyListener, ActionListener {
     int keyboard_x = 128, keyboard_y = 425;
     final int KEY_START_X = 128;
     final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
-
+    final String[] ROW1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"}, ROW2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"}, ROW3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
+    JButton[] row1_buttons = new JButton[10], row2_buttons = new JButton[9], row3_buttons = new JButton[10];
     /**
      * Generate game window for wordle
      * @param key selected keyword for user to guess
@@ -107,8 +108,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
      */
     public void makeKeyboard() {
         //create first row of keys
-        JButton[] row1_buttons = new JButton[10];
-        final String[] ROW1 = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         //initialize each JButton
         for (int a = 0; a < 10; a++) {
             row1_buttons[a] = new JButton(ROW1[a]);
@@ -131,8 +130,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
         keyboard_x = KEY_START_X + (int) Math.round((double) (BUTTON_WIDTH + BUTTON_SPACE) / 2);
 
         //create second row of keys
-        JButton[] row2_buttons = new JButton[9];
-        final String[] ROW2 = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         //initialize each JButton
         for (int b = 0; b < 9; b++) {
             row2_buttons[b] = new JButton(ROW2[b]);
@@ -155,8 +152,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
         keyboard_x = KEY_START_X;
 
         //create third row of keys
-        JButton[] row3_buttons = new JButton[10];
-        final String[] ROW3 = {"Enter", "Z", "X", "C", "V", "B", "N", "M", "Back"};
         //initialize each JButton
         for (int a = 0; a < 9; a++) {
             row3_buttons[a] = new JButton(ROW3[a]);
@@ -273,17 +268,41 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                     //guess is a word, proceed
                     if (valid) {
                     	if (keyString.toUpperCase().equals(guess)) {
+                            for (int i = 0; i < column; i++)
+                                labelArray[index_row][i].setBackground(GREEN);
                     		new Congratulations();
-                    		dispose();
+                    		//dispose();
                     	}
                         //check for letters to see if they are used in the keyword
                         //if so, change background to yellow
-                        System.out.println("valid");
                         for (int i = 0; i < column; i++) {
                             for (int j = 0; j < column; j++) {
                                 if (grid[index_row][i] == keyword[j]) {
-                                    //orange looks better than default yellow
                                     labelArray[index_row][i].setBackground(YELLOW);
+                                    for (int x = 0 ; x < ROW1.length; x++)
+                                    {
+                                        if (ROW1[x].charAt(0) == keyword[j])
+                                        {
+                                            row1_buttons[x].setBackground(YELLOW);
+                                            row1_buttons[x].setForeground(Color.WHITE);
+                                        }
+                                    }
+                                    for (int y = 0; y < ROW2.length; y++)
+                                    {
+                                        if(ROW2[y].charAt(0) == keyword[j])
+                                        {
+                                            row2_buttons[y].setBackground(YELLOW);
+                                            row2_buttons[y].setForeground(Color.WHITE);
+                                        }
+                                    }
+                                    for (int z = 1; z < ROW3.length - 1; z++)
+                                    {
+                                        if(ROW3[z].charAt(0) == keyword[j])
+                                        {
+                                            row3_buttons[z].setBackground(YELLOW);
+                                            row3_buttons[z].setForeground(Color.WHITE);
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -291,7 +310,33 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                         //if so, set background to green
                         for (int i = 0; i < column; i++) {
                             if (grid[index_row][i] == keyword[i])
+                            {
                                 labelArray[index_row][i].setBackground(GREEN);
+                                for (int x = 0 ; x < ROW1.length; x++)
+                                {
+                                    if (ROW1[x].charAt(0) == keyword[i])
+                                    {
+                                        row1_buttons[x].setBackground(GREEN);
+                                        row1_buttons[x].setForeground(Color.WHITE);
+                                    }
+                                }
+                                for (int y = 0; y < ROW2.length; y++)
+                                {
+                                    if(ROW2[y].charAt(0) == keyword[i])
+                                    {
+                                        row2_buttons[y].setBackground(GREEN);
+                                        row2_buttons[y].setForeground(Color.WHITE);
+                                    }
+                                }
+                                for (int z = 1; z < ROW3.length - 1; z++)
+                                {
+                                    if(ROW3[z].charAt(0) == keyword[i])
+                                    {
+                                        row3_buttons[z].setBackground(GREEN);
+                                        row3_buttons[z].setForeground(Color.WHITE);
+                                    }
+                                }
+                            }
                         }
                         //reload screen
                         repaint();
@@ -308,7 +353,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                 
                 if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
             		new Loser(keyString);
-            		dispose();
                 }
                 guess_num++;
                 }
