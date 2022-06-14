@@ -13,6 +13,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
     private char[] keyword;
     private int index_row = 0, index_column = 0;
     private final String[] keys;
+    private int guess_num = 1;
     JLabel[][] labelArray;
     boolean valid = false;
     int startcorner;
@@ -253,7 +254,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
         }
         //check if enter key is pressed
         else if (in == 10) {
-            if (index_row < row) {
+            if (guess_num <= 6) {
                 //check if guess is the correct length
                 //make sure there are guess remaining
                 if (index_column == column) {
@@ -271,6 +272,10 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                     }
                     //guess is a word, proceed
                     if (valid) {
+                    	if (keyString.toUpperCase().equals(guess)) {
+                    		new Congratulations();
+                    		dispose();
+                    	}
                         //check for letters to see if they are used in the keyword
                         //if so, change background to yellow
                         System.out.println("valid");
@@ -288,7 +293,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                             if (grid[index_row][i] == keyword[i])
                                 labelArray[index_row][i].setBackground(GREEN);
                         }
-                        //reload screed
+                        //reload screen
                         repaint();
                         //move to next row for next guess
                         index_row++;
@@ -300,9 +305,14 @@ public class Game extends JFrame implements KeyListener, ActionListener {
                         for (int i = 0; i < column; i++)
                             labelArray[index_row][i].setBackground(Color.RED);
                     }
+                
+                if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
+            		new Loser(keyString);
+            		dispose();
                 }
-            } else
-                new Loser(keyString);
+                guess_num++;
+                }
+            } 
         }
     }
     /**
