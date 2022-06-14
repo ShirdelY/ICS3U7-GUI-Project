@@ -24,7 +24,7 @@ public class Login implements ActionListener{
 		frame.setSize(600, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		label1 = new JLabel("User");
+		label1 = new JLabel("Username");
 		label1.setBounds(50,150,80,25);
 		panel.add(label1);
 		
@@ -41,17 +41,17 @@ public class Login implements ActionListener{
 		panel.add(password);
 		
 		login = new JButton("Login");
-		login.setBounds(25,300,80,25);
+		login.setBounds(75,300,80,50);
 		panel.add(login);
 		login.addActionListener(this);
 		
-		add_account = new JButton("Switch Account");
-		add_account.setBounds(110,300,150,25);
+		add_account = new JButton("Don't have an account?");
+		add_account.setBounds(175,300,200,50);
 		panel.add(add_account);
 		add_account.addActionListener(this);
 		
 		back = new JButton("Back");
-		back.setBounds(275,300,80,25);
+		back.setBounds(395,300,80,50);
 		panel.add(back);
 		back.addActionListener(this);
 
@@ -73,14 +73,17 @@ public class Login implements ActionListener{
 		}
 		if (e.getSource() == add_account) {
 			// if back is pressed, we go back to the start by calling it
-//			new SwitchAccount();
+			new AddAccount();
 			frame.dispose();
 		}
 		if (e.getSource() == login) {
 			// if back is pressed, we go back to the start by calling it
 			String username_entered = username.getText();
 			String password_entered = password.getText();
-			System.out.print(username_entered + " " + password_entered);
+			if (username_entered.equals("python") && password_entered.equals("1234")) {
+				new Mainmenu();
+				frame.dispose();
+			}
 		}	
 	}
 }
