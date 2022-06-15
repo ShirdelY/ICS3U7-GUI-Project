@@ -121,6 +121,10 @@ public class AddAccount implements ActionListener{
 			String username_entered = username.getText();
 			String password_entered = password.getText();
 			String confirm_password_entered = confirm_password.getText();
+			if (username_entered.equals("") || password_entered.equals("")) {
+				JFrame jFrame = new JFrame();
+		        JOptionPane.showMessageDialog(jFrame, "Enter a username and a password");
+			}
 			try {
 				fileR = new FileReader(USERFILE);
 				bufferR = new BufferedReader(fileR);
@@ -143,8 +147,10 @@ public class AddAccount implements ActionListener{
 				//validate username and password
 				boolean userValid = false;
 				boolean passValid = false;
+				boolean isFilled = true;
 				// validate the username and password isn't empty
 				if (username_entered.equals("") || password_entered.equals("")) {
+					isFilled = false;
 					JFrame jFrame = new JFrame();
 			        JOptionPane.showMessageDialog(jFrame, "Enter a username and a password");
 				}
@@ -187,7 +193,7 @@ public class AddAccount implements ActionListener{
 				}
 				
 				//write to file
-				if (!usernameExists && !userValid && !passValid) {
+				if (!usernameExists && !userValid && !passValid && isFilled) {
 					// writing to file
 					fileW = new FileWriter (USERFILE, true); //if you set it to true, it appends
 		            bufferW = new BufferedWriter (fileW);
