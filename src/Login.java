@@ -30,10 +30,6 @@ public class Login implements ActionListener{
 	// filepath for usernames and passwords
 	final private static File USERFILE = new File("src/users.txt");
 	
-	public static void main(String[] args) {
-		new Login();
-	}
-	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, 2 other labels, 2 fields to enter text, and 3 buttons
 	 * @param - none
