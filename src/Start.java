@@ -1,7 +1,7 @@
 /**
  * Start.java - version 2
  * This class displays the title page of our program with the start button to go to the main menu
- * @author shizacharania
+ * @author Shiza and Shirdel
  */
 import java.awt.*;
 import java.awt.event.ActionEvent;
