@@ -51,6 +51,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	 * @param difficulty 0 for easy, 1 for hard
 	 */
 	Game (String key, String[] keys, int difficulty) {
+		key = "offer";
 		System.out.println(key);
 		//change grid size dependant on difficulty
 		//if easy mode
@@ -314,26 +315,9 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 						}
 						//check for letters to see if they are used in the keyword
 						//if so, change background to yellow
-						System.out.println("valid");
 						for (int i = 0; i < column; i++) {
-							// find the quantity of a given letter in a keyword
-							int letter_count = 0;
-							char guess_letter = guess.charAt(i);
 							for (int j = 0; j < column; j++) {
-								if (guess_letter == keyword[j]) {
-									letter_count++;
-								}
-							}
-							// find the number of times said letter appears in the guess
-							int guess_count =0;
-							char letter_in_guess_count = guess.charAt(i);
-							for (int j = 0; j < column; j++) {
-								if (letter_in_guess_count == guess.charAt(j)) {
-									guess_count++;
-								}
-							}
-							for (int j = 0; j < column; j++) {
-								if (grid[index_row][i] == keyword[j] && letter_count > guess_count) {
+								if (grid[index_row][i] == keyword[j]) {
 									//orange looks better than default yellow
 									labelArray[index_row][i].setBackground(YELLOW);
 								}
@@ -366,6 +350,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					// add the number of guesses the user has had
 					guess_num++;
 				}
+				repaint();
 			} 
 		}
 	}
