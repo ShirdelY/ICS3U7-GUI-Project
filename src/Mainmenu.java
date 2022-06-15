@@ -3,6 +3,7 @@
  * This class shows the main menu and its different buttons
  * @author Shiza and Shirdel
  */
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +20,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 	 * @param - none
 	 * @return - none
 	 */
+	
 	Mainmenu() {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,43 +28,50 @@ public class Mainmenu extends JFrame implements ActionListener {
 
 		// title label
 		JLabel label1 = new JLabel("Main Menu"); //center this after
-		label1.setBounds(250, 35, 100, 75);
+		label1.setBounds(170,40,400,100);
+		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
 		add(label1);
 
 		// button for instructions, settings, easymode, hardmode, stats, logout
 		// easymode button
 		easymode = new JButton("Easy Mode");
-		easymode.setBounds(150, 125, 300, 60);
+		easymode.setBounds(150, 150, 300, 60);
+		easymode.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(easymode);
 		easymode.addActionListener(this);
 
 		// hard mode button
 		hardmode = new JButton("Hard Mode");
-		hardmode.setBounds(150, 200, 300, 60);
+		hardmode.setBounds(150, 230, 300, 60);
+		hardmode.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(hardmode);
 		hardmode.addActionListener(this);
 		
 		// instructions button
 		instructions = new JButton("Instructions");
-		instructions.setBounds(150, 275, 300, 60);
+		instructions.setBounds(150, 305, 300, 60);
+		instructions.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(instructions);
 		instructions.addActionListener(this);
 		
 		// stats button
 		stats = new JButton("Statistics");
-		stats.setBounds(150, 350, 300, 60);
+		stats.setBounds(150, 380, 300, 60);
+		stats.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(stats);
 		stats.addActionListener(this);
 		
 		// settings button
 		settings = new JButton("Settings");
-		settings.setBounds(150, 425, 300, 60);
+		settings.setBounds(150, 455, 300, 60);
+		settings.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(settings);
 		settings.addActionListener(this);
 		
 		// logout button
 		logout = new JButton("Logout");
-		logout.setBounds(250, 500, 100, 50);
+		logout.setBounds(245, 530, 120, 60);
+		logout.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(logout);
 		logout.addActionListener(this);
 
