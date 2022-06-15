@@ -22,10 +22,6 @@ public class AddAccount implements ActionListener{
 	String input;
 	BufferedWriter bufferW;
 	BufferedReader bufferR;
-	
-	public static void main(String[] args) {
-		new AddAccount();
-	}
 
 	// static instance variables for the elements of the JFrame
 	private static JFrame frame;	
