@@ -30,6 +30,16 @@ public class Start extends JFrame implements ActionListener {
 		label1.setBounds(250, 35, 100, 50);
 		add(label1);
 		
+		// project title
+		JLabel label2 = new JLabel("ICS3U7 GUI Culminating Project");
+		label2.setBounds(200, 90, 300, 50);
+		add(label2);
+		
+		// authors credit
+		JLabel label3 = new JLabel("By Shiza Charania and Shirdel Yan");
+		label3.setBounds(200, 145, 300, 50);
+		add(label3);
+		
 		// start button
 		start = new JButton("Start");
 		start.setBounds(200, 475, 200, 75);
