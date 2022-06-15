@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 
 public class Mainmenu extends JFrame implements ActionListener {
 	// declaring buttons
-	JButton easymode, hardmode, instructions, settings, stats, back;
+	JButton easymode, hardmode, instructions, settings, stats, logout;
 
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 6 buttons
@@ -29,7 +29,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 		label1.setBounds(250, 35, 100, 75);
 		add(label1);
 
-		// button for instructions, settings, easymode, hardmode, stats, back
+		// button for instructions, settings, easymode, hardmode, stats, logout
 		// easymode button
 		easymode = new JButton("Easy Mode");
 		easymode.setBounds(150, 125, 300, 60);
@@ -60,11 +60,11 @@ public class Mainmenu extends JFrame implements ActionListener {
 		add(settings);
 		settings.addActionListener(this);
 		
-		// back button
-		back = new JButton("Back");
-		back.setBounds(250, 500, 100, 50);
-		add(back);
-		back.addActionListener(this);
+		// logout button
+		logout = new JButton("Logout");
+		logout.setBounds(250, 500, 100, 50);
+		add(logout);
+		logout.addActionListener(this);
 
 		pack();
 		setSize(600,650);
@@ -105,9 +105,9 @@ public class Mainmenu extends JFrame implements ActionListener {
 			new Settings();
 			dispose();
 		}
-		if (e.getSource() == back) {
-//			System.out.println("back");
-			// if back is pressed, we go to the start/title page by calling it
+		if (e.getSource() == logout) {
+//			System.out.println("logout");
+			// if logout is pressed, we go to the start page by calling it
 			new Start();
 			dispose();
 		}
