@@ -1,5 +1,5 @@
 /**
- * Mainmenu.java - version 1
+ * Mainmenu.java - version 2
  * This class shows the main menu and its different buttons
  * @author shizacharania
  */
@@ -90,7 +90,6 @@ public class Mainmenu extends JFrame implements ActionListener {
 			dispose();
 		}
 		if (e.getSource() == instructions) {
-//			System.out.println("instructions");
 			// if instructions is pressed, it clears the frame and calls instruction class
 			new Instructions();
 			dispose();
@@ -100,13 +99,11 @@ public class Mainmenu extends JFrame implements ActionListener {
 			// if instructions is pressed, it clears the frame and calls instruction class
 		}
 		if (e.getSource() == settings) {
-//			System.out.println("settings");
 			// if settings is pressed, it clears the frame and calls settings class
 			new Settings();
 			dispose();
 		}
 		if (e.getSource() == logout) {
-//			System.out.println("logout");
 			// if logout is pressed, we go to the start page by calling it
 			new Start();
 			dispose();
