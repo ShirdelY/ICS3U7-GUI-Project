@@ -1,7 +1,7 @@
 /**
  * Mainmenu.java - version 2
  * This class shows the main menu and its different buttons
- * @author shizacharania
+ * @author Shiza and Shirdel
  */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
