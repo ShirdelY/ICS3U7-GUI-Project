@@ -1,5 +1,5 @@
 /**
- * Settings.java - version 1
+ * Settings.java - version 2
  * This class is used as the setting frame and has different buttons to change
  * the theme, see the credits, switch accounts (for login - version 2), see the main menu, and to exit
  * @author shizacharania
