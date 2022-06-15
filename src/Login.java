@@ -24,7 +24,7 @@ public class Login implements ActionListener{
 	private static JButton login, add_account, back;
 	private static JTextField username;
 	private static JPasswordField password;
-	private static JLabel label1, label2;
+	private static JLabel title, label1, label2;
 	
 	final private static File USERFILE = new File("src/users.txt");
 	
@@ -34,6 +34,10 @@ public class Login implements ActionListener{
 		panel.setLayout(null);
 		frame.setSize(600, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		title = new JLabel("Login");
+		title.setBounds(275,40,300,25);
+		panel.add(title);
 		
 		label1 = new JLabel("Username");
 		label1.setBounds(50,150,80,25);
@@ -91,7 +95,11 @@ public class Login implements ActionListener{
 			// if back is pressed, we go back to the start by calling it
 			String username_entered = username.getText();
 			String password_entered = password.getText();
-			//create scanners to import txt files to arrays
+			if (username_entered.equals("") || password_entered.equals("")) {
+				JFrame jFrame = new JFrame();
+		        JOptionPane.showMessageDialog(jFrame, "Enter a username and a password");
+				//add break?
+			}
 			try {
 				file = new FileReader(USERFILE);
 				buffer = new BufferedReader(file);
