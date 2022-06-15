@@ -21,7 +21,7 @@ public class Settings extends JFrame implements ActionListener {
 	 * @return - none
 	 */
 	Settings() {
-		setLayout(null); //if formatting is weird, use this
+		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
@@ -94,19 +94,16 @@ public class Settings extends JFrame implements ActionListener {
 			}
 		}
 		if (e.getSource() == credits) {
-//			System.out.println("credits");
 			// if credits is pressed, it clears the frame and calls credits class
 			new Credits();
 			dispose();
 		}
 		if (e.getSource() == mainmenu) {
-//			System.out.println("main menu");
 			// if main menu is pressed, we go back to the main menu by calling it
 			new Mainmenu();
 			dispose();
 		}
 		if (e.getSource() == exit) {
-//			System.out.println("exit");
 			// if exit is pressed, we terminate the program
 			System.exit(0);
 		}
