@@ -1,21 +1,32 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Login implements ActionListener{
+	FileReader file;		//create stream to file
+    BufferedReader buffer;
+    String input;
 	private static JFrame frame;	
 	private static JPanel panel;	
 	private static JButton login, add_account, back;
 	private static JTextField username;
 	private static JPasswordField password;
 	private static JLabel label1, label2;
+	
+	final private static File USERFILE = new File("src/users.txt");
 	
 	Login () {
 		frame = new JFrame();
@@ -80,9 +91,36 @@ public class Login implements ActionListener{
 			// if back is pressed, we go back to the start by calling it
 			String username_entered = username.getText();
 			String password_entered = password.getText();
-			if (username_entered.equals("python") && password_entered.equals("1234")) {
-				new Mainmenu();
-				frame.dispose();
+			//create scanners to import txt files to arrays
+			try {
+				file = new FileReader(USERFILE);
+				buffer = new BufferedReader(file);
+				boolean usernameExists = false;
+				while ((input = buffer.readLine()) != null) {
+					String[] user_database = input.split(" ");
+					String correct_username = user_database[0];
+					String correct_password = user_database[1];
+					if (username_entered.equals(correct_username)) {
+						usernameExists = true;
+						if (password_entered.equals(correct_password)) {
+							new Mainmenu();
+							frame.dispose();
+						}
+						else {
+							//add popup
+							JFrame jFrame = new JFrame();
+					        JOptionPane.showMessageDialog(jFrame, "Username/Password is incorrect");
+						}
+					}
+				}
+				if (usernameExists == false) {
+					//add popup
+					JFrame jFrame = new JFrame();
+			        JOptionPane.showMessageDialog(jFrame, "Username/Password is incorrect");
+				}
+			}
+			catch (IOException err) {
+				System.out.print("error");
 			}
 		}	
 	}
