@@ -27,24 +27,28 @@ public class Start extends JFrame implements ActionListener {
 
 		// game title
 		JLabel label1 = new JLabel("HELLO WORDL"); //center this after
-		label1.setBounds(250, 35, 100, 50);
+		label1.setBounds(30, 150, 600, 100);
+		label1.setFont(new Font("SansSerif", Font.BOLD, 70));
 		add(label1);
 		
 		// project title
 		JLabel label2 = new JLabel("ICS3U7 GUI Culminating Project");
-		label2.setBounds(200, 90, 300, 50);
+		label2.setBounds(60, 250, 500, 50);
+		label2.setFont(new Font("SansSerif", Font.PLAIN, 30));
 		add(label2);
-		
-		// authors credit
-		JLabel label3 = new JLabel("By Shiza Charania and Shirdel Yan");
-		label3.setBounds(200, 145, 300, 50);
-		add(label3);
 		
 		// start button
 		start = new JButton("Start");
-		start.setBounds(200, 475, 200, 75);
+		start.setBounds(200, 375, 200, 75);
+		start.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(start);
 		start.addActionListener(this);
+		
+		// authors credit
+		JLabel label3 = new JLabel("By Shiza Charania and Shirdel Yan");
+		label3.setBounds(125, 550, 500, 50);
+		label3.setFont(new Font("SansSerif", Font.ITALIC, 20));
+		add(label3);
 		
 		pack();
 		setSize(600,650);
