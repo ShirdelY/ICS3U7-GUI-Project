@@ -1,7 +1,7 @@
 /**
- * Loser.java - version 1
+ * Loser.java - version 2
  * This class shows a frame to tell the user that they ran out of guesses and inform them what the word was
- * @author shizacharania
+ * @author Shiza and Shirdel
  */
 import java.awt.*;
 import java.awt.event.ActionEvent;
