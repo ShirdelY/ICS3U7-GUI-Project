@@ -71,13 +71,11 @@ public class Loser extends JFrame implements ActionListener {
 			// if statistics is pressed, we show the statistics frame
 		}
 		if (e.getSource() == mainmenu) {
-//			System.out.println("main menu");
 			// if main menu is pressed, we go back to the main menu by calling it
 			new Mainmenu();
 			dispose();
 		}
 		if (e.getSource() == exit) {
-//			System.out.println("exit");
 			// if exit is pressed, we terminate the program
 			System.exit(0);
 		}
