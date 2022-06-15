@@ -51,7 +51,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	 * @param difficulty 0 for easy, 1 for hard
 	 */
 	Game (String key, String[] keys, int difficulty) {
-		key = "offer";
 		System.out.println(key);
 		//change grid size dependant on difficulty
 		//if easy mode
@@ -216,7 +215,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	public void actionPerformed(ActionEvent e)
 	{
 		// checking which letter on the on-screen keyboard the user pressed - from "A" to "Z" and "Enter" and "Back
-		System.out.println(e.getActionCommand());
 		switch (e.getActionCommand()) {
 		case ("A") -> gameUpdate('A');
 		case ("B") -> gameUpdate('B');
@@ -255,7 +253,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	 */
 	public void gameUpdate(char in)
 	{
-		System.out.print(in);
 		if (String.valueOf(in).toUpperCase().charAt(0) >= 'A' && String.valueOf(in).toUpperCase().charAt(0) <= 'Z')
 		{
 			if (index_column < column)
@@ -362,7 +359,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		gameUpdate(e.getKeyChar());
-		System.out.print(e.getKeyChar());
 	}
 	/**
 	 * keyPressed -  not used but needed for keyTyped to restrict errors
