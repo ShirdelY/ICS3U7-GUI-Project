@@ -1,7 +1,7 @@
 /**
- * Instructions.java - version 1
+ * Instructions.java - version 2
  * This class displays an image with the instructions + a title and button to go back to the main menu
- * @author shizacharania
+ * @author Shiza and Shirdel
  */
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -25,6 +25,7 @@ public class Instructions extends JFrame implements ActionListener {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		getContentPane();
 
 		// title of frame
 		JLabel label1 = new JLabel("INSTRUCTIONS:"); //center this after
@@ -58,7 +59,6 @@ public class Instructions extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == mainmenu) {
-//			System.out.println("main menu");
 			// if main menu is pressed, we go back to the main menu by calling it
 			new Mainmenu();
 			dispose();
