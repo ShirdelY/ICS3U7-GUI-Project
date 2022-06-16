@@ -27,7 +27,8 @@ public class Settings extends JFrame implements ActionListener {
 
 		// label for title
 		JLabel label1 = new JLabel("SETTINGS"); //center this after
-		label1.setBounds(250, 35, 100, 50);
+		label1.setBounds(180, 50, 300, 50);
+		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
 		add(label1);
 
 		// button for back, switch account, dark mode, light mode, logout
@@ -36,24 +37,28 @@ public class Settings extends JFrame implements ActionListener {
 		// theme button
 		theme = new JButton("Dark Mode");
 		theme.setBounds(150, 175, 300, 75);
+		theme.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(theme);
 		theme.addActionListener(this);
 
 		// credits button
 		credits = new JButton("Credits");
 		credits.setBounds(150, 275, 300, 75);
+		credits.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(credits);
 		credits.addActionListener(this);
 
 		// main menu button
 		mainmenu = new JButton("Main Menu");
 		mainmenu.setBounds(150, 375, 300, 75);
+		mainmenu.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(mainmenu);
 		mainmenu.addActionListener(this);
 
 		// exit button
 		exit = new JButton("Exit");
 		exit.setBounds(250, 475, 100, 50);
+		exit.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(exit);
 		exit.addActionListener(this);
 
