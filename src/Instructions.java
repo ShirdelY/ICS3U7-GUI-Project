@@ -28,8 +28,10 @@ public class Instructions extends JFrame implements ActionListener {
 		getContentPane();
 
 		// title of frame
-		JLabel label1 = new JLabel("INSTRUCTIONS:"); //center this after
-		label1.setBounds(250, 35, 100, 50);
+		JLabel label1 = new JLabel("INSTRUCTIONS"); //center this after
+		label1.setBounds(120, 30, 500, 50);
+		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
+
 		add(label1);
 		
 		// main menu buttons
