@@ -26,13 +26,19 @@ public class Loser extends JFrame implements ActionListener {
 		setVisible(true);
 
 		// title label
-		JLabel label1 = new JLabel("You couldn't guess the word in 6 tries :(. The word was:"); //center this after
-		label1.setBounds(150, 150, 400, 50);
+		JLabel label1 = new JLabel("You couldn't guess the word in 6 tries :("); //center this after
+		label1.setBounds(20, 150, 600, 50);
+		label1.setFont(new Font("SansSerif", Font.BOLD, 25));
 		add(label1);
+		JLabel label2 = new JLabel("The word was:"); //center this after
+		label2.setBounds(175, 175, 600, 100);
+		label2.setFont(new Font("SansSerif", Font.BOLD, 25));
+		add(label2);
 		
-		// title label
+		// show word label
 		JLabel show_word = new JLabel(word); //center this after
-		show_word.setBounds(300, 225, 400, 50);
+		show_word.setBounds(240, 250, 400, 50);
+		show_word.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(show_word);
 
 		// statistics button
