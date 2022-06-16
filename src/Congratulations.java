@@ -26,9 +26,15 @@ public class Congratulations extends JFrame implements ActionListener {
 		setVisible(true);
 
 		// title label
-		JLabel label1 = new JLabel("CONGRATULATIONS!!! YOU GOT THE WORD"); //center this after
-		label1.setBounds(150, 200, 400, 50);
+		JLabel label1 = new JLabel("CONGRATULATIONS!"); //center this after
+		label1.setBounds(70, 150, 600, 100);
+		label1.setFont(new Font("SansSerif", Font.BOLD, 40));
 		add(label1);
+		
+		JLabel label2 = new JLabel("YOU GOT THE WORD!!!"); //center this after
+		label2.setBounds(50, 215, 600, 100);
+		label2.setFont(new Font("SansSerif", Font.BOLD, 40));
+		add(label2);
 		
 		// statistics button
 		statistics = new JButton("Statistics");
@@ -51,14 +57,6 @@ public class Congratulations extends JFrame implements ActionListener {
 		pack();
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	/**
-	 * main method for calling the Congratulations() constructor
-	 * @param args
-	 * @return - none
-	 */
-	public static void main(String[] args) {
-		new Congratulations();
 	}
 	/**
 	 * actionPerformed method to manipulate and set specific instructions for the buttons
