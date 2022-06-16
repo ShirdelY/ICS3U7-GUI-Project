@@ -45,27 +45,30 @@ public class Login implements ActionListener{
 		
 		// title for login page
 		title = new JLabel("Login");
-		title.setBounds(275,40,300,25);
+		title.setBounds(225,40,300,100);
+		title.setFont(new Font("SansSerif", Font.PLAIN, 50));
 		panel.add(title);
 		
 		// username label
 		label1 = new JLabel("Username");
-		label1.setBounds(50,150,80,25);
+		label1.setBounds(40,150,100,50);
+		label1.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		panel.add(label1);
 		
 		// username text field
 		username = new JTextField(20);
-		username.setBounds(150,150,160,25);
+		username.setBounds(175,165,160,25);
 		panel.add(username);
 		
 		// password label
 		label2 = new JLabel("Password");
-		label2.setBounds(50,200,80,25);
+		label2.setBounds(40,205,100,50);
+		label2.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		panel.add(label2);
 		
 		// password field
 		password = new JPasswordField(20);
-		password.setBounds(150,200,160,25);
+		password.setBounds(175,215,160,25);
 		panel.add(password);
 		
 		// button to login

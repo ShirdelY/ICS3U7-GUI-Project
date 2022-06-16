@@ -29,7 +29,7 @@ public class AddAccount implements ActionListener{
 	private static JButton add_acc, back;
 	private static JTextField username;
 	private static JPasswordField password, confirm_password;
-	private static JLabel title, instructions, label1, label2, label3;
+	private static JLabel title, instructions1, instructions2, label1, label2, label3;
 	
 	// filepath for usernames and passwords
 	final private static File USERFILE = new File("src/users.txt");
@@ -49,53 +49,62 @@ public class AddAccount implements ActionListener{
 		
 		// title for adding accounts page
 		title = new JLabel("Add Account");
-		title.setBounds(250,40,300,25);
+		title.setBounds(130,40,400,100);
+		title.setFont(new Font("SansSerif", Font.PLAIN, 50));
 		panel.add(title);
 		
-		// instructions label for entering a username and passowrd
-		instructions = new JLabel("Enter a username and that doesn't have spaces and a password with more than 4 lettters");
-		instructions.setBounds(20,75,600,25);
-		panel.add(instructions);
+		// instructions labels for entering a username and passowrd
+		instructions1 = new JLabel("Enter a username and that doesn't have spaces");
+		instructions1.setBounds(120,120,600,25);
+		instructions1.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		panel.add(instructions1);
+		instructions2 = new JLabel(" and a password with more than 4 lettters");
+		instructions2.setBounds(125,140,600,25);
+		instructions2.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		panel.add(instructions2);
 		
 		// username label
 		label1 = new JLabel("Username");
-		label1.setBounds(50,150,80,25);
+		label1.setBounds(40,200,100,50);
+		label1.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		panel.add(label1);
 		
 		// username text field
 		username = new JTextField(20);
-		username.setBounds(200,150,160,25);
+		username.setBounds(250,215,160,25);
 		panel.add(username);
 		
 		// password label
 		label2 = new JLabel("Password");
-		label2.setBounds(50,200,80,25);
+		label2.setBounds(40,255,100,50);
+		label2.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		panel.add(label2);
 		
 		// password field
 		password = new JPasswordField(20);
-		password.setBounds(200,200,160,25);
+		password.setBounds(250,270,160,25);
 		panel.add(password);
 		
 		// confirm password label
 		label3 = new JLabel("Confirm Password");
-		label3.setBounds(50,250,125,25);
+		label3.setBounds(40,310,300,50);
+		label3.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		panel.add(label3);
 		
 		// confirm password field
 		confirm_password = new JPasswordField(20);
-		confirm_password.setBounds(200,250,160,25);
+		confirm_password.setBounds(250,325,160,25);
 		panel.add(confirm_password);
 		
 		// button to add account
 		add_acc = new JButton("Add Account");
-		add_acc.setBounds(75,325,200,50);
+		add_acc.setBounds(75,400,200,50);
 		panel.add(add_acc);
 		add_acc.addActionListener(this);
 		
 		// button to go back to the login page
 		back = new JButton("Back");
-		back.setBounds(295,325,200,50);
+		back.setBounds(295,400,200,50);
 		panel.add(back);
 		back.addActionListener(this);
 

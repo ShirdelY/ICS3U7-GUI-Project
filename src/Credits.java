@@ -17,6 +17,7 @@ public class Credits extends JFrame implements ActionListener {
 	 * @param - none
 	 * @return - none
 	 */
+	
 	Credits() {
 		setLayout(null); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,7 +25,8 @@ public class Credits extends JFrame implements ActionListener {
 
 		// title label
 		JLabel label1 = new JLabel("CREDITS"); //center this after
-		label1.setBounds(250, 35, 100, 50);
+		label1.setBounds(200,0,400,100);
+		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
 		add(label1);
 		
 		// citation 1
@@ -101,7 +103,8 @@ public class Credits extends JFrame implements ActionListener {
 
 		// main menu button
 		back = new JButton("Back");
-		back.setBounds(225, 550, 150, 50);
+		back.setBounds(200,550,200,50);
+		back.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(back);
 		back.addActionListener(this);
 		
