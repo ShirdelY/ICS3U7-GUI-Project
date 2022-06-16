@@ -8,6 +8,7 @@ javac Login.java
 javac Loser.java
 javac Mainmenu.java
 javac Settings.java
+javac Start.java
 pause
 java Main
 pause
