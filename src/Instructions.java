@@ -16,6 +16,10 @@ public class Instructions extends JFrame implements ActionListener {
 	// declaring button for main menu
 	JButton mainmenu;
 	
+	public static void main(String[] args) {
+		new Instructions();
+	}
+	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, picture and and 1 button
 	 * @param - none
@@ -42,10 +46,15 @@ public class Instructions extends JFrame implements ActionListener {
 		
 		// image
 		ImageIcon pic = new ImageIcon(getClass().getResource("Instructions.jpg"));
+		Image scaledImage = pic.getImage();
+		scaledImage = scaledImage.getScaledInstance(550, 450, java.awt.Image.SCALE_SMOOTH);
+//		JLabel displayField = new JLabel();
+//		displayField.setIcon(scaledImage);
+//		displayField.setBounds(10, 100, 580, 390); // we need to resize the image
 		JLabel displayField = new JLabel();
-		displayField.setIcon(pic);
-		displayField.setBounds(10, 100, 580, 390); // we need to resize the image
-		add(displayField);
+		displayField.setIcon(new ImageIcon(scaledImage)); 
+		displayField.setBounds(25, 90, 550, 420);
+        add(displayField);
 		
 		pack();
 		setSize(600,650);
