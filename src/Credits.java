@@ -112,14 +112,7 @@ public class Credits extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	/**
-	 * main method for calling the Credits() constructor
-	 * @param args
-	 * @return - none
-	 */
-	public static void main(String[] args) {
-		new Credits();
-	}
+
 	/**
 	 * actionPerformed method to manipulate and set specific instructions for the button
 	 * @param ActionEvent object

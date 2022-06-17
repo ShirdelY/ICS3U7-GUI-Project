@@ -66,14 +66,7 @@ public class Settings extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	/**
-	 * main method for calling the Settings() constructor
-	 * @param args
-	 * @return - none
-	 */
-	public static void main(String[] args) {
-		new Settings();
-	}
+
 	/**
 	 * actionPerformed method to manipulate and set specific instructions for the buttons
 	 * @param ActionEvent object

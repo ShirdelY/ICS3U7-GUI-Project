@@ -16,10 +16,6 @@ public class Instructions extends JFrame implements ActionListener {
 	// declaring button for main menu
 	JButton mainmenu;
 	
-	public static void main(String[] args) {
-		new Instructions();
-	}
-	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, picture and and 1 button
 	 * @param - none
