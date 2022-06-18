@@ -6,6 +6,8 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +16,6 @@ import javax.swing.JLabel;
 public class Mainmenu extends JFrame implements ActionListener {
 	// declaring buttons
 	JButton easymode, hardmode, instructions, settings, stats, logout;
-
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 6 buttons
 	 * @param - none
@@ -104,8 +105,14 @@ public class Mainmenu extends JFrame implements ActionListener {
 			dispose();
 		}
 		if (e.getSource() == stats) {
-			System.out.println("statistics");
-			// if instructions is pressed, it clears the frame and calls instruction class
+			try
+			{
+
+			}
+			catch (Exception IO)
+			{
+				System.out.println("error");
+			}
 		}
 		if (e.getSource() == settings) {
 			// if settings is pressed, it clears the frame and calls settings class

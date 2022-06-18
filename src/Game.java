@@ -342,6 +342,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					//if the user didn't guess it in 6 tries, direct to the Loser screen
 					if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
 						new Loser(keyString);
+
 						dispose();
 					}
 					// add the number of guesses the user has had

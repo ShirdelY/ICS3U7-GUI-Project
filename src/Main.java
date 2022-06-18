@@ -21,6 +21,7 @@ public class Main extends JFrame {
 	private static String[] words5 = new String[586];
 	private static String[] validwords5 = new String[12972];
 	private static String[] words7 = new String[500];
+	File statsfile = new File("src/GameLog.txt");
 
 	public static void main(String[] args) throws IOException{
 		//import keywords
@@ -31,6 +32,11 @@ public class Main extends JFrame {
 		new Start();
 	}
 
+	/**
+	 * imports possible 5 letter guesses from txt file
+	 * @return array of possible guesses
+	 * @throws IOException
+	 */
 	public static String[] importWords5() throws IOException {
 		//create temporary non final arrays to fill
 		String[] words5temp = new String[FIVELENGTH];
@@ -43,7 +49,12 @@ public class Main extends JFrame {
 		}
 		return words5temp;
 	}
-	
+
+	/**
+	 * imports possible 5 letter keywords
+	 * @return array of possible keywords
+	 * @throws IOException
+	 */
 	public static String[] importValidWords5() throws IOException {
 		//create temporary non final arrays to fill
 		String[] validwords5temp = new String[VALIDFIVELENGTH];
@@ -57,6 +68,11 @@ public class Main extends JFrame {
 		return validwords5temp;
 	}
 
+	/**
+	 * import 7 letter keywords from txt files
+	 * @return array of keywords
+	 * @throws IOException
+	 */
 	public static String[] importWords7() throws IOException {
 		//create temporary non final arrays to fill
 		String[] words7temp = new String[SEVENLENGTH];
