@@ -24,7 +24,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	// private instance variable - indices to keep track of values in the grid
 	private int index_row = 0, index_column = 0;
 	// private instance variable - all the valid keywords a user can guess
-	private final String[] keys;
+	private String[] keys;
 	// private instance variable - keeping track of the user's guesses
 	private int guess_num = 1;
 	// JLabel 2D array for keeping track of the letters in the grid
