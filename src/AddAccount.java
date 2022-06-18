@@ -16,12 +16,6 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class AddAccount implements ActionListener{
-	// declaring variables for the file and buffer Reader and Writers
-	FileWriter fileW;
-	FileReader fileR;
-	String input;
-	BufferedWriter bufferW;
-	BufferedReader bufferR;
 
 	// static instance variables for the elements of the JFrame
 	private static JFrame frame;	
@@ -135,8 +129,10 @@ public class AddAccount implements ActionListener{
 		        JOptionPane.showMessageDialog(jFrame, "Enter a username and a password");
 			}
 			try {
-				fileR = new FileReader(USERFILE);
-				bufferR = new BufferedReader(fileR);
+				// declaring variables for the file and buffer Reader and Writers
+				String input;
+				FileReader fileR = new FileReader(USERFILE);
+				BufferedReader bufferR = new BufferedReader(fileR);
 				// get usernames from the text file database to check if the same username exists
 				boolean usernameExists = false;
 				while ((input = bufferR.readLine()) != null) {
@@ -204,8 +200,8 @@ public class AddAccount implements ActionListener{
 				//write to file
 				if (!usernameExists && !userValid && !passValid && isFilled) {
 					// writing to file
-					fileW = new FileWriter (USERFILE, true); //if you set it to true, it appends
-		            bufferW = new BufferedWriter (fileW);
+					FileWriter fileW = new FileWriter (USERFILE, true); //if you set it to true, it appends
+					BufferedWriter bufferW = new BufferedWriter (fileW);
 		            bufferW.write (username_entered + " " + password_entered);	
 		            bufferW.newLine();
 		            JFrame jFrame = new JFrame();

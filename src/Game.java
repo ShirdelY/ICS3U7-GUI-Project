@@ -24,25 +24,25 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	// private instance variable - indices to keep track of values in the grid
 	private int index_row = 0, index_column = 0;
 	// private instance variable - all the valid keywords a user can guess
-	private final String[] keys;
+	private String[] keys;
 	// private instance variable - keeping track of the user's guesses
 	private int guess_num = 1;
 	// JLabel 2D array for keeping track of the letters in the grid
-	JLabel[][] labelArray;
+	private JLabel[][] labelArray;
 	// boolean to check if the word is valid or not
-	boolean valid = false;
+	private boolean valid = false;
 	// the corner to start the grid (for both X and Y)
-	int startcorner;
+	private int startcorner;
 	// Strings - guess for the user's guess and keyString for the word selected for the user to guess
 	String guess, keyString;
 	// constant variable to format the buttons of the on-screen keyboard
-	final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
+	private final int BUTTON_WIDTH = 30, BUTTON_SPACE = 5, BUTTON_HEIGHT = 50;
 	// integer variables to keep track of the x and y coordinates of the keyboard's key's top corner 
-	int keyboard_x = 128, keyboard_y = 425;
+	private int keyboard_x = 128, keyboard_y = 425;
 	// final integer variable to reset column coordinate
-	final int KEY_START_X = 128;
+	private final int KEY_START_X = 128;
 	// declaring colors used in the game
-	final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
+	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 
 	/**
 	 * Generate game window for wordle
