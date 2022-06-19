@@ -18,13 +18,14 @@ public class Statistics {
         writer.close();
     }
 
-    public String getGames() throws IOException
-    {
-        String result = "", line;
-        while ((line = reader.readLine()) != null)
-            result += line + "\n";
-        return result;
-    }
+//    i dont think we should do this
+//    public String getGames() throws IOException
+//    {
+//        String result = "", line;
+//        while ((line = reader.readLine()) != null)
+//            result += line + "\n";
+//        return result;
+//    }
 
     public int numGames() throws IOException
     {
