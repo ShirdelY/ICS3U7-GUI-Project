@@ -91,12 +91,12 @@ public class Mainmenu extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == easymode) {
 			// if easymode is pressed, it clears the frame and calls easy mode class
-			new Game(Main.getFive()[(int) (Math.random() * Main.getFive().length)], Main.getValidFive(), 0);
+			new Game(Main.getFive()[(int) (Math.random() * Main.getFive().length)], Main.getValidFive(), 0, Main.getStats());
 			dispose();
 		}
-		if (e.getSource() == hardmode) {
+		if (e.getSource() == hardmode){
 			// if hardmode is pressed, it clears the frame and calls hard mode class
-			new Game(Main.getSeven()[(int) (Math.random() * Main.getSeven().length)], Main.getSeven(), 1);
+			new Game(Main.getSeven()[(int) (Math.random() * Main.getSeven().length)], Main.getSeven(), 1, Main.getStats());
 			dispose();
 		}
 		if (e.getSource() == instructions) {
@@ -107,7 +107,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 		if (e.getSource() == stats) {
 			try
 			{
-
+				//create statistics PAGE
 			}
 			catch (Exception IO)
 			{

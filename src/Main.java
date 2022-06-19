@@ -21,13 +21,16 @@ public class Main extends JFrame {
 	private static String[] words5 = new String[586];
 	private static String[] validwords5 = new String[12972];
 	private static String[] words7 = new String[500];
-	File statsfile = new File("src/GameLog.txt");
+	final static File STATSFILE = new File("src/GameLog.txt");
+	public static Statistics stats;
 
 	public static void main(String[] args) throws IOException{
 		//import keywords
 		words5 = importWords5();
 		validwords5 = importValidWords5();
 		words7 = importWords7();
+		//create statistics writers
+		stats = new Statistics(STATSFILE);
 		//create new title screen
 		new Start();
 	}
@@ -111,5 +114,9 @@ public class Main extends JFrame {
 	public static String[] getSeven()
 	{
 		return words7;
+	}
+	public static Statistics getStats()
+	{
+		return stats;
 	}
 }

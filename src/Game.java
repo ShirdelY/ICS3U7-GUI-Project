@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 public class Game extends JFrame implements KeyListener, ActionListener {
 	//declare variables
@@ -43,14 +44,14 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	private final int KEY_START_X = 128;
 	// declaring colors used in the game
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
-
+	Statistics stats;
 	/**
 	 * Generate game window for wordle
 	 * @param key selected keyword for user to guess
 	 * @param keys array of all keywords for given difficulty - to verify if entries are valid
 	 * @param difficulty 0 for easy, 1 for hard
 	 */
-	Game (String key, String[] keys, int difficulty) {
+	Game (String key, String[] keys, int difficulty, Statistics stats) {
 		System.out.println(key);
 		//change grid size dependant on difficulty
 		//if easy mode
@@ -81,6 +82,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		//import keyword source parameters
 		this.keys = keys;
 		keyString = key;
+		this.stats = stats;
 		//create JFrame
 		setLayout(null);
 		getContentPane().setBackground(Color.WHITE);
@@ -215,43 +217,51 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	public void actionPerformed(ActionEvent e)
 	{
 		// checking which letter on the on-screen keyboard the user pressed - from "A" to "Z" and "Enter" and "Back
-		switch (e.getActionCommand()) {
-		case ("A") -> gameUpdate('A');
-		case ("B") -> gameUpdate('B');
-		case ("C") -> gameUpdate('C');
-		case ("D") -> gameUpdate('D');
-		case ("E") -> gameUpdate('E');
-		case ("F") -> gameUpdate('F');
-		case ("G") -> gameUpdate('G');
-		case ("H") -> gameUpdate('H');
-		case ("I") -> gameUpdate('I');
-		case ("J") -> gameUpdate('J');
-		case ("K") -> gameUpdate('K');
-		case ("L") -> gameUpdate('L');
-		case ("M") -> gameUpdate('M');
-		case ("N") -> gameUpdate('N');
-		case ("O") -> gameUpdate('O');
-		case ("P") -> gameUpdate('P');
-		case ("Q") -> gameUpdate('Q');
-		case ("R") -> gameUpdate('R');
-		case ("S") -> gameUpdate('S');
-		case ("T") -> gameUpdate('T');
-		case ("U") -> gameUpdate('U');
-		case ("V") -> gameUpdate('V');
-		case ("W") -> gameUpdate('W');
-		case ("X") -> gameUpdate('X');
-		case ("Y") -> gameUpdate('Y');
-		case ("Z") -> gameUpdate('Z');
-		case ("Enter") -> gameUpdate((char) 10);
-		case ("Back") -> gameUpdate((char) 8);
+		try
+		{
+			switch (e.getActionCommand()) {
+				case ("A") -> gameUpdate('A');
+				case ("B") -> gameUpdate('B');
+				case ("C") -> gameUpdate('C');
+				case ("D") -> gameUpdate('D');
+				case ("E") -> gameUpdate('E');
+				case ("F") -> gameUpdate('F');
+				case ("G") -> gameUpdate('G');
+				case ("H") -> gameUpdate('H');
+				case ("I") -> gameUpdate('I');
+				case ("J") -> gameUpdate('J');
+				case ("K") -> gameUpdate('K');
+				case ("L") -> gameUpdate('L');
+				case ("M") -> gameUpdate('M');
+				case ("N") -> gameUpdate('N');
+				case ("O") -> gameUpdate('O');
+				case ("P") -> gameUpdate('P');
+				case ("Q") -> gameUpdate('Q');
+				case ("R") -> gameUpdate('R');
+				case ("S") -> gameUpdate('S');
+				case ("T") -> gameUpdate('T');
+				case ("U") -> gameUpdate('U');
+				case ("V") -> gameUpdate('V');
+				case ("W") -> gameUpdate('W');
+				case ("X") -> gameUpdate('X');
+				case ("Y") -> gameUpdate('Y');
+				case ("Z") -> gameUpdate('Z');
+				case ("Enter") -> gameUpdate((char) 10);
+				case ("Back") -> gameUpdate((char) 8);
+			}
 		}
+		catch (Exception IO)
+		{
+			System.out.println("error");
+		}
+
 	}
 	/**
 	 * Updates the grid with labels of the user's guess
 	 * @param in - takes in the letters of the guess - wither typed by the user or from the on-screen keyboard
 	 * @return - none
 	 */
-	public void gameUpdate(char in)
+	public void gameUpdate(char in) throws IOException
 	{
 		if (String.valueOf(in).toUpperCase().charAt(0) >= 'A' && String.valueOf(in).toUpperCase().charAt(0) <= 'Z')
 		{
@@ -305,9 +315,12 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					}
 					//guess is a word, proceed
 					if (valid) {
+						// add the number of guesses the user has had
+						guess_num++;
 						// if the user guessed the word, direct to the Congratulations screen
 						if (keyString.toUpperCase().equals(guess)) {
 							new Congratulations();
+							stats.writeGame(true, guess_num, keyString);
 							dispose();
 						}
 						//check for letters to see if they are used in the keyword
@@ -342,11 +355,9 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					//if the user didn't guess it in 6 tries, direct to the Loser screen
 					if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
 						new Loser(keyString);
-
+						stats.writeGame(false, 6, keyString);
 						dispose();
 					}
-					// add the number of guesses the user has had
-					guess_num++;
 				}
 				repaint();
 			} 
@@ -358,8 +369,15 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	 * @return - none
 	 */
 	@Override
-	public void keyTyped(KeyEvent e) {
-		gameUpdate(e.getKeyChar());
+	public void keyTyped(KeyEvent e){
+		try
+		{
+			gameUpdate(e.getKeyChar());
+		}
+		catch (Exception IO)
+		{
+			System.out.println("error");
+		}
 	}
 	/**
 	 * keyPressed -  not used but needed for keyTyped to restrict errors
