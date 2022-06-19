@@ -15,6 +15,7 @@ public class Statistics {
     {
         writer.write(System.currentTimeMillis() + " " + win + " " + guess + " " + key);
         writer.newLine();
+        writer.close();
     }
 
     public String getGames() throws IOException

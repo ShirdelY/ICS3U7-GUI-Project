@@ -297,68 +297,66 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		}
 		//check if enter key is pressed
 		else if (in == 10) {
-			if (guess_num <= 6) {
-				//check if guess is the correct length
-				//make sure there are guess remaining
-				if (index_column == column) {
-					//convert the guess input into a string
-					guess = "";
-					for (int i = 0; i < column; i++)
-						guess += String.valueOf(grid[index_row][i]);
-					//check if the guess is a valid keyword
-					valid = false;
-					for (int j = 0; j < keys.length; j++) {
-						if (keys[j].toUpperCase().equals(guess)) {
-							valid = true;
-							break;
-						}
-					}
-					//guess is a word, proceed
-					if (valid) {
-						// add the number of guesses the user has had
-						guess_num++;
-						// if the user guessed the word, direct to the Congratulations screen
-						if (keyString.toUpperCase().equals(guess)) {
-							new Congratulations();
-							stats.writeGame(true, guess_num, keyString);
-							dispose();
-						}
-						//check for letters to see if they are used in the keyword
-						//if so, change background to yellow
-						for (int i = 0; i < column; i++) {
-							for (int j = 0; j < column; j++) {
-								if (grid[index_row][i] == keyword[j]) {
-									//orange looks better than default yellow
-									labelArray[index_row][i].setBackground(YELLOW);
-								}
-							}
-						}
-						//check for letters that are in the same position as the keyword
-						//if so, set background to green - overrides the yellow
-						for (int i = 0; i < column; i++) {
-							if (grid[index_row][i] == keyword[i])
-								labelArray[index_row][i].setBackground(GREEN);
-						}
-						//reload screen
-						repaint();
-						//move to next row for next guess
-						index_row++;
-						//reset column index back to start
-						index_column = 0;
-					}
-					//guess is not a word, turn boxes red to indicate such
-					else {
-						for (int i = 0; i < column; i++)
-							labelArray[index_row][i].setBackground(Color.RED);
-					}
-
-					//if the user didn't guess it in 6 tries, direct to the Loser screen
-					if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
-						new Loser(keyString);
-						stats.writeGame(false, 6, keyString);
-						dispose();
+			//check if guess is the correct length
+			//make sure there are guess remaining
+			if (guess_num <= 6 && index_column == column) {
+				//convert the guess input into a string
+				guess = "";
+				for (int i = 0; i < column; i++)
+					guess += String.valueOf(grid[index_row][i]);
+				//check if the guess is a valid keyword
+				valid = false;
+				for (int j = 0; j < keys.length; j++) {
+					if (keys[j].toUpperCase().equals(guess)) {
+						valid = true;
+						break;
 					}
 				}
+				//guess is a word, proceed
+				if (valid) {
+					// if the user guessed the word, direct to the Congratulations screen
+					if (keyString.toUpperCase().equals(guess)) {
+						new Congratulations();
+						stats.writeGame(true, guess_num, keyString);
+						dispose();
+					}
+					//check for letters to see if they are used in the keyword
+					//if so, change background to yellow
+					for (int i = 0; i < column; i++) {
+						for (int j = 0; j < column; j++) {
+							if (grid[index_row][i] == keyword[j]) {
+								//orange looks better than default yellow
+								labelArray[index_row][i].setBackground(YELLOW);
+							}
+						}
+					}
+					//check for letters that are in the same position as the keyword
+					//if so, set background to green - overrides the yellow
+					for (int i = 0; i < column; i++) {
+						if (grid[index_row][i] == keyword[i])
+							labelArray[index_row][i].setBackground(GREEN);
+					}
+					//reload screen
+					repaint();
+					//move to next row for next guess
+					index_row++;
+					//reset column index back to start
+					index_column = 0;
+				}
+				//guess is not a word, turn boxes red to indicate such
+				else {
+					for (int i = 0; i < column; i++)
+						labelArray[index_row][i].setBackground(Color.RED);
+				}
+
+				//if the user didn't guess it in 6 tries, direct to the Loser screen
+				if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
+					new Loser(keyString);
+					stats.writeGame(false, 6, keyString);
+					dispose();
+				}
+				// add the number of guesses the user has had
+				guess_num++;
 				repaint();
 			} 
 		}
