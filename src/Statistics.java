@@ -1,13 +1,10 @@
-import java.util.Scanner;
 import java.io.*;
 public class Statistics {
-    private BufferedWriter writer;
-    private BufferedReader reader;
+    private final BufferedWriter writer;
+    private final BufferedReader reader;
     private int total_games_played = 0;
-	private int total_games_won = 1;
-	private double prob_win = total_games_played/total_games_won;
-	private int total_guesses = 0;
-	private double avg_guesses_for_wins = total_guesses/total_games_won;
+	private int total_games_won = 0;
+	private double prob_win;
 	private String input;
 	private String current_user = "";
 	
@@ -32,7 +29,6 @@ public class Statistics {
 				else if (won.equals("false")) {
 					this.total_games_won++;
 				}
-				this.total_guesses += num_guesses;
 			}
 		}
     }
@@ -44,6 +40,10 @@ public class Statistics {
         writer.write(user + " " + win + " " + guess + " " + key);
         writer.newLine();
         writer.close();
+        total_games_played++;
+        if (win)
+            total_games_won++;
+        prob_win = total_games_won / total_games_played;
     }
 
     public int getTotalGamesPlayed() {
@@ -55,19 +55,7 @@ public class Statistics {
     public double getProbWin() {
     	return this.prob_win;
     }
-    public double getAvgGuesses() {
-    	return this.avg_guesses_for_wins;
-    }
     public String getCurrentUser() {
     	return this.current_user;
     }
-
-    //    i dont think we should do this - it will be hard to format + not really a point
-//    public String getGames() throws IOException
-//    {
-//        String result = "", line;
-//        while ((line = reader.readLine()) != null)
-//            result += line + "\n";
-//        return result;
-//    }
 }

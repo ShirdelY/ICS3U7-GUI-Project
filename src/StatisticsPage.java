@@ -18,7 +18,7 @@ import java.lang.ArithmeticException;
 public class StatisticsPage extends JFrame implements ActionListener {
 	// declaring buttons
 	JButton mainmenu, exit;
-	Statistics stats = new Statistics(new File("src/GameLog.txt"));
+	Statistics stats = Main.getStats();
 	
 //	public static void main(String[] args) throws IOException {
 //		new StatisticsPage();
@@ -71,8 +71,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		
 		//change this
 		try {
-			double prob = (stats.getTotalGamesWon()/stats.getTotalGamesPlayed())*100;
-			JLabel anslabel4 = new JLabel(String.valueOf(prob)+"%");
+			JLabel anslabel4 = new JLabel((stats.getProbWin() * 100)+"%");
 			anslabel4.setBounds(490, 150, 600, 100);
 			anslabel4.setFont(new Font("SansSerif", Font.PLAIN, 40));
 			add(anslabel4);

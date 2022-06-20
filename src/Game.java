@@ -58,7 +58,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	 * @param keys array of all keywords for given difficulty - to verify if entries are valid
 	 * @param difficulty 0 for easy, 1 for hard
 	 */
-	Game (String user, String key, String[] keys, int difficulty, Statistics stats) {
+	Game (String user, String key, String[] keys, int difficulty) {
 		current_user = user;
 		System.out.println(key);
 		//change grid size dependant on difficulty
@@ -90,7 +90,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		//import keyword source parameters
 		this.keys = keys;
 		keyString = key;
-		this.stats = stats;
+		stats = Main.getStats();
 		//create JFrame
 		setLayout(null);
 		getContentPane().setBackground(Color.WHITE);
