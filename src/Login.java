@@ -16,9 +16,7 @@ import javax.swing.*;
 
 public class Login implements ActionListener{
 	// File and Buffer Readers to read the input
-	FileReader file;
-    BufferedReader buffer;
-    String input;
+    private String input;
     // instance variables for the elements of the JFrame
 	private static JFrame frame;	
 	private static JPanel panel;	
@@ -26,7 +24,7 @@ public class Login implements ActionListener{
 	private static JTextField username;
 	private static JPasswordField password;
 	private static JLabel title, label1, label2;
-	
+	private static String current_user;
 	// filepath for usernames and passwords
 	final private static File USERFILE = new File("src/users.txt");
 	
@@ -122,6 +120,8 @@ public class Login implements ActionListener{
 			}
 			try {
 				// reading the text file
+				FileReader file;
+			    BufferedReader buffer;
 				file = new FileReader(USERFILE);
 				buffer = new BufferedReader(file);
 				// checking if the username exists and if they're correct or not
@@ -136,7 +136,8 @@ public class Login implements ActionListener{
 						usernameExists = true;
 						// passwords are the same
 						if (password_entered.equals(correct_password)) {
-							new Mainmenu();
+							current_user = correct_username;
+							new Mainmenu(current_user);
 							frame.dispose();
 						}
 						// when password is incorrect
