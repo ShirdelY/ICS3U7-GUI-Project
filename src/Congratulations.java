@@ -6,6 +6,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -71,6 +72,13 @@ public class Congratulations extends JFrame implements ActionListener {
 		if (e.getSource() == statistics) {
 			System.out.println("statistics");
 			// if statistics is pressed, we show the statistics frame
+	        try {
+				new StatisticsPage();
+				dispose();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it
