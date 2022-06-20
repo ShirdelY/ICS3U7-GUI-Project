@@ -58,6 +58,9 @@ public class Statistics {
     public double getAvgGuesses() {
     	return this.avg_guesses_for_wins;
     }
+    public String getCurrentUser() {
+    	return this.current_user;
+    }
 
     //    i dont think we should do this - it will be hard to format + not really a point
 //    public String getGames() throws IOException
