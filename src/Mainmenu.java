@@ -22,7 +22,10 @@ public class Mainmenu extends JFrame implements ActionListener {
 	 * @return - none
 	 */
 	
-	Mainmenu() {
+	private static String current_user; 
+	
+	Mainmenu(String user) {
+		current_user = user;
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -91,17 +94,17 @@ public class Mainmenu extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == easymode) {
 			// if easymode is pressed, it clears the frame and calls easy mode class
-			new Game(Main.getFive()[(int) (Math.random() * Main.getFive().length)], Main.getValidFive(), 0, Main.getStats());
+			new Game(current_user, Main.getFive()[(int) (Math.random() * Main.getFive().length)], Main.getValidFive(), 0, Main.getStats());
 			dispose();
 		}
 		if (e.getSource() == hardmode){
 			// if hardmode is pressed, it clears the frame and calls hard mode class
-			new Game(Main.getSeven()[(int) (Math.random() * Main.getSeven().length)], Main.getSeven(), 1, Main.getStats());
+			new Game(current_user, Main.getSeven()[(int) (Math.random() * Main.getSeven().length)], Main.getSeven(), 1, Main.getStats());
 			dispose();
 		}
 		if (e.getSource() == instructions) {
 			// if instructions is pressed, it clears the frame and calls instruction class
-			new Instructions();
+			new Instructions(current_user);
 			dispose();
 		}
 		if (e.getSource() == stats) {
@@ -116,7 +119,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == settings) {
 			// if settings is pressed, it clears the frame and calls settings class
-			new Settings();
+			new Settings(current_user);
 			dispose();
 		}
 		if (e.getSource() == logout) {
