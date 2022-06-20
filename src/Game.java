@@ -10,6 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class Game extends JFrame implements KeyListener, ActionListener {
@@ -44,6 +48,9 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	private final int KEY_START_X = 128;
 	// declaring colors used in the game
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
+	private static String current_user; 
+
+	
 	Statistics stats;
 	/**
 	 * Generate game window for wordle
@@ -51,7 +58,8 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	 * @param keys array of all keywords for given difficulty - to verify if entries are valid
 	 * @param difficulty 0 for easy, 1 for hard
 	 */
-	Game (String key, String[] keys, int difficulty, Statistics stats) {
+	Game (String user, String key, String[] keys, int difficulty, Statistics stats) {
+		current_user = user;
 		System.out.println(key);
 		//change grid size dependant on difficulty
 		//if easy mode
@@ -316,8 +324,9 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 				if (valid) {
 					// if the user guessed the word, direct to the Congratulations screen
 					if (keyString.toUpperCase().equals(guess)) {
-						new Congratulations();
-						stats.writeGame(true, guess_num, keyString);
+						new Congratulations(current_user);
+	// add file reader here to get the user at the last line - that will be the username
+						stats.writeGame(current_user, true, guess_num, keyString);
 						dispose();
 					}
 					//check for letters to see if they are used in the keyword
@@ -351,8 +360,9 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 
 				//if the user didn't guess it in 6 tries, direct to the Loser screen
 				if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
-					new Loser(keyString);
-					stats.writeGame(false, 6, keyString);
+					new Loser(current_user, keyString);
+	// add file reader here to get the user at the last line - that will be the username
+					stats.writeGame(current_user, false, 6, keyString);
 					dispose();
 				}
 				// add the number of guesses the user has had
@@ -377,6 +387,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 			System.out.println("error");
 		}
 	}
+	
 	/**
 	 * keyPressed -  not used but needed for keyTyped to restrict errors
 	 * @param e - key typed
