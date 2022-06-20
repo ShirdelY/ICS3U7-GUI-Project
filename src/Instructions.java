@@ -15,13 +15,15 @@ import javax.swing.JLabel;
 public class Instructions extends JFrame implements ActionListener {
 	// declaring button for main menu
 	JButton mainmenu;
+	private static String current_user;
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, picture and and 1 button
 	 * @param - none
 	 * @return - none
 	 */
-	Instructions() {
+	Instructions(String user) {
+		current_user = user;
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -67,7 +69,7 @@ public class Instructions extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it
-			new Mainmenu();
+			new Mainmenu(current_user);
 			dispose();
 		}
 	}
