@@ -11,14 +11,16 @@ import javax.swing.*;
 
 public class Credits extends JFrame implements ActionListener {
 	// declaring button for the back (going to setttings)
-	JButton back;
+	private JButton back;
+	private static String current_user;
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, citations with Jlabels, and 1 button
 	 * @param - none
 	 * @return - none
 	 */
 	
-	Credits() {
+	Credits(String user) {
+		current_user = user;
 		setLayout(null); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -123,7 +125,7 @@ public class Credits extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == back) {
 			// if back is pressed, we go back to the settings by calling it
-			new Settings();
+			new Settings(current_user);
 			dispose();
 		}
 	}
