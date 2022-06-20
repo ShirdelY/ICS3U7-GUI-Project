@@ -20,9 +20,9 @@ public class StatisticsPage extends JFrame implements ActionListener {
 	JButton mainmenu, exit;
 	Statistics stats = new Statistics(new File("src/GameLog.txt"));
 	
-	public static void main(String[] args) throws IOException {
-		new StatisticsPage();
-	}
+//	public static void main(String[] args) throws IOException {
+//		new StatisticsPage();
+//	}
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 3 buttons
@@ -46,7 +46,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		label2.setFont(new Font("SansSerif", Font.PLAIN, 15));
 		add(label2);
 
-		int games_played = stats.numGames();
+		int games_played = stats.getTotalGamesPlayed();
 		JLabel anslabel2 = new JLabel(String.valueOf(games_played));
 		anslabel2.setBounds(160, 150, 600, 100);
 		anslabel2.setFont(new Font("SansSerif", Font.PLAIN, 40));
@@ -58,7 +58,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		add(label3);
 		
 		//change this
-		int games_won = stats.numGames();
+		int games_won = stats.getTotalGamesWon();
 		JLabel anslabel3 = new JLabel(String.valueOf(games_won)); 
 		anslabel3.setBounds(310, 150, 600, 100);
 		anslabel3.setFont(new Font("SansSerif", Font.PLAIN, 40));
@@ -71,7 +71,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		
 		//change this
 		try {
-			double prob = (stats.numGames()/stats.numGames())*100;
+			double prob = (stats.getTotalGamesWon()/stats.getTotalGamesPlayed())*100;
 			JLabel anslabel4 = new JLabel(String.valueOf(prob)+"%");
 			anslabel4.setBounds(490, 150, 600, 100);
 			anslabel4.setFont(new Font("SansSerif", Font.PLAIN, 40));
@@ -109,7 +109,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it
-			new Mainmenu();
+			new Mainmenu(stats.getCurrentUser());
 			dispose();
 		}
 		if (e.getSource() == exit) {
