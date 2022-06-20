@@ -108,13 +108,12 @@ public class Mainmenu extends JFrame implements ActionListener {
 			dispose();
 		}
 		if (e.getSource() == stats) {
-			try
-			{
-				//create statistics PAGE
-			}
-			catch (Exception IO)
-			{
-				System.out.println("error");
+			try {
+				new StatisticsPage();
+				dispose();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 		}
 		if (e.getSource() == settings) {
