@@ -9,7 +9,7 @@ public class Statistics {
 	private int total_guesses = 0;
 	private double avg_guesses_for_wins = total_guesses/total_games_won;
 	private String input;
-	private String current_user;
+	private String current_user = "";
 	
     public Statistics(File file) throws IOException
     {
