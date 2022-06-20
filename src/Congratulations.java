@@ -14,13 +14,15 @@ import javax.swing.JLabel;
 public class Congratulations extends JFrame implements ActionListener {
 	// declaring buttons
 	JButton mainmenu, exit, statistics;
+	private static String current_user;
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 3 buttons
 	 * @param - none
 	 * @return - none
 	 */
-	Congratulations() {
+	Congratulations(String user) {
+		current_user = user;
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -72,7 +74,7 @@ public class Congratulations extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it
-			new Mainmenu();
+			new Mainmenu(current_user);
 			dispose();
 		}
 		if (e.getSource() == exit) {
