@@ -5,20 +5,21 @@ public class Statistics {
     private BufferedReader reader;
     public Statistics(File file) throws IOException
     {
-        FileWriter Fwriter = new FileWriter(file);
+        FileWriter Fwriter = new FileWriter(file, true);
         writer = new BufferedWriter(Fwriter);
         FileReader Freader = new FileReader(file);
         reader = new BufferedReader(Freader);
     }
 
-    public void writeGame(boolean win, int guess, String key) throws IOException
+    public void writeGame(String user, boolean win, int guess, String key) throws IOException
     {
-        writer.write(System.currentTimeMillis() + " " + win + " " + guess + " " + key);
+    	// time is a functionality we can add at the end, but we would need to start counting as soon as easy mode is pressed and then subract with currents
+        writer.write(user + " " + win + " " + guess + " " + key);
         writer.newLine();
         writer.close();
     }
 
-//    i dont think we should do this
+//    i dont think we should do this - it will be hard to format + not really a point
 //    public String getGames() throws IOException
 //    {
 //        String result = "", line;
