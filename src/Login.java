@@ -24,7 +24,6 @@ public class Login implements ActionListener{
 	private static JTextField username;
 	private static JPasswordField password;
 	private static JLabel title, label1, label2;
-	private static String current_user;
 	// filepath for usernames and passwords
 	final private static File USERFILE = new File("src/users.txt");
 	
@@ -136,8 +135,8 @@ public class Login implements ActionListener{
 						usernameExists = true;
 						// passwords are the same
 						if (password_entered.equals(correct_password)) {
-							current_user = correct_username;
-							new Mainmenu(current_user);
+							 Main.setUser(correct_username);
+							new Mainmenu();
 							frame.dispose();
 						}
 						// when password is incorrect
@@ -157,7 +156,7 @@ public class Login implements ActionListener{
 			}
 			//  catch Exception error
 			catch (IOException err) {
-				System.out.print("error");
+				System.out.print("error login");
 			}
 		}	
 	}

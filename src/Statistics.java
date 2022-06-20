@@ -6,7 +6,7 @@ public class Statistics {
 	private int total_games_won = 0;
 	private double prob_win;
 	private String input;
-	private String current_user = "";
+	private String current_user;
 	
     public Statistics(File file) throws IOException
     {
@@ -14,7 +14,7 @@ public class Statistics {
         writer = new BufferedWriter(Fwriter);
         FileReader Freader = new FileReader(file);
         reader = new BufferedReader(Freader);
-        
+        current_user = Main.getUser();
         while ((input = reader.readLine()) != null) {
 			String[] usergame_database = input.split(" ");
 			String correct_username = usergame_database[0];
@@ -33,11 +33,10 @@ public class Statistics {
 		}
     }
 
-    public void writeGame(String user, boolean win, int guess, String key) throws IOException
+    public void writeGame(boolean win, int guess, String key) throws IOException
     {
-    	this.current_user = user;
     	// time is a functionality we can add at the end, but we would need to start counting as soon as easy mode is pressed and then subract with currents
-        writer.write(user + " " + win + " " + guess + " " + key);
+        writer.write(Main.getUser() + " " + win + " " + guess + " " + key);
         writer.newLine();
         writer.close();
         total_games_played++;

@@ -3,3 +3,10 @@ elonmusk true 1 Raise
 jeff true 1 Above
 test true 4 Place
 test true 1 Tanto
+test true 2 Joint
+test true 1 Under
+test true 1 Solid
+test true 1 Major
+test true 1 First
+test true 1 Usual
+test true 1 Share

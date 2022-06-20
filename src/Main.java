@@ -23,6 +23,7 @@ public class Main extends JFrame {
 	private static String[] words7 = new String[500];
 	final static File STATSFILE = new File("src/GameLog.txt");
 	public static Statistics stats;
+	static String user = "default";
 
 	public static void main(String[] args) throws IOException{
 		//import keywords
@@ -118,5 +119,15 @@ public class Main extends JFrame {
 	public static Statistics getStats()
 	{
 		return stats;
+	}
+
+	public static void setUser(String u)
+	{
+		user = u;
+	}
+
+	public static String getUser()
+	{
+		return user;
 	}
 }

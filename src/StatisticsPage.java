@@ -46,8 +46,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		label2.setFont(new Font("SansSerif", Font.PLAIN, 15));
 		add(label2);
 
-		int games_played = stats.getTotalGamesPlayed();
-		JLabel anslabel2 = new JLabel(String.valueOf(games_played));
+		JLabel anslabel2 = new JLabel(String.valueOf(stats.getTotalGamesPlayed()));
 		anslabel2.setBounds(160, 150, 600, 100);
 		anslabel2.setFont(new Font("SansSerif", Font.PLAIN, 40));
 		add(anslabel2);
@@ -58,8 +57,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		add(label3);
 		
 		//change this
-		int games_won = stats.getTotalGamesWon();
-		JLabel anslabel3 = new JLabel(String.valueOf(games_won)); 
+		JLabel anslabel3 = new JLabel(String.valueOf(stats.getTotalGamesWon()));
 		anslabel3.setBounds(310, 150, 600, 100);
 		anslabel3.setFont(new Font("SansSerif", Font.PLAIN, 40));
 		add(anslabel3);
@@ -108,7 +106,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it
-			new Mainmenu(stats.getCurrentUser());
+			new Mainmenu();
 			dispose();
 		}
 		if (e.getSource() == exit) {

@@ -100,7 +100,7 @@ public class Settings extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it
-			new Mainmenu(current_user);
+			new Mainmenu();
 			dispose();
 		}
 		if (e.getSource() == exit) {

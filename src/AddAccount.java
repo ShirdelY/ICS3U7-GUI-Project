@@ -215,7 +215,7 @@ public class AddAccount implements ActionListener{
 			}
 			//  catch Exception error
 			catch (IOException err) {
-				System.out.print("error");
+				System.out.print("error addaccount");
 			}
 			
 		}

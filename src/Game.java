@@ -58,8 +58,8 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	 * @param keys array of all keywords for given difficulty - to verify if entries are valid
 	 * @param difficulty 0 for easy, 1 for hard
 	 */
-	Game (String user, String key, String[] keys, int difficulty) {
-		current_user = user;
+	Game (String key, String[] keys, int difficulty) {
+		current_user = Main.getUser();
 		System.out.println(key);
 		//change grid size dependant on difficulty
 		//if easy mode
@@ -260,7 +260,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		}
 		catch (Exception IO)
 		{
-			System.out.println("error");
+			System.out.println("error game");
 		}
 
 	}
@@ -324,9 +324,9 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 				if (valid) {
 					// if the user guessed the word, direct to the Congratulations screen
 					if (keyString.toUpperCase().equals(guess)) {
-						new Congratulations(current_user);
+						new Congratulations();
 	// add file reader here to get the user at the last line - that will be the username
-						stats.writeGame(current_user, true, guess_num, keyString);
+						stats.writeGame(true, guess_num, keyString);
 						dispose();
 					}
 					//check for letters to see if they are used in the keyword
@@ -362,7 +362,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 				if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
 					new Loser(current_user, keyString);
 	// add file reader here to get the user at the last line - that will be the username
-					stats.writeGame(current_user, false, 6, keyString);
+					stats.writeGame(false, 6, keyString);
 					dispose();
 				}
 				// add the number of guesses the user has had
@@ -384,7 +384,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		}
 		catch (Exception IO)
 		{
-			System.out.println("error");
+			System.out.println("error game IO");
 		}
 	}
 	

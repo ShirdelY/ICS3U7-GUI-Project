@@ -69,7 +69,7 @@ public class Instructions extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it
-			new Mainmenu(current_user);
+			new Mainmenu();
 			dispose();
 		}
 	}
