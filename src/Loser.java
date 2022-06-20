@@ -22,8 +22,7 @@ public class Loser extends JFrame implements ActionListener {
 	 * @param - none
 	 * @return - none
 	 */
-	Loser(String user, String word) {
-		current_user = user;
+	Loser(String word) {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);

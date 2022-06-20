@@ -95,7 +95,7 @@ public class Settings extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == credits) {
 			// if credits is pressed, it clears the frame and calls credits class
-			new Credits(current_user);
+			new Credits();
 			dispose();
 		}
 		if (e.getSource() == mainmenu) {

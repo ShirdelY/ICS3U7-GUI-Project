@@ -103,7 +103,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == instructions) {
 			// if instructions is pressed, it clears the frame and calls instruction class
-			new Instructions(current_user);
+			new Instructions();
 			dispose();
 		}
 		if (e.getSource() == stats) {

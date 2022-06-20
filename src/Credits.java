@@ -19,9 +19,8 @@ public class Credits extends JFrame implements ActionListener {
 	 * @return - none
 	 */
 	
-	Credits(String user) {
-		current_user = user;
-		setLayout(null); 
+	Credits() {
+		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 

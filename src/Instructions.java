@@ -22,8 +22,7 @@ public class Instructions extends JFrame implements ActionListener {
 	 * @param - none
 	 * @return - none
 	 */
-	Instructions(String user) {
-		current_user = user;
+	Instructions() {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
