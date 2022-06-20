@@ -81,6 +81,20 @@ public class Mainmenu extends JFrame implements ActionListener {
 		pack();
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		addWindowListener(new java.awt.event.WindowAdapter() {
+			public void windowClosing(java.awt.event.WindowEvent e) {
+				try
+				{
+					Main.getStats().closeStats();
+				}
+				catch (Exception IO)
+				{
+					System.out.println("writer close error");
+				}
+				System.exit(0);
+			}
+		});
 	}
 
 	/**
@@ -122,6 +136,14 @@ public class Mainmenu extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == logout) {
 			// if logout is pressed, we go to the start page by calling it
+			try
+			{
+				Main.getStats().closeStats();
+			}
+			catch (Exception IO)
+			{
+				System.out.println("writer close error");
+			}
 			new Start();
 			dispose();
 		}

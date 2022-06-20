@@ -38,11 +38,15 @@ public class Statistics {
     	// time is a functionality we can add at the end, but we would need to start counting as soon as easy mode is pressed and then subract with currents
         writer.write(Main.getUser() + " " + win + " " + guess + " " + key);
         writer.newLine();
-        writer.close();
         total_games_played++;
         if (win)
             total_games_won++;
         prob_win = total_games_won / total_games_played;
+    }
+
+    public void closeStats() throws IOException
+    {
+        writer.close();
     }
 
     public int getTotalGamesPlayed() {

@@ -30,12 +30,22 @@ public class Main extends JFrame {
 		words5 = importWords5();
 		validwords5 = importValidWords5();
 		words7 = importWords7();
-		//create statistics writers
-		stats = new Statistics(STATSFILE);
 		//create new title screen
 		new Start();
 	}
 
+	public static void makeStats()
+	{
+		//create statistics writers
+		try
+		{
+			stats = new Statistics(STATSFILE);
+		}
+		catch (Exception IO)
+		{
+			System.out.println("Statistics creation error");
+		}
+	}
 	/**
 	 * imports possible 5 letter guesses from txt file
 	 * @return array of possible guesses

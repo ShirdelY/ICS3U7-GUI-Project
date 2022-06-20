@@ -85,6 +85,14 @@ public class Congratulations extends JFrame implements ActionListener {
 		}
 		if (e.getSource() == exit) {
 			// if exit is pressed, we terminate the program
+			try
+			{
+				Main.getStats().closeStats();
+			}
+			catch (Exception IO)
+			{
+				System.out.print("writer close error");
+			}
 			System.exit(0);
 		}
 	}

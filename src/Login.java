@@ -136,6 +136,7 @@ public class Login implements ActionListener{
 						// passwords are the same
 						if (password_entered.equals(correct_password)) {
 							 Main.setUser(correct_username);
+							 Main.makeStats();
 							new Mainmenu();
 							frame.dispose();
 						}
