@@ -20,10 +20,6 @@ public class StatisticsPage extends JFrame implements ActionListener {
 	JButton mainmenu, exit;
 	Statistics stats = Main.getStats();
 	
-//	public static void main(String[] args) throws IOException {
-//		new StatisticsPage();
-//	}
-	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 3 buttons
 	 * @param - none
@@ -42,35 +38,35 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		add(label1);
 		
 		JLabel label2 = new JLabel("Games Played");
-		label2.setBounds(125, 200, 600, 100);
+		label2.setBounds(75, 200, 600, 100);
 		label2.setFont(new Font("SansSerif", Font.PLAIN, 15));
 		add(label2);
 
 		JLabel anslabel2 = new JLabel(String.valueOf(stats.getTotalGamesPlayed()));
-		anslabel2.setBounds(160, 150, 600, 100);
+		anslabel2.setBounds(110, 150, 600, 100);
 		anslabel2.setFont(new Font("SansSerif", Font.PLAIN, 40));
 		add(anslabel2);
 		
 		JLabel label3 = new JLabel("Games Won");
-		label3.setBounds(275, 200, 600, 100);
+		label3.setBounds(225, 200, 600, 100);
 		label3.setFont(new Font("SansSerif", Font.PLAIN, 15));
 		add(label3);
 		
 		//change this
 		JLabel anslabel3 = new JLabel(String.valueOf(stats.getTotalGamesWon()));
-		anslabel3.setBounds(310, 150, 600, 100);
+		anslabel3.setBounds(260, 150, 600, 100);
 		anslabel3.setFont(new Font("SansSerif", Font.PLAIN, 40));
 		add(anslabel3);
 		
 		JLabel label4 = new JLabel("Win %");
-		label4.setBounds(425, 200, 600, 100);
+		label4.setBounds(400, 200, 600, 100);
 		label4.setFont(new Font("SansSerif", Font.PLAIN, 15));
 		add(label4);
 		
 		//change this
 		try {
 			JLabel anslabel4 = new JLabel((stats.getProbWin() * 100)+"%");
-			anslabel4.setBounds(490, 150, 600, 100);
+			anslabel4.setBounds(360, 150, 600, 100);
 			anslabel4.setFont(new Font("SansSerif", Font.PLAIN, 40));
 			add(anslabel4);
 		}
