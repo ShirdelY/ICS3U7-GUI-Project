@@ -351,6 +351,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					index_row++;
 					//reset column index back to start
 					index_column = 0;
+					guess_num++;
 				}
 				//guess is not a word, turn boxes red to indicate such
 				else {
@@ -366,7 +367,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					dispose();
 				}
 				// add the number of guesses the user has had
-				guess_num++;
 				repaint();
 			} 
 		}
