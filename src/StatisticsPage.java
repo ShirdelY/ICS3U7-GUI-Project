@@ -95,6 +95,21 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		pack();
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		//write data to GameLog if window is closed
+		addWindowListener(new java.awt.event.WindowAdapter() {
+			public void windowClosing(java.awt.event.WindowEvent e) {
+				try
+				{
+					Main.getStats().closeStats();
+				}
+				catch (Exception IO)
+				{
+					System.out.println("writer close error");
+				}
+				System.exit(0);
+			}
+		});
 	}
 	/**
 	 * actionPerformed method to manipulate and set specific instructions for the buttons

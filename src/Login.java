@@ -92,6 +92,21 @@ public class Login implements ActionListener{
 
 		frame.add(panel);
 		frame.setVisible(true);
+
+		//write data to GameLog if window is closed
+		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+			public void windowClosing(java.awt.event.WindowEvent e) {
+				try
+				{
+					Main.getStats().closeStats();
+				}
+				catch (Exception IO)
+				{
+					System.out.println("writer close error");
+				}
+				System.exit(0);
+			}
+		});
 	}
 
 	/**
