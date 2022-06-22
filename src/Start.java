@@ -15,11 +15,14 @@ import javax.swing.JLabel;
 public class Start extends JFrame implements ActionListener {
 	// declaring button to start the game
 	private JButton start;
+	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
+	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing the title, and 1 button
 	 * @param - none
 	 * @return - none
 	 */
+	
 	Start() {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,6 +39,7 @@ public class Start extends JFrame implements ActionListener {
 		label2.setBounds(60, 250, 500, 50);
 		label2.setFont(new Font("SansSerif", Font.PLAIN, 30));
 		add(label2);
+		label2.setForeground(GREEN);
 		
 		// start button
 		start = new JButton("Start");
@@ -49,6 +53,7 @@ public class Start extends JFrame implements ActionListener {
 		label3.setBounds(125, 550, 500, 50);
 		label3.setFont(new Font("SansSerif", Font.ITALIC, 20));
 		add(label3);
+		label3.setForeground(YELLOW);
 		
 		pack();
 		setSize(600,650);

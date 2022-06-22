@@ -18,14 +18,15 @@ public class Login implements ActionListener{
 	// File and Buffer Readers to read the input
     private String input;
     // instance variables for the elements of the JFrame
-	private static JFrame frame;	
-	private static JPanel panel;	
-	private static JButton login, add_account, back;
-	private static JTextField username;
-	private static JPasswordField password;
-	private static JLabel title, label1, label2;
+	private JFrame frame;	
+	private JPanel panel;	
+	private JButton login, add_account, back;
+	private JTextField username;
+	private JPasswordField password;
+	private JLabel title, label1, label2;
 	// filepath for usernames and passwords
 	final private static File USERFILE = new File("src/users.txt");
+	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, 2 other labels, 2 fields to enter text, and 3 buttons
@@ -44,12 +45,14 @@ public class Login implements ActionListener{
 		title = new JLabel("Login");
 		title.setBounds(225,40,300,100);
 		title.setFont(new Font("SansSerif", Font.PLAIN, 50));
+		title.setForeground(GREEN);
 		panel.add(title);
 		
 		// username label
 		label1 = new JLabel("Username");
 		label1.setBounds(40,150,100,50);
 		label1.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		label1.setForeground(YELLOW);
 		panel.add(label1);
 		
 		// username text field
@@ -61,6 +64,7 @@ public class Login implements ActionListener{
 		label2 = new JLabel("Password");
 		label2.setBounds(40,205,100,50);
 		label2.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		label2.setForeground(YELLOW);
 		panel.add(label2);
 		
 		// password field

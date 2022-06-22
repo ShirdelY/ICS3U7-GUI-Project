@@ -18,15 +18,16 @@ import javax.swing.*;
 public class AddAccount implements ActionListener{
 
 	// static instance variables for the elements of the JFrame
-	private static JFrame frame;	
-	private static JPanel panel;	
-	private static JButton add_acc, back;
-	private static JTextField username;
-	private static JPasswordField password, confirm_password;
-	private static JLabel title, instructions1, instructions2, label1, label2, label3;
+	private JFrame frame;	
+	private JPanel panel;	
+	private JButton add_acc, back;
+	private JTextField username;
+	private JPasswordField password, confirm_password;
+	private JLabel title, instructions1, instructions2, label1, label2, label3;
 	
 	// filepath for usernames and passwords
 	final private static File USERFILE = new File("src/users.txt");
+	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, 4 other labels, 3 fields to enter text, and 2 buttons
@@ -45,6 +46,7 @@ public class AddAccount implements ActionListener{
 		title = new JLabel("Add Account");
 		title.setBounds(130,40,400,100);
 		title.setFont(new Font("SansSerif", Font.PLAIN, 50));
+		title.setForeground(GREEN);
 		panel.add(title);
 		
 		// instructions labels for entering a username and passowrd
@@ -61,6 +63,7 @@ public class AddAccount implements ActionListener{
 		label1 = new JLabel("Username");
 		label1.setBounds(40,200,100,50);
 		label1.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		label1.setForeground(YELLOW);
 		panel.add(label1);
 		
 		// username text field
@@ -72,6 +75,7 @@ public class AddAccount implements ActionListener{
 		label2 = new JLabel("Password");
 		label2.setBounds(40,255,100,50);
 		label2.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		label2.setForeground(YELLOW);
 		panel.add(label2);
 		
 		// password field
@@ -83,6 +87,7 @@ public class AddAccount implements ActionListener{
 		label3 = new JLabel("Confirm Password");
 		label3.setBounds(40,310,300,50);
 		label3.setFont(new Font("Monospaced", Font.PLAIN, 20));
+		label3.setForeground(YELLOW);
 		panel.add(label3);
 		
 		// confirm password field

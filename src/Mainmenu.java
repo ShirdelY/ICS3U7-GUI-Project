@@ -3,6 +3,7 @@
  * This class shows the main menu and its different buttons
  * @author Shiza and Shirdel
  */
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +16,8 @@ import javax.swing.JLabel;
 
 public class Mainmenu extends JFrame implements ActionListener {
 	// declaring buttons
-	JButton easymode, hardmode, instructions, settings, stats, logout;
+	private JButton easymode, hardmode, instructions, settings, stats, logout;
+	private final Color GREEN = new Color(83, 141, 78);
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 6 buttons
 	 * @param - none
@@ -33,6 +35,7 @@ public class Mainmenu extends JFrame implements ActionListener {
 		JLabel label1 = new JLabel("Main Menu"); //center this after
 		label1.setBounds(170,40,400,100);
 		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
+		label1.setForeground(GREEN);
 		add(label1);
 
 		// button for instructions, settings, easymode, hardmode, stats, logout

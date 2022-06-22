@@ -15,8 +15,7 @@ import javax.swing.JLabel;
 public class Loser extends JFrame implements ActionListener {
 	// declaring buttons
 	private JButton mainmenu, exit, statistics;
-	private static String current_user;
-	
+	private final Color GREEN = new Color(83, 141, 78);
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, the right word, and 3 buttons
 	 * @param - none
@@ -31,7 +30,9 @@ public class Loser extends JFrame implements ActionListener {
 		JLabel label1 = new JLabel("You couldn't guess the word in 6 tries :("); //center this after
 		label1.setBounds(20, 150, 600, 50);
 		label1.setFont(new Font("SansSerif", Font.BOLD, 25));
+		label1.setForeground(GREEN);
 		add(label1);
+		
 		JLabel label2 = new JLabel("The word was:"); //center this after
 		label2.setBounds(175, 175, 600, 100);
 		label2.setFont(new Font("SansSerif", Font.BOLD, 25));

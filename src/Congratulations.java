@@ -14,7 +14,8 @@ import javax.swing.JLabel;
 
 public class Congratulations extends JFrame implements ActionListener {
 	// declaring buttons
-	JButton mainmenu, exit, statistics;
+	private JButton mainmenu, exit, statistics;
+	private final Color GREEN = new Color(83, 141, 78);
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 3 buttons
@@ -30,6 +31,7 @@ public class Congratulations extends JFrame implements ActionListener {
 		JLabel label1 = new JLabel("CONGRATULATIONS!"); //center this after
 		label1.setBounds(70, 150, 600, 100);
 		label1.setFont(new Font("SansSerif", Font.BOLD, 40));
+		label1.setForeground(GREEN);
 		add(label1);
 		
 		JLabel label2 = new JLabel("YOU GOT THE WORD!!!"); //center this after

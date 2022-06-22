@@ -1,7 +1,7 @@
 import java.io.*;
 public class Statistics {
-    private final BufferedWriter writer;
-    private final BufferedReader reader;
+    private BufferedWriter writer;
+    private BufferedReader reader;
     private int total_games_played = 0;
 	private int total_games_won = 0;
 	private double prob_win;

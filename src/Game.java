@@ -49,9 +49,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 	// declaring colors used in the game
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	private static String current_user; 
-
-	
-	Statistics stats;
+	private Statistics stats;
 	/**
 	 * Generate game window for wordle
 	 * @param key selected keyword for user to guess

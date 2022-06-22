@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 public class Instructions extends JFrame implements ActionListener {
 	// declaring button for main menu
 	JButton mainmenu;
-	private static String current_user;
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, picture and and 1 button

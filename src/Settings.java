@@ -11,10 +11,10 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Settings extends JFrame implements ActionListener {
-	// declaring buttons and isLight for dark/light mode
-	JButton theme, credits, mainmenu, exit;
-	boolean isLight;
+	// declaring buttons
+	JButton credits, mainmenu, exit;
 	private static String current_user;
+	private final Color GREEN = new Color(83, 141, 78);
 
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 5 buttons
@@ -31,35 +31,27 @@ public class Settings extends JFrame implements ActionListener {
 		JLabel label1 = new JLabel("SETTINGS"); //center this after
 		label1.setBounds(180, 50, 300, 50);
 		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
+		label1.setForeground(GREEN);
 		add(label1);
 
-		// button for back, switch account, dark mode, light mode, logout
-		boolean isLight = true; // we can manipulate the value of this variable
-		
-		// theme button
-		theme = new JButton("Dark Mode");
-		theme.setBounds(150, 175, 300, 75);
-		theme.setFont(new Font("Monospaced", Font.PLAIN, 20));
-		add(theme);
-		theme.addActionListener(this);
-
+		// button for credits, main menu, exit
 		// credits button
 		credits = new JButton("Credits");
-		credits.setBounds(150, 275, 300, 75);
+		credits.setBounds(150, 175, 300, 75);
 		credits.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(credits);
 		credits.addActionListener(this);
 
 		// main menu button
 		mainmenu = new JButton("Main Menu");
-		mainmenu.setBounds(150, 375, 300, 75);
+		mainmenu.setBounds(150, 275, 300, 75);
 		mainmenu.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(mainmenu);
 		mainmenu.addActionListener(this);
 
 		// exit button
 		exit = new JButton("Exit");
-		exit.setBounds(250, 475, 100, 50);
+		exit.setBounds(250, 375, 100, 50);
 		exit.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		add(exit);
 		exit.addActionListener(this);
@@ -77,22 +69,6 @@ public class Settings extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource() == theme) {
-			//if the button is in light mode
-			if (isLight) {
-				//show light mode
-				theme.setText("Dark Mode");
-				System.out.println("now in light mode");
-				isLight = false;
-			}
-			//if the button is in dark mode
-			else if (!isLight) {
-				//show dark mode
-				theme.setText("Light Mode");
-				System.out.println("now in dark mode");
-				isLight = true;
-			}
-		}
 		if (e.getSource() == credits) {
 			// if credits is pressed, it clears the frame and calls credits class
 			new Credits();

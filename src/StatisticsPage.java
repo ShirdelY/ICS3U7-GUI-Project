@@ -1,5 +1,5 @@
 /**
- * Statisitcs.java - version 2
+ * StatistcsPage.java - version 2
  * @author Shiza and Shirdel
  */
 import java.awt.*;
@@ -17,8 +17,9 @@ import java.lang.ArithmeticException;
 
 public class StatisticsPage extends JFrame implements ActionListener {
 	// declaring buttons
-	JButton mainmenu, exit;
-	Statistics stats = Main.getStats();
+	private JButton mainmenu, exit;
+	private Statistics stats = Main.getStats();
+	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 3 buttons
@@ -35,11 +36,13 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		JLabel label1 = new JLabel("Statistics");
 		label1.setBounds(200, 50, 600, 100);
 		label1.setFont(new Font("SansSerif", Font.BOLD, 40));
+		label1.setForeground(GREEN);
 		add(label1);
 		
 		JLabel label2 = new JLabel("Games Played");
 		label2.setBounds(75, 200, 600, 100);
 		label2.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		label2.setForeground(YELLOW);
 		add(label2);
 
 		JLabel anslabel2 = new JLabel(String.valueOf(stats.getTotalGamesPlayed()));
@@ -50,6 +53,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		JLabel label3 = new JLabel("Games Won");
 		label3.setBounds(225, 200, 600, 100);
 		label3.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		label3.setForeground(YELLOW);
 		add(label3);
 		
 		//change this
@@ -61,6 +65,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		JLabel label4 = new JLabel("Win %");
 		label4.setBounds(400, 200, 600, 100);
 		label4.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		label4.setForeground(YELLOW);
 		add(label4);
 		
 		//change this
@@ -71,9 +76,8 @@ public class StatisticsPage extends JFrame implements ActionListener {
 			add(anslabel4);
 		}
 		catch (java.lang.ArithmeticException e) {
-			System.out.println("no games played");
-//			JFrame jFrame = new JFrame();
-//	        JOptionPane.showMessageDialog(jFrame, "You haven't played any games yet");
+			JFrame jFrame = new JFrame();
+	        JOptionPane.showMessageDialog(jFrame, "You haven't played any games yet");
 		}
 				
 		// main menu button

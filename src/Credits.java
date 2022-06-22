@@ -12,7 +12,8 @@ import javax.swing.*;
 public class Credits extends JFrame implements ActionListener {
 	// declaring button for the back (going to setttings)
 	private JButton back;
-	private static String current_user;
+	public static String current_user;
+	private final Color GREEN = new Color(83, 141, 78);
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title, citations with Jlabels, and 1 button
 	 * @param - none
@@ -28,6 +29,7 @@ public class Credits extends JFrame implements ActionListener {
 		JLabel label1 = new JLabel("CREDITS"); //center this after
 		label1.setBounds(200,0,400,100);
 		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
+		label1.setForeground(GREEN);
 		add(label1);
 		
 		// citation 1
