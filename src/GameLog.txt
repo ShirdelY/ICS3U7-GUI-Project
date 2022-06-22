@@ -19,3 +19,8 @@ test true 4 Month
 test true 1 Shall
 test true 1 Infra
 elonmusk true 3 Dance
+test true 1 Blood
+test false 6 Neath
+test false 6 Death
+test false 6 Alone
+test false 6 Smith

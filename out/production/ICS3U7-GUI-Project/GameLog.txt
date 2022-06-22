@@ -16,3 +16,9 @@ test true 1 Afoul
 test true 1 Loose
 test true 6 Fatly
 test true 4 Month
+test true 1 Shall
+test true 1 Infra
+elonmusk true 3 Dance
+test true 1 Blood
+test false 6 Neath
+test false 6 Death

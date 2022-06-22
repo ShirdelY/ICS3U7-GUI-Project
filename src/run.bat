@@ -13,3 +13,4 @@ javac Statistics.java
 javac StatisticsPage.java
 pause
 java Main
+pause

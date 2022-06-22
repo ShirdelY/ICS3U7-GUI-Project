@@ -19,14 +19,10 @@ public class Statistics {
 			String[] usergame_database = input.split(" ");
 			String correct_username = usergame_database[0];
 			String won = usergame_database[1];
-			int num_guesses = Integer.parseInt(usergame_database[2]);
 			// if the username is the same as the username in the database
 			if (current_user.equals(correct_username)) {
 				this.total_games_played++;
 				if (won.equals("true")) {
-					this.total_games_won++;
-				}
-				else if (won.equals("false")) {
 					this.total_games_won++;
 				}
 			}
@@ -41,7 +37,6 @@ public class Statistics {
         total_games_played++;
         if (win)
             total_games_won++;
-        prob_win = total_games_won / total_games_played;
     }
 
     public void closeStats() throws IOException
@@ -55,10 +50,7 @@ public class Statistics {
     public int getTotalGamesWon() {
     	return this.total_games_won;
     }
-    public double getProbWin() {
-    	return this.prob_win;
-    }
-    public String getCurrentUser() {
-    	return this.current_user;
+    public String getProbWin() {
+    	return String.valueOf(((double) total_games_won/total_games_played) * 100).substring(0,4);
     }
 }

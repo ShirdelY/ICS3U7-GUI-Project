@@ -401,7 +401,7 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 				}
 
 				//if the user didn't guess it in 6 tries, direct to the Loser screen
-				if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
+				if (guess_num == row + 1 && (!keyString.toUpperCase().equals(guess))) {
 					new Loser(keyString);
 	// add file reader here to get the user at the last line - that will be the username
 					stats.writeGame(false, 6, keyString);

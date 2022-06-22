@@ -14,18 +14,17 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-public class Login implements ActionListener{
+public class Login extends JFrame implements ActionListener{
 	// File and Buffer Readers to read the input
     private String input;
     // instance variables for the elements of the JFrame
-	private JFrame frame;	
 	private JPanel panel;	
 	private JButton login, add_account, back;
 	private JTextField username;
 	private JPasswordField password;
 	private JLabel title, label1, label2;
 	// filepath for usernames and passwords
-	final private static File USERFILE = new File("src/users.txt");
+	final private static File USERFILE = new File("users.txt");
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
@@ -34,12 +33,11 @@ public class Login implements ActionListener{
 	 * @return - none
 	 */
 	Login () {
-		// declaring the frame and panels
-		frame = new JFrame();
+		// declaring the panels
 		panel = new JPanel();
 		panel.setLayout(null);
-		frame.setSize(600, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(600, 650);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// title for login page
 		title = new JLabel("Login");
@@ -90,11 +88,11 @@ public class Login implements ActionListener{
 		panel.add(back);
 		back.addActionListener(this);
 
-		frame.add(panel);
-		frame.setVisible(true);
+		add(panel);
+		setVisible(true);
 
 		//write data to GameLog if window is closed
-		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+		addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
 				try
 				{
@@ -120,12 +118,12 @@ public class Login implements ActionListener{
 		if (e.getSource() == back) {
 			// if back is pressed, we go back to the start by calling it
 			new Start();
-			frame.dispose();
+			dispose();
 		}
 		if (e.getSource() == add_account) {
 			// if back is pressed, we go back to the start by calling it
 			new AddAccount();
-			frame.dispose();
+			dispose();
 		}
 		if (e.getSource() == login) {
 			// if back is pressed, we go back to the start by calling it
@@ -157,7 +155,7 @@ public class Login implements ActionListener{
 							 Main.setUser(correct_username);
 							 Main.makeStats();
 							new Mainmenu();
-							frame.dispose();
+							dispose();
 						}
 						// when password is incorrect
 						else {
@@ -168,7 +166,7 @@ public class Login implements ActionListener{
 					}
 				}
 				// when username doesn't exist in the database
-				if (usernameExists == false) {
+				if (!usernameExists) {
 					//add popup
 					JFrame jFrame = new JFrame();
 			        JOptionPane.showMessageDialog(jFrame, "Username/Password is incorrect");
@@ -176,7 +174,7 @@ public class Login implements ActionListener{
 			}
 			//  catch Exception error
 			catch (IOException err) {
-				System.out.print("error login");
+				System.out.println("error login");
 			}
 		}	
 	}

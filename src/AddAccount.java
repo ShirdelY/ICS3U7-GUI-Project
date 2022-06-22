@@ -15,10 +15,9 @@ import java.io.IOException;
 
 import javax.swing.*;
 
-public class AddAccount implements ActionListener{
+public class AddAccount extends JFrame implements ActionListener{
 
 	// static instance variables for the elements of the JFrame
-	private JFrame frame;	
 	private JPanel panel;	
 	private JButton add_acc, back;
 	private JTextField username;
@@ -36,11 +35,10 @@ public class AddAccount implements ActionListener{
 	 */
 	AddAccount () {
 		// declaring the frame and panels
-		frame = new JFrame();
 		panel = new JPanel();
 		panel.setLayout(null);
-		frame.setSize(600, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(600, 650);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// title for adding accounts page
 		title = new JLabel("Add Account");
@@ -107,11 +105,11 @@ public class AddAccount implements ActionListener{
 		panel.add(back);
 		back.addActionListener(this);
 
-		frame.add(panel);
-		frame.setVisible(true);
+		add(panel);
+		setVisible(true);
 
 		//write data to GameLog if window is closed
-		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+		addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
 				try
 				{
@@ -137,7 +135,7 @@ public class AddAccount implements ActionListener{
 		if (e.getSource() == back) {
 			// if back is pressed, we go back to the start by calling it
 			new Login();
-			frame.dispose();
+			dispose();
 		}
 		if (e.getSource() == add_acc) {
 			// actions with text file
@@ -214,7 +212,7 @@ public class AddAccount implements ActionListener{
 				else {
 					//add popup
 					JFrame jFrame = new JFrame();
-			        JOptionPane.showMessageDialog(jFrame, "Entered passwords don't match");
+			        //JOptionPane.showMessageDialog(jFrame, "Entered passwords don't match");
 				}
 				
 				//write to file

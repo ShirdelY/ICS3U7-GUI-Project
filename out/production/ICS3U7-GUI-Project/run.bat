@@ -9,5 +9,8 @@ javac Loser.java
 javac Mainmenu.java
 javac Settings.java
 javac Start.java
+javac Statistics.java
+javac StatisticsPage.java
 pause
 java Main
+pause

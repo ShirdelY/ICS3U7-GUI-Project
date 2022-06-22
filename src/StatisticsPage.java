@@ -70,7 +70,7 @@ public class StatisticsPage extends JFrame implements ActionListener {
 		
 		//change this
 		try {
-			JLabel anslabel4 = new JLabel((stats.getProbWin() * 100)+"%");
+			JLabel anslabel4 = new JLabel(stats.getProbWin()+"%");
 			anslabel4.setBounds(360, 150, 600, 100);
 			anslabel4.setFont(new Font("SansSerif", Font.PLAIN, 40));
 			add(anslabel4);
