@@ -25,7 +25,7 @@ public class AddAccount extends JFrame implements ActionListener{
 	private JLabel title, instructions1, instructions2, label1, label2, label3;
 	
 	// filepath for usernames and passwords
-	final private static File USERFILE = new File("src/users.txt");
+	final private static File USERFILE = new File("users.txt");
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
@@ -212,11 +212,11 @@ public class AddAccount extends JFrame implements ActionListener{
 				else {
 					//add popup
 					JFrame jFrame = new JFrame();
-			        //JOptionPane.showMessageDialog(jFrame, "Entered passwords don't match");
+			        JOptionPane.showMessageDialog(jFrame, "Entered passwords don't match");
 				}
 				
 				//write to file
-				if (!usernameExists && !userValid && !passValid && isFilled) {
+				if (!usernameExists && !userValid && !passValid && isFilled && passwordsMatch) {
 					// writing to file
 					FileWriter fileW = new FileWriter (USERFILE, true); //if you set it to true, it appends
 					BufferedWriter bufferW = new BufferedWriter (fileW);
