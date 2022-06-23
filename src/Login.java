@@ -24,7 +24,7 @@ public class Login extends JFrame implements ActionListener{
 	private JPasswordField password;
 	private JLabel title, label1, label2;
 	// filepath for usernames and passwords
-	final private static File USERFILE = new File("users.txt");
+	final private static File USERFILE = new File("src/users.txt");
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**

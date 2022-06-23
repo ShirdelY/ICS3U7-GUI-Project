@@ -131,21 +131,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		makeKeyboard();
 		//add keylistener for keyboard input
 		addKeyListener(this);
-
-		//write data to GameLog if window is closed
-		addWindowListener(new java.awt.event.WindowAdapter() {
-			public void windowClosing(java.awt.event.WindowEvent e) {
-				try
-				{
-					Main.getStats().closeStats();
-				}
-				catch (Exception IO)
-				{
-					System.out.println("writer close error");
-				}
-				System.exit(0);
-			}
-		});
 	}
 
 	/**
@@ -241,62 +226,34 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		try
 		{
 			switch (e.getActionCommand()) {
-				case ("A"):
-					gameUpdate('A');
-				case ("B"):
-					gameUpdate('B');
-				case ("C"):
-					gameUpdate('C');
-				case ("D"):
-					gameUpdate('D');
-				case ("E"):
-					gameUpdate('E');
-				case ("F"):
-					gameUpdate('F');
-				case ("G"):
-					gameUpdate('G');
-				case ("H"):
-					gameUpdate('H');
-				case ("I"):
-					gameUpdate('I');
-				case ("J"):
-					gameUpdate('J');
-				case ("K"):
-					gameUpdate('K');
-				case ("L"):
-					gameUpdate('L');
-				case ("M"):
-					gameUpdate('M');
-				case ("N"):
-					gameUpdate('N');
-				case ("O"):
-					gameUpdate('O');
-				case ("P"):
-					gameUpdate('P');
-				case ("Q"):
-					gameUpdate('Q');
-				case ("R"):
-					gameUpdate('R');
-				case ("S"):
-					gameUpdate('S');
-				case ("T"):
-					gameUpdate('T');
-				case ("U"):
-					gameUpdate('U');
-				case ("V"):
-					gameUpdate('V');
-				case ("W"):
-					gameUpdate('W');
-				case ("X"):
-					gameUpdate('X');
-				case ("Y"):
-					gameUpdate('Y');
-				case ("Z"):
-					gameUpdate('Z');
-				case ("Enter"):
-					gameUpdate((char) 10);
-				case ("Back"):
-					gameUpdate((char) 8);
+				case ("A") -> gameUpdate('A');
+				case ("B") -> gameUpdate('B');
+				case ("C") -> gameUpdate('C');
+				case ("D") -> gameUpdate('D');
+				case ("E") -> gameUpdate('E');
+				case ("F") -> gameUpdate('F');
+				case ("G") -> gameUpdate('G');
+				case ("H") -> gameUpdate('H');
+				case ("I") -> gameUpdate('I');
+				case ("J") -> gameUpdate('J');
+				case ("K") -> gameUpdate('K');
+				case ("L") -> gameUpdate('L');
+				case ("M") -> gameUpdate('M');
+				case ("N") -> gameUpdate('N');
+				case ("O") -> gameUpdate('O');
+				case ("P") -> gameUpdate('P');
+				case ("Q") -> gameUpdate('Q');
+				case ("R") -> gameUpdate('R');
+				case ("S") -> gameUpdate('S');
+				case ("T") -> gameUpdate('T');
+				case ("U") -> gameUpdate('U');
+				case ("V") -> gameUpdate('V');
+				case ("W") -> gameUpdate('W');
+				case ("X") -> gameUpdate('X');
+				case ("Y") -> gameUpdate('Y');
+				case ("Z") -> gameUpdate('Z');
+				case ("Enter") -> gameUpdate((char) 10);
+				case ("Back") -> gameUpdate((char) 8);
 			}
 		}
 		catch (Exception IO)
@@ -366,7 +323,8 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					// if the user guessed the word, direct to the Congratulations screen
 					if (keyString.toUpperCase().equals(guess)) {
 						new Congratulations();
-  						stats.writeGame(true, guess_num, keyString);
+	// add file reader here to get the user at the last line - that will be the username
+						stats.writeGame(true, guess_num, keyString);
 						dispose();
 					}
 					//check for letters to see if they are used in the keyword
@@ -400,8 +358,9 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 				}
 
 				//if the user didn't guess it in 6 tries, direct to the Loser screen
-				if (guess_num == row + 1 && (!keyString.toUpperCase().equals(guess))) {
+				if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
 					new Loser(keyString);
+	// add file reader here to get the user at the last line - that will be the username
 					stats.writeGame(false, 6, keyString);
 					dispose();
 				}

@@ -24,3 +24,6 @@ test false 6 Neath
 test false 6 Death
 test false 6 Alone
 test false 6 Smith
+elonmusk true 2 Month
+elonmusk true 1 Wetly
+elonmusk true 1 Plain
