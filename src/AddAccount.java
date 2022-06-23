@@ -25,7 +25,7 @@ public class AddAccount extends JFrame implements ActionListener{
 	private JLabel title, instructions1, instructions2, label1, label2, label3;
 	
 	// filepath for usernames and passwords
-	final private static File USERFILE = new File("src/users.txt");
+	final private static File USERFILE = new File("users.txt");
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
