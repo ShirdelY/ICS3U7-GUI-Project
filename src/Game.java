@@ -226,34 +226,62 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 		try
 		{
 			switch (e.getActionCommand()) {
-				case ("A") -> gameUpdate('A');
-				case ("B") -> gameUpdate('B');
-				case ("C") -> gameUpdate('C');
-				case ("D") -> gameUpdate('D');
-				case ("E") -> gameUpdate('E');
-				case ("F") -> gameUpdate('F');
-				case ("G") -> gameUpdate('G');
-				case ("H") -> gameUpdate('H');
-				case ("I") -> gameUpdate('I');
-				case ("J") -> gameUpdate('J');
-				case ("K") -> gameUpdate('K');
-				case ("L") -> gameUpdate('L');
-				case ("M") -> gameUpdate('M');
-				case ("N") -> gameUpdate('N');
-				case ("O") -> gameUpdate('O');
-				case ("P") -> gameUpdate('P');
-				case ("Q") -> gameUpdate('Q');
-				case ("R") -> gameUpdate('R');
-				case ("S") -> gameUpdate('S');
-				case ("T") -> gameUpdate('T');
-				case ("U") -> gameUpdate('U');
-				case ("V") -> gameUpdate('V');
-				case ("W") -> gameUpdate('W');
-				case ("X") -> gameUpdate('X');
-				case ("Y") -> gameUpdate('Y');
-				case ("Z") -> gameUpdate('Z');
-				case ("Enter") -> gameUpdate((char) 10);
-				case ("Back") -> gameUpdate((char) 8);
+				case ("A"):
+					gameUpdate('A');
+				case ("B"):
+					gameUpdate('B');
+				case ("C"):
+					gameUpdate('C');
+				case ("D"):
+					gameUpdate('D');
+				case ("E"):
+					gameUpdate('E');
+				case ("F"):
+					gameUpdate('F');
+				case ("G"):
+					gameUpdate('G');
+				case ("H"):
+					gameUpdate('H');
+				case ("I"):
+					gameUpdate('I');
+				case ("J"):
+					gameUpdate('J');
+				case ("K"):
+					gameUpdate('K');
+				case ("L"):
+					gameUpdate('L');
+				case ("M"):
+					gameUpdate('M');
+				case ("N"):
+					gameUpdate('N');
+				case ("O"):
+					gameUpdate('O');
+				case ("P"):
+					gameUpdate('P');
+				case ("Q"):
+					gameUpdate('Q');
+				case ("R"):
+					gameUpdate('R');
+				case ("S"):
+					gameUpdate('S');
+				case ("T"):
+					gameUpdate('T');
+				case ("U"):
+					gameUpdate('U');
+				case ("V"):
+					gameUpdate('V');
+				case ("W"):
+					gameUpdate('W');
+				case ("X"):
+					gameUpdate('X');
+				case ("Y"):
+					gameUpdate('Y');
+				case ("Z"):
+					gameUpdate('Z');
+				case ("Enter"):
+					gameUpdate((char) 10);
+				case ("Back"):
+					gameUpdate((char) 8);
 			}
 		}
 		catch (Exception IO)
