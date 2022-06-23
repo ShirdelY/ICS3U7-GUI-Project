@@ -14,11 +14,9 @@ public class Main extends JFrame {
 	final private static File SOURCE7 = new File("7LetterKeyWords.txt");
 	//source file lengths
 	final private static int FIVELENGTH = 586;
-	final private static int VALIDFIVELENGTH = 12972;
 	final private static int SEVENLENGTH = 500;
 	//create arrays for words
 	private static String[] words5 = new String[586];
-	private static String[] validwords5 = new String[12972];
 	private static String[] words7 = new String[500];
 	public final static File STATSFILE = new File("GameLog.txt");
 	public static Statistics stats;
