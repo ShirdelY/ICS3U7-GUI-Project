@@ -323,7 +323,6 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 					// if the user guessed the word, direct to the Congratulations screen
 					if (keyString.toUpperCase().equals(guess)) {
 						new Congratulations();
-	// add file reader here to get the user at the last line - that will be the username
 						stats.writeGame(true, guess_num, keyString);
 						dispose();
 					}
@@ -358,9 +357,8 @@ public class Game extends JFrame implements KeyListener, ActionListener {
 				}
 
 				//if the user didn't guess it in 6 tries, direct to the Loser screen
-				if (guess_num == 6 && (!keyString.toUpperCase().equals(guess))) {
+				if (guess_num == row && (!keyString.toUpperCase().equals(guess))) {
 					new Loser(keyString);
-	// add file reader here to get the user at the last line - that will be the username
 					stats.writeGame(false, 6, keyString);
 					dispose();
 				}

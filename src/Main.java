@@ -19,7 +19,6 @@ public class Main extends JFrame {
 	final private static int SEVENLENGTH = 500;
 	//create arrays for words
 	private static String[] words5 = new String[586];
-	private static String[] validwords5 = new String[12972];
 	private static String[] words7 = new String[500];
 	public final static File STATSFILE = new File("GameLog.txt");
 	public static Statistics stats;
@@ -28,7 +27,6 @@ public class Main extends JFrame {
 	public static void main(String[] args) throws IOException{
 		//import keywords
 		words5 = importWords5();
-		validwords5 = importValidWords5();
 		words7 = importWords7();
 		//create new title screen
 		new Start();
@@ -107,15 +105,6 @@ public class Main extends JFrame {
 	public static String[] getFive()
 	{
 		return words5;
-	}
-
-	/**
-	 * getter method for "easy" (5 letter) words that are valid to guess
-	 * @return array of five letter valid words
-	 */
-	public static String[] getValidFive() 
-	{
-		return validwords5;
 	}
 	
 	/**
