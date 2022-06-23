@@ -51,6 +51,8 @@ public class Statistics {
     	return this.total_games_won;
     }
     public String getProbWin() {
-    	return String.valueOf(((double) total_games_won/total_games_played) * 100).substring(0,4);
+        if (total_games_played > 0)
+            return String.valueOf(((double) total_games_won/total_games_played) * 100).substring(0,3);
+        return "0.0";
     }
 }
