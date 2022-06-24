@@ -32,6 +32,9 @@ public class Main extends JFrame {
 		new Start();
 	}
 
+	/**
+	 * method for creating an instance of the Statistics class
+	 */
 	public static void makeStats()
 	{
 		//create statistics writers
@@ -115,16 +118,29 @@ public class Main extends JFrame {
 	{
 		return words7;
 	}
+
+	/**
+	 * getter method for Statistics class instance
+	 * @return Statistics class instance
+	 */
 	public static Statistics getStats()
 	{
 		return stats;
 	}
 
+	/**
+	 * setter method for current username in use
+	 * @param u - username made with the AddAccount class
+	 */
 	public static void setUser(String u)
 	{
 		user = u;
 	}
 
+	/**
+	 * getter method for current username in use
+	 * @return String - username
+	 */
 	public static String getUser()
 	{
 		return user;
