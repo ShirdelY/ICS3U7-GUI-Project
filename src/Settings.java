@@ -1,5 +1,5 @@
 /**
- * Settings.java - version 3
+ * Settings.java - version 3 
  * This class is used as the setting frame and has different buttons to go to different pages/exit
  * @author Shiza and Shirdel
  */

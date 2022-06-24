@@ -1,5 +1,5 @@
 /**
- * Loser.java - version 3
+ * Loser.java - version 3 
  * This class shows a frame to tell the user that they ran out of guesses and inform them what the word was
  * @author Shiza and Shirdel
  */
@@ -92,7 +92,6 @@ public class Loser extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == statistics) {
-			System.out.println("statistics");
 			new StatisticsPage();
 			dispose();
 		}

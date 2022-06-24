@@ -1,5 +1,5 @@
 /**
- * Start.java - version 3
+ * Start.java - version 3 
  * This class displays the title page of our program with the start button to go to the main menu
  * @author Shiza and Shirdel
  */
@@ -28,7 +28,7 @@ public class Start extends JFrame implements ActionListener {
 		setVisible(true);
 
 		// game title
-		JLabel label1 = new JLabel("HELLO WORDL"); //center this after
+		JLabel label1 = new JLabel("HELLO WORDL");
 		label1.setBounds(30, 150, 600, 100);
 		label1.setFont(new Font("SansSerif", Font.BOLD, 70));
 		add(label1);

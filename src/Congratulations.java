@@ -1,5 +1,5 @@
 /**
- * Congratulations.java - version 3
+ * Congratulations.java - version 3 
  * This class shows a frame to congratulate the user for guessing the word
  * @author Shiza and Shirdel
  */
@@ -85,7 +85,6 @@ public class Congratulations extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == statistics) {
-			System.out.println("statistics");
 			new StatisticsPage();
 			dispose();
 		}

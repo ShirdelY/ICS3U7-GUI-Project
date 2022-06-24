@@ -1,5 +1,5 @@
 /**
- * AddAcount.java - version 3
+ * AddAcount.java - version 3 
  * This class lets the user add their own account to the game
  * @author Shiza and Shirdel
  */

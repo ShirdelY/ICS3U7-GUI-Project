@@ -1,5 +1,5 @@
 /**
- * Game.java - version 3
+ * Game.java - version 3 
  * This class compares the guesses that the user enters to the answer - for both easy and hard mode
  * @author Shiza and Shirdel
  */

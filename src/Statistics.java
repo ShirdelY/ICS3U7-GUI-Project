@@ -1,5 +1,5 @@
 /**
- * Statistics.java - version 3
+ * Statistics.java - version 3 
  * This class displays the credits/citations we used in APA format
  * @author Shiza and Shirdel
  */
