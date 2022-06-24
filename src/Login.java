@@ -1,6 +1,6 @@
 /**
- * Login.java - version 2
- * This class lets the user login to the game
+ * Login.java - version 3
+ * This class lets the user login to the game with their own account
  * @author Shiza and Shirdel
  */
 import java.awt.*;
@@ -25,6 +25,7 @@ public class Login extends JFrame implements ActionListener{
 	private JLabel title, label1, label2;
 	// filepath for usernames and passwords
 	final private static File USERFILE = new File("users.txt");
+	// colors for elements in the frame
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
@@ -91,7 +92,7 @@ public class Login extends JFrame implements ActionListener{
 		add(panel);
 		setVisible(true);
 
-		//write data to GameLog if window is closed
+		// write data to GameLog if window is closed
 		addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
 				try
@@ -172,7 +173,7 @@ public class Login extends JFrame implements ActionListener{
 			        JOptionPane.showMessageDialog(jFrame, "Username/Password is incorrect");
 				}
 			}
-			//  catch Exception error
+			// catch Exception error
 			catch (IOException err) {
 				System.out.println("error login");
 			}

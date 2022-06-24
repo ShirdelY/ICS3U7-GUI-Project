@@ -1,5 +1,5 @@
 /**
- * Credits.java - version 2
+ * Credits.java - version 3
  * This class displays the credits/citations we used in APA format
  * @author Shiza and Shirdel
  */
@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Credits extends JFrame implements ActionListener {
-	// declaring button for the back (going to setttings)
+	// declaring button for the back (going to setttings), current user, and the color green
 	private JButton back;
 	public static String current_user;
 	private final Color GREEN = new Color(83, 141, 78);
@@ -26,7 +26,7 @@ public class Credits extends JFrame implements ActionListener {
 		setVisible(true);
 
 		// title label
-		JLabel label1 = new JLabel("CREDITS"); //center this after
+		JLabel label1 = new JLabel("CREDITS");
 		label1.setBounds(200,0,400,100);
 		label1.setFont(new Font("SansSerif", Font.PLAIN, 50));
 		label1.setForeground(GREEN);

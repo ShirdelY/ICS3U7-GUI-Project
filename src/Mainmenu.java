@@ -1,5 +1,5 @@
 /**
- * Mainmenu.java - version 2
+ * Mainmenu.java - version 3
  * This class shows the main menu and its different buttons
  * @author Shiza and Shirdel
  */
@@ -15,15 +15,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Mainmenu extends JFrame implements ActionListener {
-	// declaring buttons
+	// declaring buttons and the color green
 	private JButton easymode, hardmode, instructions, settings, stats, logout;
 	private final Color GREEN = new Color(83, 141, 78);
+	
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 6 buttons
 	 * @param - none
 	 * @return - none
 	 */
-	
 	private static String current_user; 
 	
 	Mainmenu() {

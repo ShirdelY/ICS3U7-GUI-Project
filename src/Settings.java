@@ -1,7 +1,6 @@
 /**
- * Settings.java - version 2
- * This class is used as the setting frame and has different buttons to change
- * the theme, see the credits, switch accounts (for login - version 2), see the main menu, and to exit
+ * Settings.java - version 3
+ * This class is used as the setting frame and has different buttons to go to different pages/exit
  * @author Shiza and Shirdel
  */
 import java.awt.*;
@@ -11,17 +10,18 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Settings extends JFrame implements ActionListener {
-	// declaring buttons
+	// declaring buttons, a string for the current user, and the color green
 	JButton credits, mainmenu, exit;
 	private static String current_user;
 	private final Color GREEN = new Color(83, 141, 78);
 
 	/**
 	 * Constructor (special method) for the Jframe GUI - specifically showing a title and 5 buttons
-	 * @param - none
+	 * @param user - a String taking in the current user and storing it in the current_user variable
 	 * @return - none
 	 */
 	Settings(String user) {
+		// setting the current user to current_user variable
 		current_user = user;
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,7 +90,7 @@ public class Settings extends JFrame implements ActionListener {
 			dispose();
 		}
 		if (e.getSource() == mainmenu) {
-			// if main menu is pressed, we go back to the main menu by calling it
+			// if main menu is pressed, we go back to the main menu page by calling it
 			new Mainmenu();
 			dispose();
 		}
