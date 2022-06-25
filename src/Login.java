@@ -1,5 +1,5 @@
 /**
- * Login.java - version 3 
+ * Login.java - version 3  
  * This class lets the user login to the game with their own account
  * @author Shiza and Shirdel
  */

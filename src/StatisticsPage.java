@@ -1,5 +1,5 @@
 /**
- * StatistcsPage.java - version 3 
+ * StatistcsPage.java - version 3  
  * This class is used as the statistics frame showing all the user's statistics from Statistics.java
  * @author Shiza and Shirdel
  */

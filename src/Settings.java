@@ -1,5 +1,5 @@
 /**
- * Settings.java - version 3 
+ * Settings.java - version 3  
  * This class is used as the setting frame and has different buttons to go to different pages/exit
  * @author Shiza and Shirdel
  */
@@ -11,7 +11,7 @@ import javax.swing.*;
 
 public class Settings extends JFrame implements ActionListener {
 	// declaring buttons, a string for the current user, and the color green
-	JButton credits, mainmenu, exit;
+	private JButton credits, mainmenu, exit;
 	private final Color GREEN = new Color(83, 141, 78);
 
 	/**

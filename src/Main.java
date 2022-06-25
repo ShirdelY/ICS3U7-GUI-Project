@@ -1,7 +1,7 @@
 /**
- * Main.java - version 3 
+ * Main.java - version 3  
  * This class shows the main menu and its different buttons
- * @author Shiza and Shirdel
+ * @author Shiza C and Shirdel Y
  */
 import javax.swing.*;
 import java.io.File;

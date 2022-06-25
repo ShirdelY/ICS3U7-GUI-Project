@@ -1,5 +1,5 @@
 /**
- * Instructions.java - version 3
+ * Instructions.java - version 3 
  * This class displays an image with the instructions
  * @author Shiza and Shirdel
  */

@@ -1,5 +1,5 @@
 /**
- * Start.java - version 3 
+ * Start.java - version 3  
  * This class displays the title page of our program with the start button to go to the main menu
  * @author Shiza and Shirdel
  */

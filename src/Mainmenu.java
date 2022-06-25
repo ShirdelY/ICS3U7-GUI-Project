@@ -1,5 +1,5 @@
 /**
- * Mainmenu.java - version 3
+ * Mainmenu.java - version 3  
  * This class shows the main menu and its different buttons
  * @author Shiza and Shirdel
  */

@@ -1,5 +1,5 @@
 /**
- * Congratulations.java - version 3 
+ * Congratulations.java - version 3  
  * This class shows a frame to congratulate the user for guessing the word
  * @author Shiza and Shirdel
  */
