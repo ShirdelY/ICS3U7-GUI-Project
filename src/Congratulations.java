@@ -1,5 +1,5 @@
 /**
- * Congratulations.java - version 2
+ * Congratulations.java - version 3 
  * This class shows a frame to congratulate the user for guessing the word
  * @author Shiza and Shirdel
  */
@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Congratulations extends JFrame implements ActionListener {
-	// declaring buttons
+	// declaring buttons and the color green
 	private JButton mainmenu, exit, statistics;
 	private final Color GREEN = new Color(83, 141, 78);
 	
@@ -85,15 +85,8 @@ public class Congratulations extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == statistics) {
-			System.out.println("statistics");
-			// if statistics is pressed, we show the statistics frame
-	        try {
-				new StatisticsPage();
-				dispose();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			new StatisticsPage();
+			dispose();
 		}
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it

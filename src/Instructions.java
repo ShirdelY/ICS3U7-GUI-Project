@@ -1,6 +1,6 @@
 /**
- * Instructions.java - version 2
- * This class displays an image with the instructions + a title and button to go back to the main menu
+ * Instructions.java - version 3
+ * This class displays an image with the instructions
  * @author Shiza and Shirdel
  */
 import java.awt.*;
@@ -44,9 +44,6 @@ public class Instructions extends JFrame implements ActionListener {
 		ImageIcon pic = new ImageIcon(getClass().getResource("Instructions.jpg"));
 		Image scaledImage = pic.getImage();
 		scaledImage = scaledImage.getScaledInstance(550, 450, java.awt.Image.SCALE_SMOOTH);
-//		JLabel displayField = new JLabel();
-//		displayField.setIcon(scaledImage);
-//		displayField.setBounds(10, 100, 580, 390); // we need to resize the image
 		JLabel displayField = new JLabel();
 		displayField.setIcon(new ImageIcon(scaledImage)); 
 		displayField.setBounds(25, 90, 550, 420);
@@ -56,7 +53,7 @@ public class Instructions extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//write data to GameLog if window is closed
+		// write data to GameLog if window is closed
 		addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
 				try

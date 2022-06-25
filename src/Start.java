@@ -1,5 +1,5 @@
 /**
- * Start.java - version 2
+ * Start.java - version 3 
  * This class displays the title page of our program with the start button to go to the main menu
  * @author Shiza and Shirdel
  */
@@ -13,23 +13,22 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Start extends JFrame implements ActionListener {
-	// declaring button to start the game
+	// declaring button to start the game and colors for the elements
 	private JButton start;
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
-	 * Constructor (special method) for the Jframe GUI - specifically showing the title, and 1 button
+	 * Constructor (special method) for the Jframe GUI - specifically showing the titles and 1 button
 	 * @param - none
 	 * @return - none
 	 */
-	
 	Start() {
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
 		// game title
-		JLabel label1 = new JLabel("HELLO WORDL"); //center this after
+		JLabel label1 = new JLabel("HELLO WORDL");
 		label1.setBounds(30, 150, 600, 100);
 		label1.setFont(new Font("SansSerif", Font.BOLD, 70));
 		add(label1);
@@ -59,7 +58,7 @@ public class Start extends JFrame implements ActionListener {
 		setSize(600,650);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//write data to GameLog if window is closed
+		// write data to GameLog if window is closed
 		addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
 				try
@@ -84,7 +83,7 @@ public class Start extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == start) {
-			//create main menu
+			//create log in page
 			new Login();
 			dispose();
 		}

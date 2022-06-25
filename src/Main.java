@@ -1,5 +1,5 @@
 /**
- * Main.java - version 2
+ * Main.java - version 3 
  * This class shows the main menu and its different buttons
  * @author Shiza and Shirdel
  */
@@ -10,30 +10,35 @@ import java.util.*;
 
 public class Main extends JFrame {
 	//source files for key words
-	final private static File SOURCE5 = new File("5LetterKeyWords.txt");
-	final private static File VALIDSOURCE5 = new File("5LetterValidWords.txt");
-	final private static File SOURCE7 = new File("7LetterKeyWords.txt");
+	final private static File SOURCE5 = new File("src/5LetterKeyWords.txt");
+	final private static File SOURCE7 = new File("src/7LetterKeyWords.txt");
 	//source file lengths
 	final private static int FIVELENGTH = 586;
-	final private static int VALIDFIVELENGTH = 12972;
 	final private static int SEVENLENGTH = 500;
 	//create arrays for words
 	private static String[] words5 = new String[586];
 	private static String[] words7 = new String[500];
-	public final static File STATSFILE = new File("GameLog.txt");
+	public final static File STATSFILE = new File("src/GameLog.txt");
 	public static Statistics stats;
 	private static String user = "default";
 
-	public static void main(String[] args) throws IOException{
-		//import keywords
-		words5 = importWords5();
-		words7 = importWords7();
-		//create new title screen
-		new Start();
+	/**
+	 * main method to start the game
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException {
+			//import keywords
+			words5 = importWords5();
+			words7 = importWords7();
+			//create new title screen
+			new Start();
 	}
 
 	/**
 	 * method for creating an instance of the Statistics class
+	 * @param - none
+	 * @return - none
 	 */
 	public static void makeStats()
 	{
@@ -47,6 +52,7 @@ public class Main extends JFrame {
 			System.out.println("Statistics creation error");
 		}
 	}
+	
 	/**
 	 * imports possible 5 letter guesses from txt file
 	 * @return array of possible guesses
@@ -65,24 +71,6 @@ public class Main extends JFrame {
 		return words5temp;
 	}
 
-	/**
-	 * imports possible 5 letter keywords
-	 * @return array of possible keywords
-	 * @throws IOException
-	 */
-	public static String[] importValidWords5() throws IOException {
-		//create temporary non final arrays to fill
-		String[] validwords5temp = new String[VALIDFIVELENGTH];
-		//create scanners to import txt files to arrays
-		Scanner validFiveInput = new Scanner(VALIDSOURCE5);
-		//import txt files
-		for (int i = 0; i < VALIDFIVELENGTH; i++)
-		{
-			validwords5temp[i] = validFiveInput.nextLine();
-		}
-		return validwords5temp;
-	}
-	
 	/**
 	 * import 7 letter keywords from txt files
 	 * @return array of keywords
@@ -103,6 +91,7 @@ public class Main extends JFrame {
 
 	/**
 	 * getter method for "easy" (5 letter) keywords
+	 * @param - none
 	 * @return array of five letter keywords
 	 */
 	public static String[] getFive()
@@ -112,6 +101,7 @@ public class Main extends JFrame {
 	
 	/**
 	 * getter method for "hard" (7 letter) keywords
+	 * @param - none
 	 * @return array of seven letter keywords
 	 */
 	public static String[] getSeven()
@@ -121,6 +111,7 @@ public class Main extends JFrame {
 
 	/**
 	 * getter method for Statistics class instance
+	 * @param - none
 	 * @return Statistics class instance
 	 */
 	public static Statistics getStats()
@@ -131,6 +122,7 @@ public class Main extends JFrame {
 	/**
 	 * setter method for current username in use
 	 * @param u - username made with the AddAccount class
+	 * @return - none
 	 */
 	public static void setUser(String u)
 	{
@@ -139,6 +131,7 @@ public class Main extends JFrame {
 
 	/**
 	 * getter method for current username in use
+	 * @param - none
 	 * @return String - username
 	 */
 	public static String getUser()

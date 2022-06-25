@@ -1,5 +1,5 @@
 /**
- * Loser.java - version 2
+ * Loser.java - version 3 
  * This class shows a frame to tell the user that they ran out of guesses and inform them what the word was
  * @author Shiza and Shirdel
  */
@@ -13,12 +13,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class Loser extends JFrame implements ActionListener {
-	// declaring buttons
+	// declaring buttons and the color green
 	private JButton mainmenu, exit, statistics;
 	private final Color GREEN = new Color(83, 141, 78);
+	
 	/**
-	 * Constructor (special method) for the Jframe GUI - specifically showing a title, the right word, and 3 buttons
-	 * @param - none
+	 * Constructor (special method) for the Jframe GUI - specifically showing a message, the right word, and 3 buttons
+	 * @param word - the correct word that the user couldn't guess
 	 * @return - none
 	 */
 	Loser(String word) {
@@ -33,11 +34,11 @@ public class Loser extends JFrame implements ActionListener {
 		label1.setForeground(GREEN);
 		add(label1);
 		
+		// displaying what the word was
 		JLabel label2 = new JLabel("The word was:"); //center this after
 		label2.setBounds(175, 175, 600, 100);
 		label2.setFont(new Font("SansSerif", Font.BOLD, 25));
 		add(label2);
-		
 		// show word label
 		JLabel show_word = new JLabel(word); //center this after
 		show_word.setBounds(240, 250, 400, 50);
@@ -91,15 +92,8 @@ public class Loser extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == statistics) {
-			System.out.println("statistics");
-			// if statistics is pressed, we show the statistics frame
-			try {
-				new StatisticsPage();
-				dispose();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			new StatisticsPage();
+			dispose();
 		}
 		if (e.getSource() == mainmenu) {
 			// if main menu is pressed, we go back to the main menu by calling it

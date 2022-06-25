@@ -1,6 +1,6 @@
 /**
- * AddAcount.java - version 2
- * This class lets the user login to the game
+ * AddAcount.java - version 3 
+ * This class lets the user add their own account to the game
  * @author Shiza and Shirdel
  */
 import java.awt.*;
@@ -17,7 +17,7 @@ import javax.swing.*;
 
 public class AddAccount extends JFrame implements ActionListener{
 
-	// static instance variables for the elements of the JFrame
+	// instance variables for the elements of the JFrame
 	private JPanel panel;	
 	private JButton add_acc, back;
 	private JTextField username;
@@ -29,7 +29,7 @@ public class AddAccount extends JFrame implements ActionListener{
 	private final Color GREEN = new Color(83, 141, 78), YELLOW = new Color(181, 159, 59);
 	
 	/**
-	 * Constructor (special method) for the Jframe GUI - specifically showing a title, 4 other labels, 3 fields to enter text, and 2 buttons
+	 * Constructor (special method) for the Jframe GUI - specifically showing a title, some labels, 3 fields to enter text, and 2 buttons
 	 * @param - none
 	 * @return - none
 	 */
@@ -133,7 +133,7 @@ public class AddAccount extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 //		 TODO Auto-generated method stub
 		if (e.getSource() == back) {
-			// if back is pressed, we go back to the start by calling it
+			// if back is pressed, we go back to the login page by calling it
 			new Login();
 			dispose();
 		}
@@ -233,7 +233,7 @@ public class AddAccount extends JFrame implements ActionListener{
 			}
 			//  catch Exception error
 			catch (IOException err) {
-				System.out.print("error addaccount");
+				System.out.print("error adding account");
 			}
 			
 		}
