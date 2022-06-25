@@ -125,12 +125,19 @@ public class Mainmenu extends JFrame implements ActionListener {
 			dispose();
 		}
 		if (e.getSource() == stats) {
-			new StatisticsPage();
+			try
+			{
+				new StatisticsPage();
+			}
+			catch (Exception IO)
+			{
+				System.out.println("statistics page error");
+			}
 			dispose();
 		}
 		if (e.getSource() == settings) {
 			// if settings is pressed, it clears the frame and calls settings class
-			new Settings(current_user);
+			new Settings();
 			dispose();
 		}
 		if (e.getSource() == logout) {

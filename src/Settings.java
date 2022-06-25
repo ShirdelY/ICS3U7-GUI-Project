@@ -12,7 +12,6 @@ import javax.swing.*;
 public class Settings extends JFrame implements ActionListener {
 	// declaring buttons, a string for the current user, and the color green
 	JButton credits, mainmenu, exit;
-	private static String current_user;
 	private final Color GREEN = new Color(83, 141, 78);
 
 	/**
@@ -20,9 +19,8 @@ public class Settings extends JFrame implements ActionListener {
 	 * @param user - a String taking in the current user and storing it in the current_user variable
 	 * @return - none
 	 */
-	Settings(String user) {
+	Settings() {
 		// setting the current user to current_user variable
-		current_user = user;
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
